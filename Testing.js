@@ -7,7 +7,7 @@ console.log("what");
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'X-RapidAPI-Key': 'a90c2dbe93mshda221309e833a44p1d6a13jsn55855fc5b519',
+        'X-RapidAPI-Key': '',
         'X-RapidAPI-Host': 'imdb188.p.rapidapi.com'
       },
       body: JSON.stringify({

@@ -1,5 +1,14 @@
-import {createApp} from "vue";
-function App(){ return <div>benis</div>; };
-const app= createApp(App);
+import inkRoot from "./inkRoot";
+
+import { reactive , createApp} from "vue";
+//const reactiveModel= reactive(model);
+
+
+
+
+
+const app= createApp(<inkRoot />);
+
+
 app.mount("#root");
 

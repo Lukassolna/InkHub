@@ -4,15 +4,17 @@ export default
 function HomePageView(props){
 
     function randoWritersCB(writer){
-        return  <t class="writeritem">
+        return  <p class="writeritem">
             {writer} 
-        </t>
+        </p>
     }
 
     return ( 
-    <div>
-        <p>this is the searchbar</p>
-        {randomWriters.map(randoWritersCB)}
+    <div class="centerflex">
+    
+            <input>this is the searchbar</input>
+ 
+        <div class="writerrow">{randomWriters.map(randoWritersCB)}</div>
         
         
     </div>

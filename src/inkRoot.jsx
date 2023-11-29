@@ -13,9 +13,9 @@ export default
 function inkRoot(props){
 
     return (  
-    <div>
+    <div class="homepage">
 
-        <HomePage class="center"/>
+        <HomePage/>
          {/*<Movie/>
         <SearchResult/>
         <User/>

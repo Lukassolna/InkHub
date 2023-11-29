@@ -3,4 +3,15 @@ import WritersView from "../views/writersView";
 export default
 function Writers(props){
 
-    return <WritersView/>;}
+   
+        const fetchData = () => {
+            props.model.getData() 
+        };
+
+    return <WritersView  onButtonClick={fetchData}/>;
+}
+
+    
+    
+       
+    

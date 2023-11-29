@@ -4,7 +4,12 @@ export default
 function HomePageView(props){
 
     function randoWritersCB(writer){
-        return  <p class="writeritem">
+
+        function writerClickACB(evt){
+            console.log(writer)
+            props.writerClick(writer)}
+
+        return  <p class="writeritem" onClick={writerClickACB}>
             {writer} 
         </p>
     }

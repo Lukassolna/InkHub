@@ -1,8 +1,9 @@
 
 
 .homepage{
-    margin:0;
-    padding:0;
+    margin:0px;
+    padding:0px;
+ 
     background-color: burlywood;
     background-image: url("./images/cowboy background.jpg");
     background-size:cover;

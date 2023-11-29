@@ -12,6 +12,6 @@ export default {
             .catch(error => { //Handle the error
                 console.error('Error:', error);
                 throw error; 
-            });
+            });{}
     }
 };

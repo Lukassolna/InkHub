@@ -4,7 +4,7 @@
     margin:0;
     padding:0;
     background-color: burlywood;
-    background-image: url("/Users/oskarlovgren/Documents/GitHub/project-group37-InkHub/images/cowboy background.jpg");
+    background-image: url("./images/cowboy background.jpg");
     background-size:cover;
     background-blend-mode: color-burn;
 

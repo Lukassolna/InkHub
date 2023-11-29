@@ -12,7 +12,7 @@ const PATH="hool";
 const Path2="tester"
 
 
-set(ref(db, PATH+"/test2"), "niklas");
+set(ref(db, PATH+"/tesbuuuut2"), "niklas");
 
 
 
@@ -20,32 +20,18 @@ const model=  {
     somePromiseState:{}, 
 };
 
-
-
 function modelToPersistence(model1){
     
     
     
         return  model1
-            
-
-            
-    
-    
-  
-                                            
+                                     
 };
 
 
 function persistenceToModel(data, model){
     
     return "p2m"
-       
-
-    
-
-
-    
 
        }
 
@@ -101,6 +87,7 @@ const Hulken ={
     stryka: "Gigantisk",
     färg:"grön",
     smarthet:"låg",
+    vikt:"1000000",
 }
 saveToFirebase(Hulken);
 console.log(readFromFirebase(Hulken));

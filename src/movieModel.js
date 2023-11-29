@@ -1,6 +1,11 @@
 import {fetchMovieData} from "/src/movieSource.js"
 export default {
-    data: null, 
+    currentMovie: null, 
+    moviesids: [],
+    currentDishPromiseState: {},
+    searchquery: null,
+    searchResultsPromiseState: {},
+
 
     getData() {
         return fetchMovieData() // returns a promise

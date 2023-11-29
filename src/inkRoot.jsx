@@ -6,16 +6,13 @@ import Writers from "./presenters/writersPresenter";
 import { RouterView, createRouter, createWebHashHistory } from "vue-router";
 import "/src/admin.css";
 
-
-
-
 export default
 function inkRoot(props){
 
     return (  
     <div class="homepage">
 
-        <HomePage/>
+        <HomePage class="center"/>
          {/*<Movie/>
         <SearchResult/>
         <User/>

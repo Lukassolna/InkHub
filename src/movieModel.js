@@ -7,9 +7,9 @@ export default {
     searchname: null,
 }
 
-/*
-    getData() {
+
+    function getData() {
         return resolvePromise( fetchMovieData(), this.getResultsPromiseState) // returns a promise
     }
-};
-*/
+;
+

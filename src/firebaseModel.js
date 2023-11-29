@@ -3,7 +3,7 @@ import {getDatabase, ref, get, set} from "firebase/database";
 
 
 // you will find 2 imports already there, add the configuration and instantiate the app and database:
-import firebaseConfig from "/Users/stefanivchenko/project-group37-InkHub/src/firebaseConfig.js";
+import firebaseConfig from "/src/firebaseConfig.js";
 const app= initializeApp(firebaseConfig);
 const db= getDatabase(app);
 

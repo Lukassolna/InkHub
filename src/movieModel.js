@@ -1,17 +1,11 @@
 import {fetchMovieData} from "/src/movieSource.js"
+import resolvePromise from "./resolvePromise";
 export default {
-    data: null, 
+    data: null,
+    getResultsPromiseState: {},
+    currentMoviePromiseState: {}, 
 
     getData() {
-        return fetchMovieData() // returns a promise
-            .then(data => {
-                this.data = data; // Store the data
-              
-                return data; 
-            })
-            .catch(error => { //Handle the error
-                console.error('Error:', error);
-                throw error; 
-            });
+        return resolvePromise( fetchMovieData(), this.getResultsPromiseState) // returns a promise
     }
 };

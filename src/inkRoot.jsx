@@ -4,6 +4,9 @@ import SearchResult from "./presenters/searchResultPresenter";
 import User from "./presenters/userPresenter";
 import Writers from "./presenters/writersPresenter";
 import { RouterView, createRouter, createWebHashHistory } from "vue-router";
+import "/src/admin.css";
+
+
 
 
 export default
@@ -12,12 +15,12 @@ function inkRoot(props){
     return (  
     <div>
 
-        <HomePage/>
-        <Movie/>
+        <HomePage class="center"/>
+         {/*<Movie/>
         <SearchResult/>
         <User/>
         <Writers/>
-        {/*
+       
         <RouterView />*/}
   
         

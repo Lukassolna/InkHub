@@ -1,9 +1,14 @@
 import { initializeApp } from "firebase/app";
 import {getDatabase, ref, get, set} from "firebase/database";
+import { fetchMovieData } from "./movieSource";
+import movieModel from "./movieModel";
+
+
 
 
 // you will find 2 imports already there, add the configuration and instantiate the app and database:
 import firebaseConfig from "/src/firebaseConfig.js";
+import resolvePromise from "./resolvePromise";
 const app= initializeApp(firebaseConfig);
 const db= getDatabase(app);
 
@@ -38,13 +43,13 @@ function persistenceToModel(data,model){
 
 
 
-function saveToFirebase(model, path){
+function saveToFirebase(model, path){ //Denna används bara för att spara ID från APi nu
     
 
         return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));
     
 }
-function readFromFirebase(model, path){
+function readFromFirebase(model, path){ //Denna måste vi ändra (används för modellen)
     model.ready = false;
     
     get(ref(db, Path2+"/"+path)).then(function convertACB(snapshot){
@@ -58,6 +63,19 @@ function readFromFirebase(model, path){
    
  
     // TODO
+}
+
+
+function readIdsFirebase(model, path){ //Denne använder vi BARA till att hämta och mactha ids
+    model.ready = false; //TODO remove model from this function
+    
+    get(ref(db, Path2+"/"+path)).then(function convertACB(snapshot){
+        
+        return persistenceToModel(snapshot.val(),model)
+    }).then(function setModelReady(){
+        
+        return model.ready = true
+    })
 }
 
 
@@ -85,9 +103,15 @@ export default function connectToFirebase(model, watchFunction){
 ;
 
 const Hulken ={
-    ids: ["tt0090022","tt0108358","tt0107688"]    
+    
+}
+const Hulken2 ={
+    
 }
 //saveToFirebase(Hulken);
 
 
-console.log(readFromFirebase(Hulken, ));
+
+for (let i = 0; i < 10; i++) {
+    console.log(resolvePromise(fetchMovieData(readIdsFirebase(Hulken, i)), model.somePromiseState))
+  }

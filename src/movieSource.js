@@ -1,7 +1,7 @@
 import {BASE_URL, API_KEY} from "./apiConfig.js";
 import { saveToFirebase } from "./firebaseModel.js";
-export function fetchMovieData(temp) {
-    const url = 'https://movie-database-alternative.p.rapidapi.com/?r=json&i=tt4154796';
+export function fetchMovieData(id) {
+    const url = 'https://movie-database-alternative.p.rapidapi.com/?r=json&i='+id;
     const options = {
         method: 'GET',
         headers: {

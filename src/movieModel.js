@@ -13,7 +13,7 @@ export default {
     getData() {
         return resolvePromise( fetchPopularMovies(), this.getResultsPromiseState) // returns a promise
     }
-};
+,
 
   
     addToFavourites(movie){

@@ -10,7 +10,7 @@ export function fetchMovieData(id) {
         }
     };
 
-    return fetch(url+"/r=json?i="+id, options)
+    return fetch(url+"?i="+id, options)
         .then(response => { 
             if (!response.ok) {
                 throw new Error(`Error fetching data: ${response.status}`);

@@ -6,12 +6,17 @@ export default {
     favouriteMovies:[],
     currentMovie: null,
     getResultsPromiseState: {},
+    getMoviePromiseState: {},
     searchname: null,
 
 
 
     getData() {
         return resolvePromise( fetchPopularMovies(), this.getResultsPromiseState) // returns a promise
+    },
+
+    getMovieData() {
+        return resolvePromise( fetchMovieData(), this.getMoviePromiseState) // returns a promise
     }
 ,
 

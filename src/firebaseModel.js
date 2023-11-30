@@ -118,9 +118,7 @@ export default function connectToFirebase(model, watchFunction){
 const Hulken ={
     
 }
-const Hulken2 ={
-    
-}
+
 saveToFirebase(Hulken);
 
 let promises = [];
@@ -131,8 +129,9 @@ for (let i = 0; i <= 10; i++) {
 
 Promise.all(promises)
     .then(allData => {
-        allData.forEach((data, index) => {
-            console.log(`Data from Firebase for ID ${index}:`, data);
+        allData.forEach((data) => {
+            console.log(data);
+            console.log(fetchMovieData(data))
         });
     })
     .catch(error => {

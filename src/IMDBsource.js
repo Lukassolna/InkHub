@@ -1,5 +1,5 @@
 
-import { API_KEY } from '/apiConfig.js';
+import { API_KEY } from './apiConfig.js';
 import { saveToFirebase } from "./firebaseModel.js";
 export function fetchPopularMovies() {
     const url = 'https://imdb188.p.rapidapi.com/api/v1/getPopularMovies';
@@ -43,7 +43,9 @@ export function fetchPopularMovies() {
         })
         .then(result => {
             console.log(result); // Log the result 
-            saveToFirebase(result); 
+            for( let movie in result.data.list){
+            saveToFirebase(result.data.list[movie].title.id, movie); 
+            }
             return result;
         })
         .catch(error => {

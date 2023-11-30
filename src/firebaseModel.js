@@ -38,16 +38,16 @@ function persistenceToModel(data,model){
 
 
 
-function saveToFirebase(model){
+function saveToFirebase(model, path){
     
 
-        return set(ref(db, Path2+"/test"),  modelToPersistence(model));
+        return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));
     
 }
-function readFromFirebase(model){
+function readFromFirebase(model, path){
     model.ready = false;
     
-    get(ref(db, Path2+"/test")).then(function convertACB(snapshot){
+    get(ref(db, Path2+"/"+path)).then(function convertACB(snapshot){
         
         return persistenceToModel(snapshot.val(),model)
     }).then(function setModelReady(){
@@ -90,4 +90,4 @@ const Hulken ={
 //saveToFirebase(Hulken);
 
 
-console.log(readFromFirebase(Hulken));
+console.log(readFromFirebase(Hulken, ));

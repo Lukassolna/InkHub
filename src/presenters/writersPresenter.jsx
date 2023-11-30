@@ -1,5 +1,7 @@
 import WritersView from "../views/writersView";
 
+import movieModel from "../movieModel";
+
 export default
 function Writers(props){
 

@@ -13,9 +13,6 @@ import { readFromFirebase } from "./firebaseModel.js";
 
 connectToFirebase(reactiveModel, watch)
 
-console.log(readFromFirebase(reactiveModel))
-console.log("Hej")
-saveToFirebase(reactiveModel, "hello")
 
 
 const app= createApp(<inkRoot model={reactiveModel} />);

@@ -1,16 +1,16 @@
 import {BASE_URL, API_KEY} from "./apiConfig.js";
 import { saveToFirebase } from "./firebaseModel.js";
 export function fetchMovieData(id) {
-    const url = 'https://movie-database-alternative.p.rapidapi.com/?r=json&i='+id;
+    const url = 'https://movie-database-alternative.p.rapidapi.com/';
     const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': API_KEY,
-            'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com'
+            'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com',
         }
     };
 
-    return fetch(url, options)
+    return fetch(url+"/r=json?i="+id, options)
         .then(response => { 
             if (!response.ok) {
                 throw new Error(`Error fetching data: ${response.status}`);
@@ -19,7 +19,7 @@ export function fetchMovieData(id) {
         })
         .then(result => {   
             console.log(result);    //log the result in console
-            saveToFirebase(result); //save to firebase
+            //saveToFirebase(result); //save to firebase
             return result;
         })
         

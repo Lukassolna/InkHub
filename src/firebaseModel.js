@@ -22,6 +22,7 @@ const Path2="tester"
 
 const model=  { 
     somePromiseState:{}, 
+    id:""
 };
 
 function modelToPersistence(model1){
@@ -34,8 +35,8 @@ function modelToPersistence(model1){
 
 
 function persistenceToModel(data,model){
-    console.log(data)
-    return "p2m"
+    
+    return data
    
 
        }
@@ -64,18 +65,24 @@ function readFromFirebase(model, path){ //Denna måste vi ändra (används för 
  
     // TODO
 }
-
+let global = {
+    id:""
+}
 
 function readIdsFirebase(model, path){ //Denne använder vi BARA till att hämta och mactha ids
     model.ready = false; //TODO remove model from this function
-    
     get(ref(db, Path2+"/"+path)).then(function convertACB(snapshot){
+        global.id = persistenceToModel(snapshot.val(),model)
+        
         
         return persistenceToModel(snapshot.val(),model)
     }).then(function setModelReady(){
         
         return model.ready = true
-    })
+        
+    }
+    )
+    return 
 }
 
 
@@ -113,5 +120,7 @@ const Hulken2 ={
 
 
 for (let i = 0; i < 10; i++) {
-    console.log(resolvePromise(fetchMovieData(readIdsFirebase(Hulken, i)), model.somePromiseState))
+    console.log(i)
+    console.log(readIdsFirebase(Hulken2, i))
+    //console.log(resolvePromise(fetchMovieData(readIdsFirebase(Hulken, i)), model.somePromiseState))
   }

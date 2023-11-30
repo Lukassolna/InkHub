@@ -3,7 +3,7 @@ import resolvePromise from "./resolvePromise";
 export default {
     allMovies: [], 
     favouriteMovies:[],
-    currentmovie: null,
+    currentMovie: null,
     getResultsPromiseState: {},
     searchname: null,
 
@@ -18,9 +18,16 @@ export default {
     },
 
     removeFromFaves(movie){
-        function shouldWeKeepDishCB(movieSearched){return movieSearched.i !== movie.i
-        }
+        function shouldWeKeepDishCB(movieSearched){return movieSearched.i !== movie.i}
         this.favouriteMovies= this.favouriteMovies.filter(shouldWeKeepDishCB);
     },
 
+    setCurrentMovie(id){
+        if (id === this.currentMovie){return}
+        if (!id){return}
+        this.currentMovie= id
+        if (getMoiveDetails(id)){ //Get Movie Details är inte en riktig funktion än
+        resolvePromise(getMovieDetails(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
+        }
+    },
 };

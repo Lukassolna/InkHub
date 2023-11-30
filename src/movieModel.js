@@ -7,9 +7,6 @@ export default {
     getResultsPromiseState: {},
     searchname: null,
 
-    
-
-
     getData() {
         return resolvePromise( fetchMovieData(), this.getResultsPromiseState) // returns a promise
     },

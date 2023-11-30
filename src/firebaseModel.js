@@ -12,7 +12,6 @@ const PATH="hool";
 const Path2="tester"
 
 
-set(ref(db, PATH+"/tesbuuuut2"), "niklas");
 
 
 
@@ -29,9 +28,10 @@ function modelToPersistence(model1){
 };
 
 
-function persistenceToModel(data, model){
-    
+function persistenceToModel(data,model){
+    console.log(data)
     return "p2m"
+   
 
        }
 
@@ -41,21 +41,22 @@ function persistenceToModel(data, model){
 function saveToFirebase(model){
     
 
-    // TODO
-    
         return set(ref(db, Path2+"/test"),  modelToPersistence(model));
     
 }
 function readFromFirebase(model){
     model.ready = false;
-    get(ref(db, PATH+"/test")).then(function convertACB(snapshot){
-        return persistenceToModel(snapshot.val(), model)
-    }).then(function setModelReady(){
-        return model.ready = true
-    })
-    return(model.data)
     
-
+    get(ref(db, Path2+"/test")).then(function convertACB(snapshot){
+        
+        return persistenceToModel(snapshot.val(),model)
+    }).then(function setModelReady(){
+        
+        return model.ready = true
+       
+    })
+   
+ 
     // TODO
 }
 
@@ -84,10 +85,9 @@ export default function connectToFirebase(model, watchFunction){
 ;
 
 const Hulken ={
-    stryka: "Gigantisk",
-    färg:"grön",
-    smarthet:"låg",
-    vikt:"1000000",
+    ids: ["tt0090022","tt0108358","tt0107688"]    
 }
-saveToFirebase(Hulken);
+//saveToFirebase(Hulken);
+
+
 console.log(readFromFirebase(Hulken));

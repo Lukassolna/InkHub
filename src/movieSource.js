@@ -1,4 +1,5 @@
 import {BASE_URL, API_KEY} from "./apiConfig.js";
+import { saveToFirebase } from "./firebaseModel.js";
 export function fetchMovieData(temp) {
     const url = 'https://movie-database-alternative.p.rapidapi.com/?r=json&i=tt4154796';
     const options = {
@@ -18,6 +19,7 @@ export function fetchMovieData(temp) {
         })
         .then(result => {   
             console.log(result);    //log the result in console
+            saveToFirebase(result); //save to firebase
             return result;
         })
         
@@ -26,3 +28,4 @@ export function fetchMovieData(temp) {
         });
 }
 
+//

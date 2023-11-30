@@ -55,7 +55,6 @@ function readFromFirebase(model){
     })
     return(model.data)
     
-
     // TODO
 }
 

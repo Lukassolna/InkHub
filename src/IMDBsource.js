@@ -1,6 +1,6 @@
 
-import { API_KEY } from '/apiConfig.js';
-
+import { API_KEY } from './apiConfig.js';
+import { saveToFirebase } from "./firebaseModel.js";
 export function fetchPopularMovies() {
     const url = 'https://imdb188.p.rapidapi.com/api/v1/getPopularMovies';
     const options = {
@@ -17,7 +17,7 @@ export function fetchPopularMovies() {
             limit: 1000,
             releaseDate: {
                 releaseDateRange: {
-                    end: '2029-12-31',
+                    end: '2020-12-31',
                     start: '1960-01-01'
                 }
             },
@@ -43,6 +43,9 @@ export function fetchPopularMovies() {
         })
         .then(result => {
             console.log(result); // Log the result 
+            for( let movie in result.data.list){
+            saveToFirebase(result.data.list[movie].title.id, movie); 
+            }
             return result;
         })
         .catch(error => {

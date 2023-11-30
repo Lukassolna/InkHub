@@ -18,7 +18,7 @@ export function fetchMovieData(id) {
             return response.json();
         })
         .then(result => {   
-            console.log(result);    //log the result in console
+            //console.log(result);    //log the result in console
             //saveToFirebase(result); //save to firebase
             return result;
         })

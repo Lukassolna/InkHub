@@ -81,12 +81,12 @@ function readIdsFirebase(path) {
                 return snapshot.val();
             } else {
                 console.log('No data available at path:', path);
-                return null; // or handle this case as you need
+                return null;
             }
         })
         .catch((error) => {
             console.error('Error reading from Firebase:', error);
-            throw error; // or handle the error as you see fit
+            throw error; 
         });
 }
 
@@ -129,14 +129,19 @@ for (let i = 0; i <= 10; i++) {
 
 Promise.all(promises)
     .then(allData => {
-        allData.forEach((data) => {
-            console.log(data);
-            console.log(fetchMovieData(data))
+        // Map each data  to a promise returned by fetchMovieData
+        return Promise.all(allData.map(data => fetchMovieData(data)));
+    })
+    .then(allMovieData => {
+        //  allMovieData is an array of results from fetchMovieData with all the movies
+        allMovieData.forEach(movieData => {
+            console.log(movieData);
         });
     })
     .catch(error => {
         console.error('Error fetching data:', error);
     });
+
 
 
   

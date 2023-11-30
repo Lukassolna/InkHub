@@ -8,16 +8,7 @@ export default {
     
 
 
-<<<<<<< HEAD
-
-    function getData() {
-        return resolvePromise( fetchMovieData(), this.getResultsPromiseState) // returns a promise
-    }
-;
-
-=======
     getData() {
         return resolvePromise( fetchMovieData(), this.getResultsPromiseState) // returns a promise
     }
 };
->>>>>>> c5b6dc7fac07a9fa9bdd6c817a62bbfc7f8c9a7f

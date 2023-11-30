@@ -28,7 +28,6 @@
     height: 100%;
     padding: 100px 0;
     text-align: center;
- 
   }
 
 .centerflex {
@@ -62,7 +61,38 @@ height:100%;
 }
 
 .header{
-    background-color: brown;
+    background-color: rgb(208, 203, 59);
     height:50px;
+    font-size: 18px;
 
+}
+
+.oval-button {
+    display: inline-block;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px; 
+    background-color: #bbbbbb;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out; 
+    margin-right: 10px;
+    }
+
+.fixedTable{
+    table-layout: fixed;
+    width: 600px;
+}
+
+.poster-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    width: 300px; /* Adjust the width of the container as needed */
+  }
+
+.poster {
+    width: 100%;
+    border: 1px solid #ddd;
+    text-align: center;
 }

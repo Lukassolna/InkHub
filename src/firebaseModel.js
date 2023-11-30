@@ -27,6 +27,7 @@ let promiseState = {
 
 const model=  { 
     somePromiseState:{}, 
+    id:""
 };
 
 function modelToPersistence(model1){
@@ -39,8 +40,8 @@ function modelToPersistence(model1){
 
 
 function persistenceToModel(data,model){
-   
-    return "p2m"
+    
+    return data
    
 
        }
@@ -69,27 +70,21 @@ function readFromFirebase(model, path){ //Denna måste vi ändra (används för 
  
     // TODO
 }
-
-
-
-
-function readIdsFirebase(path) {
-    const reference = ref(db, Path2 + "/" + path);
-    return get(reference)
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                return snapshot.val();
-            } else {
-                console.log('No data available at path:', path);
-                return null; // or handle this case as you need
-            }
-        })
-        .catch((error) => {
-            console.error('Error reading from Firebase:', error);
-            throw error; // or handle the error as you see fit
-        });
+let global = {
+    id:""
 }
 
+function readIdsFirebase(model, path){ //Denne använder vi BARA till att hämta och mactha ids
+    model.ready = false; //TODO remove model from this function
+    
+    get(ref(db, Path2+"/"+path)).then(function convertACB(snapshot){
+        
+        return persistenceToModel(snapshot.val(),model)
+    }).then(function setModelReady(){
+        
+        return model.ready = true
+    })
+}
 
 
 
@@ -123,21 +118,8 @@ const Hulken2 ={
 }
 saveToFirebase(Hulken);
 
-let promises = [];
-
-for (let i = 0; i <= 10; i++) {
-    promises.push(readIdsFirebase(i));
-}
-
-Promise.all(promises)
-    .then(allData => {
-        allData.forEach((data, index) => {
-            console.log(`Data from Firebase for ID ${index}:`, data);
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
 
 
-  
+for (let i = 0; i < 10; i++) {
+    console.log(resolvePromise(fetchMovieData(readIdsFirebase(Hulken, i)), model.somePromiseState))
+  }

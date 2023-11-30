@@ -45,4 +45,3 @@ function makeRouter(props){
   }
   
   export {makeRouter}
-  

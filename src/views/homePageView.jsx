@@ -6,18 +6,19 @@ function HomePageView(props){
     function randoWritersCB(writer){
 
         function writerClickACB(evt){
-            console.log(writer)
             props.writerClick(writer)}
-
+            
         return  <p class="writeritem" onClick={writerClickACB}>
             {writer} 
-        </p>
-    }
+        </p>}
+
+    function searchText(evt){
+        return props.currentText(evt.target.value)}
 
     return ( 
     <div class="centerflex">
     
-            <input>this is the searchbar</input>
+            <input value={props.text|| ""} onChange= {searchText}></input>
  
         <div class="writerrow">{randomWriters.map(randoWritersCB)}</div>
         

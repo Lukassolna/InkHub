@@ -36,7 +36,12 @@ function HomePageView(props){
     function searchText(evt){
         return props.currentText(evt.target.value)}
 
+    function searchButton(evt){ 
+        return props.searchFired()
+    }
+
     function writersButton(){window.location.hash="#/writers"}
+
     
     return ( 
     <div class="centerflex">
@@ -47,6 +52,7 @@ function HomePageView(props){
             
             <tr>
                 <td><input value={props.text|| ""} onChange= {searchText}></input></td>
+                <button onClick= {searchButton}>Search!</button>
             </tr>
 
             <tr>Browse:

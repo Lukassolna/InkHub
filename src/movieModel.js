@@ -22,7 +22,7 @@ export default {
 ,
     searchMovie(titleSearch){
         for (movie in this.allMovies){
-            if (movie.title.includes(titleSearch)){
+            if (movie.title.includes(this.searchname)){
                 this.searchResults = [...this.searchResults, movie]
             }
         }

@@ -118,7 +118,7 @@ const Hulken ={
 }
 
 
-function moviesToModel(){
+export function moviesToModel(){
 let promises = [];
 
 for (let i = 0; i <= 10; i++) {
@@ -139,10 +139,10 @@ Promise.all(promises)
             
         });
 
-        console.log(movieModel.allMovies);
+        
+        
     })
     .catch(error => {
         console.error('Error fetching data:', error);
     });  
 }
-moviesToModel()

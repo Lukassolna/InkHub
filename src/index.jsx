@@ -1,5 +1,6 @@
 import inkRoot from "./inkRoot";
 
+
 import { reactive , createApp} from "vue";
 //const reactiveModel= reactive(model);
 import model from "./movieModel.js";
@@ -16,6 +17,9 @@ connectToFirebase(reactiveModel, watch)
 
 
 const app= createApp(<inkRoot model={reactiveModel} />);
+
+import{makeRouter} from "./inkRoot.jsx";
+app.use(makeRouter(reactiveModel));
 
 
 app.mount("#root");

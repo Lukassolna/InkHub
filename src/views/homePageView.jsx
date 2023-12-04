@@ -1,4 +1,7 @@
 const randomWriters = ["w1","w2","w3","w4","w5"]
+import "animate.css"
+
+
 
 export default
 function HomePageView(props){
@@ -8,7 +11,7 @@ function HomePageView(props){
         function writerClickACB(evt){
             props.writerClick(writer)}
             
-        return  <div>
+        return  <div >
                 <tr >
                     <img class="writeritem" onClick={writerClickACB} src={"https://thispersondoesnotexist.com/"} alt="Random person" height="300"></img>
                 </tr>
@@ -30,15 +33,16 @@ function HomePageView(props){
                 
             }
 
-
     function searchText(evt){
         return props.currentText(evt.target.value)}
 
+    function writersButton(){window.location.hash="#/writers"}
+    
     return ( 
     <div class="centerflex">
         <table>
             <tr>
-                <td>InkHub</td>
+                <td class="">InkHub</td>
             </tr>
             
             <tr>
@@ -46,7 +50,7 @@ function HomePageView(props){
             </tr>
 
             <tr>Browse:
-                    <button  class="oval-button" onClick={props.onButtonClick}>Writers</button>
+                    <button  class="oval-button" onClick={writersButton}>Writers</button>
                     <button  class="oval-button" onClick={props.onButtonClick}>Directors</button>
                     <button  class="oval-button" onClick={props.onButtonClick}>Movies</button>
             </tr>

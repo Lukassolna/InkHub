@@ -12,13 +12,13 @@ function inkRoot(props){
     return (  
     <div class="homepage">
 
-        <HomePage/>
+        <Writers model = {props.model}/>
          {/*<Movie/>
         <SearchResult/>
         <User/>
         <Writers/>
        
-        <RouterView />*/}
+       */}
   
         
     </div>
@@ -31,20 +31,24 @@ function inkRoot(props){
 function makeRouter(props){
     const routes = [{
     path: "/",
-    component: <HomePage/> ,
+    component: <HomePage model={props.model} /> ,
   },{ 
     path: "/movie",
-    component: <Movie/>,
+    component: <Movie model={props.model}/>,
+  },
+  { 
+    path: "/writers",
+    component: <Writers/>,
   }]
   
   return createRouter({
     history: createWebHashHistory(),
     routes
   })
-  
   }
-  
+
   export {makeRouter}
+
 
 /*
 const = VueRoot={'

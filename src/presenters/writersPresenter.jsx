@@ -1,6 +1,6 @@
 import WritersView from "../views/writersView";
+import moviesToModel from "../firebaseModel.js"
 
-import movieModel from "../movieModel";
 
 export default
 function Writers(props){
@@ -10,7 +10,13 @@ function Writers(props){
             props.model.getData() 
         };
 
-    return <WritersView  onButtonClick={fetchData}/>;
+        props.model.setSearchQuery("Django")
+        props.model.searchMovie()
+        console.log(props.model.allMovies)
+        
+       
+    return <WritersView
+      onButtonClick={fetchData}/>;
 }
 
     

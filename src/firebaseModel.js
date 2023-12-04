@@ -49,8 +49,6 @@ function persistenceToModel(data,model){
 
 
 function saveToFirebase(model, path){ //Denna används bara för att spara ID från APi nu
-    
-
         return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));
     
 }
@@ -119,13 +117,14 @@ const Hulken ={
     
 }
 
-saveToFirebase(Hulken);
 
+export function moviesToModel(){
 let promises = [];
 
 for (let i = 0; i <= 10; i++) {
     promises.push(readIdsFirebase(i));
 }
+
 
 Promise.all(promises)
     .then(allData => {
@@ -135,13 +134,15 @@ Promise.all(promises)
     .then(allMovieData => {
         //  allMovieData is an array of results from fetchMovieData with all the movies
         allMovieData.forEach(movieData => {
-            console.log(movieData);
+            movieModel.addToMovies(movieData)
+           
+            
         });
+
+        
+        
     })
     .catch(error => {
         console.error('Error fetching data:', error);
-    });
-
-
-
-  
+    });  
+}

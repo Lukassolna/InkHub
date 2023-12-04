@@ -24,3 +24,7 @@ app.use(makeRouter(reactiveModel));
 
 app.mount("#root");
 window.myModel= reactiveModel;   
+
+model.setSearchQuery("Rev")
+model.searchMovie()
+

@@ -2,13 +2,13 @@ import {fetchMovieData} from "/src/movieSource.js"
 import {fetchPopularMovies} from "/src/IMDBsource.js"
 import resolvePromise from "./resolvePromise";
 export default {
-    allMovies: [], 
+    allMovies: ["Reveneant", "Batman", "Reversible", "The Reverend", "Superman"], 
     favouriteMovies:[],
     searchResults: [],
     currentMovie: null,
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    searchname: null,
+    searchname: "Rev",
 
 
 
@@ -21,18 +21,25 @@ export default {
     }
 ,
     searchMovie(titleSearch){
-        for (movie in this.allMovies){
-            if (movie.title.includes(this.searchname)){
-                this.searchResults = [...this.searchResults, movie]
-            }
-        }
+        for (var movie in this.allMovies){
+            console.log(this.allMovies[movie])
+            if (this.allMovies[movie].includes(this.searchname)){this.searchResults = [...this.searchResults, this.allMovies[movie]]}
+        }  
+    console.log(this.searchResults)}
+    ,
+
+    setSearchQuery(titleSearch){
+        this.searchname = titleSearch
     }
-    
     ,
 
     
     addToFavourites(movie){
         this.favouriteMovies= [...this.favouriteMovies, movie];
+    },
+
+    addToMovies(movie){
+        this.allMovies= [...this.allMovies, movie];
     },
 
     removeFromFaves(movie){

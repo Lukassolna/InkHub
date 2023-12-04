@@ -12,9 +12,7 @@ function inkRoot(props){
     return (  
     <div class="homepage">
 
-       
-
-        <RouterView model={props.model}/>
+        <Writers model = {props.model}/>
          {/*<Movie/>
         <SearchResult/>
         <User/>
@@ -52,5 +50,30 @@ function makeRouter(props){
     routes
   })
   }
-  
+
   export {makeRouter}
+
+
+/*
+const = VueRoot={'
+  setup(){
+    
+    return function renderACB(){
+      if(myModel.user === undefiend)
+        return <img src="https://brfenergi.se/iprog/loading.gif"></img>
+      
+      if(myModel.user === null)
+        return <Auth auth={auth}/>;
+
+      return (
+        "!"myModel.ready && <img src="https://brfenergi.se/iprog/loading.gif"></img>
+        <div class="homepage" >
+          <HomePage>
+        </div>
+
+      )
+    }
+  }
+
+}
+  */

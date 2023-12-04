@@ -22,12 +22,13 @@ export default {
 ,
     searchMovie(titleSearch){
         for (movie in this.allMovies){
-            if (movie.title.includes(this.searchname)){
-                this.searchResults = [...this.searchResults, movie]
-            }
-        }
+            if (movie.title.includes(this.searchname)){this.searchResults = [...this.searchResults, movie]}
+        }  }
+    ,
+
+    setSearchQuery(titleSearch){
+        this.searchname = titleSearch
     }
-    //testing
     ,
 
     

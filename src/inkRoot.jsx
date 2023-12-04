@@ -14,7 +14,7 @@ function inkRoot(props){
 
        
 
-        <RouterView model={props.model}/>
+        <Writers model={props.model}/>
          {/*<Movie/>
         <SearchResult/>
         <User/>

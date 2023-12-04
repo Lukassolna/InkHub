@@ -4,6 +4,7 @@ import resolvePromise from "./resolvePromise";
 export default {
     allMovies: [], 
     favouriteMovies:[],
+    searchResults: [],
     currentMovie: null,
     getResultsPromiseState: {},
     getMoviePromiseState: {},
@@ -19,6 +20,15 @@ export default {
         return resolvePromise( fetchMovieData(), this.getMoviePromiseState) // returns a promise
     }
 ,
+    searchMovie(titleSearch){
+        for (movie in this.allMovies){
+            if (movie.title.includes(titleSearch)){
+                this.searchResults = [...this.searchResults, movie]
+            }
+        }
+    }
+    
+    ,
 
     
     addToFavourites(movie){

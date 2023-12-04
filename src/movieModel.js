@@ -35,6 +35,10 @@ export default {
         this.favouriteMovies= [...this.favouriteMovies, movie];
     },
 
+    addToMovies(movie){
+        this.allMovies= [...this.allMovies, movie];
+    },
+
     removeFromFaves(movie){
         function shouldWeKeepDishCB(movieSearched){return movieSearched.i !== movie.i}
         this.favouriteMovies= this.favouriteMovies.filter(shouldWeKeepDishCB);

@@ -1,5 +1,6 @@
 import inkRoot from "./inkRoot";
 import resolvePromise from "./resolvePromise.js";
+import { fetchMovieData } from "./movieSource.js";
 
 
 import { reactive , createApp} from "vue";
@@ -17,6 +18,11 @@ connectToFirebase(reactiveModel, watch)
 
 
 await moviesToModel()
+model.setCurrentMovie("tt1663202")
+console.log(model.currentMovie)
+resolvePromise(fetchMovieData(model.currentMovie),model.currentMoviePromiseState)
+
+
 //console.log(model.allMovies)
 //model.searchMovie()
 

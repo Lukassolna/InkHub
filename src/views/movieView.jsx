@@ -3,7 +3,7 @@ function MovieView(props){
 
     return ( 
     <div>
-        <tr>this is the moviepage</tr>
+        <img src={props.movieData.Poster}></img>
     </div>
     )
 }

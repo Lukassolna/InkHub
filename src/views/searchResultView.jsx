@@ -14,17 +14,24 @@ function SearchResultView(props){
         }
 
     function resultsCB(movies){
+
         function resultClickACB(evt){
-            props.movieClick(movies)}
+            props.movieClick(movies[3])
+            window.location.hash="#/movie"
+        }
 
         return (
-        <div onClick={resultClickACB}>
+        <table onClick={resultClickACB} class="resultitem">
             <td>
                 <img src={movies[1]} height={"100"} ></img></td>
-            <td>
-                {movies[0]} 
-            </td>
-        </div>)
+        
+            <tr >
+                {movies[0]}
+            </tr>
+            <tr>
+                {"Writers: " + movies[2]}
+            </tr>
+        </table>)
         }
 
 

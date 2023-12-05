@@ -19,8 +19,8 @@ function HomePage(props){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
     
-    return <div><HomePageView writerClick = {chosenWriterACB} currentText = {updateTextACB} searchFired={doSearchACB}/>;
-    {searchResults}
+    return <div><HomePageView writerClick = {chosenWriterACB} currentText = {updateTextACB} searchFired={doSearchACB}/>
+    
 
 
 

@@ -112,3 +112,11 @@ height:100%;
     grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
     width: 100px; /* Adjust the width of the container as needed */
 }
+
+.resultitem {
+    border-style: solid;
+    text-align: center;    
+}
+
+.resulttext {
+    vertical-align: top;}

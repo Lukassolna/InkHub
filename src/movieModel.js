@@ -1,5 +1,6 @@
 import {fetchMovieData} from "/src/movieSource.js"
 import {fetchPopularMovies} from "/src/IMDBsource.js"
+import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
 export default {
     allMovies: [], 
@@ -8,6 +9,7 @@ export default {
     currentMovie: null,
     getResultsPromiseState: {},
     getMoviePromiseState: {},
+    currentMoviePromiseState:{},
     searchname: "",
     searchWriterResults: [],
     searchWriter: "",
@@ -27,7 +29,7 @@ export default {
         for (var movie in this.allMovies){
             //console.log(this.allMovies[movie].Title)
             
-            if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, [this.allMovies[movie].Title, this.allMovies[movie].Poster]]}
+            if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, [this.allMovies[movie].Title, this.allMovies[movie].Poster, this.allMovies[movie].Writer,this.allMovies[movie].imdbID ]]}
         }  
         console.log("SEARCHED: "+this.searchResults)}
     ,
@@ -70,8 +72,8 @@ export default {
         if (id === this.currentMovie){return}
         if (!id){return}
         this.currentMovie= id
-        if (getMoiveDetails(id)){ //Get Movie Details är inte en riktig funktion än
-        resolvePromise(getMovieDetails(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
+        if (fetchMovieData(id)){ //Get Movie Details är inte en riktig funktion än
+        resolvePromise(fetchMovieData(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
         }
     },
 };

@@ -1,7 +1,7 @@
 import {BASE_URL, API_KEY} from "./apiConfig.js";
 import { saveToFirebase } from "./firebaseModel.js";
-/*
-export function fetchMovieData(id) {
+
+export function fetchMovieData1(id) {
     const url = 'https://movie-database-alternative.p.rapidapi.com/';
     const options = {
         method: 'GET',
@@ -10,7 +10,7 @@ export function fetchMovieData(id) {
             'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com',
         }
     };
-
+    console.log(url+"?i="+id)
     return fetch(url+"?i="+id, options)
         (response => { 
             if (!response.ok) {
@@ -28,7 +28,7 @@ export function fetchMovieData(id) {
             console.error('Error occurred:', error);
         });
 }
-*/
+
 export async function fetchMovieData(id) {
     const url = 'https://movie-database-alternative.p.rapidapi.com/';
     const options = {

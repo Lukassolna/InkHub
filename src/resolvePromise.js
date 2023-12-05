@@ -1,4 +1,5 @@
 function resolvePromise(promise, promiseState){
+    console.log("hej")
     promiseState.promise = promise;
     promiseState.data = null;
     promiseState.error = null;

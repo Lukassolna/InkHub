@@ -1,9 +1,13 @@
 import SearchResultView from "../views/searchResultView";
+import { fetchMovieData } from "../movieSource";
 
 export default
 function SearchResult(props){
+
     function chooseMovieACB(movie){
-        console.log(movie)
+        props.model.setCurrentMovie(movie)
+        console.log(props.model.currentMovie)
+        console.log(fetchMovieData(props.model.currentMovie))
     }
     function updateTextACB(query){props.model.setSearchQuery(query)
         //console.log(props.model.searchname)

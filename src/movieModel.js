@@ -6,8 +6,10 @@ export default {
     favouriteMovies:[],
     searchResults: [],
     currentMovie: null,
+    currentMoviePromiseState: {},
     getResultsPromiseState: {},
     getMoviePromiseState: {},
+
     searchname: "",
 
 
@@ -19,6 +21,10 @@ export default {
     getMovieData() {
         return resolvePromise( fetchMovieData(), this.getMoviePromiseState) // returns a promise
     }
+,
+getCurrentMovieData() {
+    return resolvePromise( fetchMovieData(this.currentMovie), this.getMoviePromiseState) // returns a promise
+}
 ,
     searchMovie(titleSearch){
         this.searchResults = []
@@ -55,8 +61,6 @@ export default {
         if (id === this.currentMovie){return}
         if (!id){return}
         this.currentMovie= id
-        if (getMoiveDetails(id)){ //Get Movie Details är inte en riktig funktion än
-        resolvePromise(getMovieDetails(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
-        }
+        //if (fetchMovieData(id)){ Get Movie Details är inte en riktig funktion än resolvePromise(fetchMovieData(id), this.currentMoviePromiseState) //detta är inte heller riktigt   }
     },
 };

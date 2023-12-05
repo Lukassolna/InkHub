@@ -8,7 +8,7 @@ export default {
     currentMovie: null,
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    searchname: "THE",
+    searchname: "",
 
 
 
@@ -28,7 +28,7 @@ export default {
             
             if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, this.allMovies[movie].Title]}
         }  
-    console.log("SEARCHED: "+this.searchResults)}
+        console.log("SEARCHED: "+this.searchResults)}
     ,
 
     setSearchQuery(titleSearch){

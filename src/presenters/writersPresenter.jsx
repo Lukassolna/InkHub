@@ -10,9 +10,9 @@ function Writers(props){
             props.model.getData() 
         };
 
-        props.model.setSearchQuery("Django")
-        props.model.searchMovie()
-        console.log(props.model.allMovies)
+        //props.model.setSearchQuery("Django")
+        //props.model.searchMovie()
+        //console.log(props.model.allMovies)
         
        
     return <WritersView

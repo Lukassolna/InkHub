@@ -12,7 +12,7 @@ function inkRoot(props){
     return (  
     <div class="homepage">
 
-        <Writers model = {props.model}/>
+        <RouterView model = {props.model}/>
          {/*<Movie/>
         <SearchResult/>
         <User/>

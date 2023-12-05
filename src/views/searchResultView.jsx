@@ -1,8 +1,12 @@
 
+
 const moviePlace = ["m1","m2","m3","m4"]
 
 export default
 function SearchResultView(props){
+
+    function searchText(evt){
+        return props.currentText(evt.target.value)}
 
     function resultsCB(movies){
         function resultClickACB(evt){
@@ -18,7 +22,7 @@ function SearchResultView(props){
     return ( 
     <div>
         <div class="header">
-            <input>search</input>
+        {/*<td><input value={props.model.searchname|| ""} onChange= {searchText}></input></td>*/}
         </div>
 
         <div >

@@ -18,7 +18,7 @@ connectToFirebase(reactiveModel, watch)
 
 await moviesToModel()
 //console.log(model.allMovies)
-model.searchMovie()
+//model.searchMovie()
 
 const app= createApp(<inkRoot model={reactiveModel} />);
 

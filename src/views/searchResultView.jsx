@@ -8,6 +8,10 @@ function SearchResultView(props){
 
     function searchText(evt){
         return props.currentText(evt.target.value)}
+    
+    function searchButton(evt){ 
+            return props.searchFired()
+        }
 
     function resultsCB(movies){
         function resultClickACB(evt){
@@ -31,6 +35,7 @@ function SearchResultView(props){
         <div class="header">
             {console.log(props.oldSearch)}
         <td><input value= {props.oldSearch} onChange= {searchText}></input></td>
+        <td><button onClick= {searchButton}>Search!</button></td>
         </div>
 
         <div >

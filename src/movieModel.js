@@ -8,7 +8,7 @@ export default {
     currentMovie: null,
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    searchname: "haj",
+    searchname: "",
 
 
 

@@ -1,6 +1,7 @@
 import HomePage from "./presenters/homePagePresenter";
 import Movie from "./presenters/moviePresenter";
 import SearchResult from "./presenters/searchResultPresenter";
+import Auth from "./presenters/authPresenter";
 import User from "./presenters/userPresenter";
 import Writers from "./presenters/writersPresenter";
 import { RouterView, createRouter, createWebHashHistory } from "vue-router";
@@ -10,17 +11,22 @@ export default
 function inkRoot(props){
 
     return (  
-    <div class="homepage">
+    <div class="flexParent">
+      <div class="authBar">
+          <Auth/>
+      </div>
+      <div class="homepage">
 
-        <Writers model = {props.model}/>
-         {/*<Movie/>
-        <SearchResult/>
-        <User/>
-        <Writers/>
-       
-       */}
-  
+          <HomePage/>
+          {/*<Movie/>
+          <SearchResult/>
+          <User/>
+          <Writers/>
         
+        */}
+    
+          
+      </div>
     </div>
     )
 

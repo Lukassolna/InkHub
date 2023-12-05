@@ -112,3 +112,20 @@ height:100%;
     grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
     width: 100px; /* Adjust the width of the container as needed */
 }
+
+@media (min-width: 800px){
+    .flexParent{    
+        display:flex;
+        flex-direction: row;
+    }
+}
+
+.authBar{
+    width: 200px;
+    background-color: rgba(159, 159, 159, 0.092);
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    border-style: solid;
+    border-width: 2px;
+    border-right: 0px;
+}

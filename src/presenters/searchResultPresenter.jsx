@@ -17,7 +17,7 @@ function SearchResult(props){
     //{return <img src = {"https://brfenergi.se/iprog/loading.gif"}></img>}
     //if(props.model.searchResultsPromiseState.error){
     //return <td> {props.model.searchResultsPromiseState.error}</td>}
-    return <SearchResultView movieClick={chooseMovieACB}/>
+    return <SearchResultView movieClick={chooseMovieACB} movieResults = {props.model.searchResults} oldSearch = {props.model.searchname}/>
     
     
 

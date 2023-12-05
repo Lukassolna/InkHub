@@ -121,11 +121,10 @@ height:100%;
 }
 
 .authBar{
-    width: 200px;
+    width: 100px;
     background-color: rgba(159, 159, 159, 0.092);
     box-sizing: border-box;
     flex-wrap: nowrap;
     border-style: solid;
     border-width: 2px;
-    border-right: 0px;
 }

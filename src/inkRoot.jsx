@@ -6,14 +6,15 @@ import User from "./presenters/userPresenter";
 import Writers from "./presenters/writersPresenter";
 import { RouterView, createRouter, createWebHashHistory } from "vue-router";
 import "/src/admin.css";
+import WritersView from "./views/writersView";
 
 export default
 function inkRoot(props){
 
     return (  
-    <div class="flexParent">
+    <div>
       <div class="authBar">
-          <Auth/>
+        <Auth/>
       </div>
       <div class="homepage">
 

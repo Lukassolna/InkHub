@@ -8,7 +8,7 @@ export default {
     currentMovie: null,
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    searchname: "",
+    searchname: "haj",
 
 
 
@@ -26,7 +26,7 @@ export default {
         for (var movie in this.allMovies){
             //console.log(this.allMovies[movie].Title)
             
-            if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, this.allMovies[movie].Title]}
+            if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, [this.allMovies[movie].Title, this.allMovies[movie].Poster]]}
         }  
         console.log("SEARCHED: "+this.searchResults)}
     ,

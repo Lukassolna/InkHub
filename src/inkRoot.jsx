@@ -38,11 +38,11 @@ function makeRouter(props){
   },
   { 
     path: "/writers",
-    component: <Writers/>,
+    component: <Writers model= {props.model}/>,
   },
   { 
     path: "/results",
-    component: <SearchResult/>,
+    component: <SearchResult model= {props.model}/>,
   }]
   
   return createRouter({

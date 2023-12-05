@@ -2,7 +2,6 @@ const randomWriters = ["w1","w2","w3","w4","w5"]
 import "animate.css"
 
 
-
 export default
 function HomePageView(props){
 

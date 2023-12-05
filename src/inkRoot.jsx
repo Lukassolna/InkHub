@@ -39,6 +39,10 @@ function makeRouter(props){
   { 
     path: "/writers",
     component: <Writers/>,
+  },
+  { 
+    path: "/results",
+    component: <SearchResult/>,
   }]
   
   return createRouter({

@@ -1,4 +1,5 @@
 import inkRoot from "./inkRoot";
+import resolvePromise from "./resolvePromise.js";
 
 
 import { reactive , createApp} from "vue";
@@ -10,11 +11,14 @@ const reactiveModel= reactive(model);
 //import  "/src/firebaseModel.js"
 import connectToFirebase, { saveToFirebase } from "./firebaseModel.js";
 import {watch} from "vue";
-import { readFromFirebase } from "./firebaseModel.js";
+import { readFromFirebase, moviesToModel } from "./firebaseModel.js";
 
 connectToFirebase(reactiveModel, watch)
 
 
+await moviesToModel()
+//console.log(model.allMovies)
+model.searchMovie()
 
 const app= createApp(<inkRoot model={reactiveModel} />);
 
@@ -25,6 +29,6 @@ app.use(makeRouter(reactiveModel));
 app.mount("#root");
 window.myModel= reactiveModel;   
 
-model.setSearchQuery("Rev")
-model.searchMovie()
+
+
 

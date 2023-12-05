@@ -1,26 +1,33 @@
 import HomePage from "./presenters/homePagePresenter";
 import Movie from "./presenters/moviePresenter";
 import SearchResult from "./presenters/searchResultPresenter";
+import Auth from "./presenters/authPresenter";
 import User from "./presenters/userPresenter";
 import Writers from "./presenters/writersPresenter";
 import { RouterView, createRouter, createWebHashHistory } from "vue-router";
 import "/src/admin.css";
+import WritersView from "./views/writersView";
 
 export default
 function inkRoot(props){
 
-    return (  
-    <div class="homepage">
+  return (  
+    <div>
+      <div class="authBar">
+        <Auth/>
+      </div>
+      <div class="homepage">
 
-        <RouterView model = {props.model}/>
-         {/*<Movie/>
-        <SearchResult/>
-        <User/>
-        <Writers/>
-       
-       */}
-  
+          <HomePage/>
+          {/*<Movie/>
+          <SearchResult/>
+          <User/>
+          <Writers/>
         
+        */}
+    
+          
+      </div>
     </div>
     )
 
@@ -38,11 +45,11 @@ function makeRouter(props){
   },
   { 
     path: "/writers",
-    component: <Writers model= {props.model}/>,
+    component: <Writers/>,
   },
   { 
     path: "/results",
-    component: <SearchResult model= {props.model}/>,
+    component: <SearchResult/>,
   }]
   
   return createRouter({

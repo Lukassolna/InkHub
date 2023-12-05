@@ -9,7 +9,8 @@ export default {
     getResultsPromiseState: {},
     getMoviePromiseState: {},
     searchname: "",
-
+    searchWriterResults: [],
+    searchWriter: "",
 
 
     getData() {
@@ -20,7 +21,7 @@ export default {
         return resolvePromise( fetchMovieData(), this.getMoviePromiseState) // returns a promise
     }
 ,
-    searchMovie(titleSearch){
+    searchMovie(){
         this.searchResults = []
         
         for (var movie in this.allMovies){
@@ -35,7 +36,21 @@ export default {
         this.searchname = titleSearch
     }
     ,
+    setSearchWriterQuery(writerSearch){
+        this.searchWriter = writerSearch;
+    },
 
+    searchWriters(){
+        this.searchWriterResults = [];
+
+        for (var movie in this.allMovies){
+            
+            if (this.allMovies[movie].Writer.toLowerCase().includes(this.searchWriter.toLowerCase())){
+                this.searchWriterResults = [...this.searchWriterResults, this.allMovies[movie].Title];
+            }
+        }
+        console.log("SEARCHED WRITER: " + this.searchWriterResults); 
+    },
     
     addToFavourites(movie){
         this.favouriteMovies= [...this.favouriteMovies, movie];

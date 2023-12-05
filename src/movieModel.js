@@ -11,7 +11,8 @@ export default {
     getMoviePromiseState: {},
 
     searchname: "",
-
+    searchWriterResults: [],
+    searchWriter: "",
 
 
     getData() {
@@ -26,13 +27,13 @@ getCurrentMovieData() {
     return resolvePromise( fetchMovieData(this.currentMovie), this.getMoviePromiseState) // returns a promise
 }
 ,
-    searchMovie(titleSearch){
+    searchMovie(){
         this.searchResults = []
         
         for (var movie in this.allMovies){
             //console.log(this.allMovies[movie].Title)
             
-            if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, this.allMovies[movie].Title]}
+            if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, [this.allMovies[movie].Title, this.allMovies[movie].Poster]]}
         }  
         console.log("SEARCHED: "+this.searchResults)}
     ,
@@ -41,7 +42,21 @@ getCurrentMovieData() {
         this.searchname = titleSearch
     }
     ,
+    setSearchWriterQuery(writerSearch){
+        this.searchWriter = writerSearch;
+    },
 
+    searchWriters(){
+        this.searchWriterResults = [];
+
+        for (var movie in this.allMovies){
+            
+            if (this.allMovies[movie].Writer.toLowerCase().includes(this.searchWriter.toLowerCase())){
+                this.searchWriterResults = [...this.searchWriterResults, this.allMovies[movie].Title];
+            }
+        }
+        console.log("SEARCHED WRITER: " + this.searchWriterResults); 
+    },
     
     addToFavourites(movie){
         this.favouriteMovies= [...this.favouriteMovies, movie];

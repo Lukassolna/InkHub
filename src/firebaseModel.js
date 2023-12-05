@@ -70,8 +70,8 @@ function readFromFirebase(model, path){ //Denna måste vi ändra (används för 
 
 
 
-
-function readIdsFirebase(path) {
+/*
+async function readIdsFirebase(path) {
     const reference = ref(db, Path2 + "/" + path);
     return get(reference)
         .then((snapshot) => {
@@ -87,6 +87,25 @@ function readIdsFirebase(path) {
             throw error; 
         });
 }
+*/
+
+async function readIdsFirebase(path) {
+    const reference = ref(db, Path2 + "/" + path);
+  
+    try {
+      const snapshot = await get(reference);
+  
+      if (snapshot.exists()) {
+        return snapshot.val();
+      } else {
+        console.log('No data available at path:', path);
+        return null;
+      }
+    } catch (error) {
+      console.error('Error reading from Firebase:', error);
+      throw error;
+    }
+  }
 
 
 
@@ -94,12 +113,12 @@ function readIdsFirebase(path) {
 
 
 export {saveToFirebase, readFromFirebase};
-export default function connectToFirebase(model, watchFunction){
+export default function  connectToFirebase(model, watchFunction){
+    
 
 
     readFromFirebase(model)
     watchFunction(arrayACB, onArrayACB)
-
 
     function arrayACB(){
         console.log("Check for Change")
@@ -112,37 +131,64 @@ export default function connectToFirebase(model, watchFunction){
     }
 }
 ;
-
-const Hulken ={
-    
-}
-
-
-export function moviesToModel(){
+export async function moviesToModel() {
+    try {
+      let promises = [];
+  
+      for (let i = 0; i <= 10; i++) {
+        promises.push(readIdsFirebase(i));
+      }
+  
+      // Wait for all promises to resolve
+      const allData = await Promise.all(promises);
+  
+      // Map each data to a promise returned by fetchMovieData
+      const allMovieData = await Promise.all(allData.map(data => fetchMovieData(data)));
+  
+      // allMovieData is an array of results from fetchMovieData with all the movies
+      allMovieData.forEach(movieData => {
+        movieModel.addToMovies(movieData);
+      });
+  
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+    //console.log(movieModel.allMovies)
+  }
+  
+/*
+export async function moviesToModel(){
 let promises = [];
+
 
 for (let i = 0; i <= 10; i++) {
     promises.push(readIdsFirebase(i));
 }
-
-
 Promise.all(promises)
     .then(allData => {
         // Map each data  to a promise returned by fetchMovieData
         return Promise.all(allData.map(data => fetchMovieData(data)));
     })
-    .then(allMovieData => {
+    await (allMovieData => {
         //  allMovieData is an array of results from fetchMovieData with all the movies
         allMovieData.forEach(movieData => {
-            movieModel.addToMovies(movieData)
-           
             
+            
+            movieModel.addToMovies(movieData)
+            
+           
+        
         });
+    
 
-        
-        
     })
     .catch(error => {
         console.error('Error fetching data:', error);
     });  
+    
+    
+    
+    
 }
+
+*/

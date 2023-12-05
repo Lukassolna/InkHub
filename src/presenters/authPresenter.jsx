@@ -37,6 +37,10 @@ export default {
         <button id="authButton" onClick={this.handleAuthButton}>
           {this.currentUser ? 'Sign Out' : 'Sign In'}
         </button>
+        <div>persisted data
+          {this.currentUser}
+
+        </div>
       </div>
     );
   }

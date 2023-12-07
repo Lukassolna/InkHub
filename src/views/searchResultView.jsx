@@ -1,8 +1,4 @@
 
-
-const moviePlace = ["m1","m2","m3","m4"]
-
-
 export default
 function SearchResultView(props){
 

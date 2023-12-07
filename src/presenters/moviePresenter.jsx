@@ -11,7 +11,7 @@ function Movie(props){
     if(!props.model.currentMoviePromiseState.promise){return <td>no data</td>}
         
     if(!props.model.currentMoviePromiseState.data && !props.model.currentMoviePromiseState.error)
-    {return <img src = {"https://brfenergi.se/iprog/loading.gif"}></img>}
+    {return <img src = {"https://static.wikia.nocookie.net/dont-starve-game/images/8/84/Tumbleweed_move_down.gif"}></img>}
     if(props.model.currentMoviePromiseState.error)
     {
     return <td> {props.model.currentMoviePromiseState.error}</td>

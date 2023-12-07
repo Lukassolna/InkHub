@@ -33,7 +33,8 @@ function HomePageView(props){
             }
 
     function searchText(evt){
-        return props.currentText(evt.target.value)}
+        console.log("something changed")
+        return props.writeText(evt.target.value)}
 
     function searchButton(evt){ 
         return props.searchFired()
@@ -67,7 +68,7 @@ function HomePageView(props){
             <tr>
                 
             
-                <td><input value={props.text|| ""} onChange= {searchText}  ></input></td>
+                <td><input value={props.currentText|| ""} onChange= {searchText}  ></input></td>
                 <button onClick= {searchButton}>Search!</button>
             </tr>
 

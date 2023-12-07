@@ -7,9 +7,8 @@ export default
 function HomePage(props){
     function chosenWriterACB(writer){console.log(writer)
     }
-    function updateTextACB(query){props.model.setSearchQuery(query)
-        //console.log(props.model.searchname)
-        /*props.text = props.model.setSearchQuery(query)*/
+    function updateTextACB(query){
+        props.model.setSearchQuery(query)
     }
     function doSearchACB(){
     if (props.model.searchOption === 1){
@@ -39,8 +38,9 @@ function HomePage(props){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
     
-    return <div><HomePageView writerClick = {chosenWriterACB} currentText = {updateTextACB} searchFired={doSearchACB} 
-    moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}/>
+    return <div><HomePageView writerClick = {chosenWriterACB} writeText = {updateTextACB} searchFired={doSearchACB} 
+    moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}
+    currentText = {props.model.searchname}/>
     
 
 

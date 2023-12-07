@@ -8,11 +8,12 @@ function HomePageView(props){
     function randoWritersCB(writer){
 
         function writerClickACB(evt){
-            props.writerClick(writer)}
+            props.writerClick(writer)
+        }
             
         return  <div >
                 <tr >
-                    <img class="writeritem" onClick={writerClickACB} src={"https://thispersondoesnotexist.com/"} alt="Random person" height="300"></img>
+                    <img class="writeritem" onClick={writerClickACB} src={"/images/profile_placeholder.jpeg"} alt="Random person" height="300"></img>
                 </tr>
 
                 <tr>

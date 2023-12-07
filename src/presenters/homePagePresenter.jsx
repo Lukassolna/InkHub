@@ -5,7 +5,10 @@ import SearchResultView from "../views/searchResultView";
 
 export default
 function HomePage(props){
-    function chosenWriterACB(writer){console.log(writer)
+    function chosenWriterACB(writer){ 
+        props.model.currentWriter = writer  
+        window.location.hash="#/writer"
+        console.log(props.model.currentWriter)
     }
     function updateTextACB(query){
         props.model.setSearchQuery(query)

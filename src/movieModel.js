@@ -17,6 +17,7 @@ export default {
     searchWriter: "",
     searchOption: 1,
     allWriters: [],
+    currentWriter: null,
 
 
     getData() {

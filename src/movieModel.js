@@ -16,7 +16,11 @@ export default {
     searchWriter: "",
     searchOption: 1,
     allWriters: [],
+    currentWriter: null,
 
+    setCurrentWriter(writer){
+        this.currentWriter = writer
+    },
 
     getData() {
         return resolvePromise( fetchPopularMovies(), this.getResultsPromiseState) // returns a promise

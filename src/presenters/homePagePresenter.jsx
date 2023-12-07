@@ -11,8 +11,16 @@ function HomePage(props){
         //console.log(props.model.searchname)
         /*props.text = props.model.setSearchQuery(query)*/
     }
-    function doSearchACB(){props.model.searchMovie(props.model.searchname) 
-    window.location.hash="#/results"
+    function doSearchACB(){
+    if (props.model.searchOption === 1){
+        props.model.searchMovie(props.model.searchname) 
+        window.location.hash="#/movieresults"}
+
+    if (props.model.searchOption === 2){
+        //props.model.searchMovie(props.model.searchname) 
+        window.location.hash="#/writersresults"
+    }
+
     }
 
     function setMoviesOptionACB(){

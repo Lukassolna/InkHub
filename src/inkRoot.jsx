@@ -4,6 +4,7 @@ import SearchResult from "./presenters/searchResultPresenter";
 import Auth from "./presenters/authPresenter";
 import User from "./presenters/userPresenter";
 import Writers from "./presenters/writersPresenter";
+import WritersResult from "./presenters/writersResultPresenter";
 import { RouterView, createRouter, createWebHashHistory } from "vue-router";
 import "/src/admin.css";
 import WritersView from "./views/writersView";
@@ -48,8 +49,12 @@ function makeRouter(props){
     component: <Writers/>,
   },
   { 
-    path: "/results",
-    component: <SearchResult/>,
+    path: "/movieresults",
+    component: <SearchResult model={props.model}/>,
+  },
+  { 
+    path: "/writersresults",
+    component: <WritersResult model={props.model}/>,
   }]
   
   return createRouter({

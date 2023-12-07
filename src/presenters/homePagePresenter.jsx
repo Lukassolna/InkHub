@@ -44,7 +44,7 @@ function HomePage(props){
     
     return <div><HomePageView writerClick = {chosenWriterACB} writeText = {updateTextACB} searchFired={doSearchACB} 
     moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}
-    currentText = {props.model.searchname}/>
+    currentText = {props.model.searchname} randomWriters = {props.model.generateListOfWriters}/>
     
 
 

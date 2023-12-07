@@ -7,9 +7,11 @@ function Writers(props){
 
 
 
-        //props.model.setSearchQuery("Django")
-        //props.model.searchMovie()
-        //console.log(props.model.allMovies)
+        props.model.setSearchWriterQuery("Tarantino")
+        props.model.searchWriters()
+        console.log(props.model.searchedWriters)
+        props.model.searchMovieByWriter(props.model.searchedWriters[0])
+        console.log(props.model.searchWriterResults[0].Title)
         
        
     return <WritersView/>;

@@ -4,7 +4,8 @@ import "animate.css"
 
 export default
 function HomePageView(props){
-    function toUserACB(){window.location.hash="#/user"}
+    function toUserACB(){
+        window.location.hash="#/user"}
     
 
     function randomWritersCB(writer){

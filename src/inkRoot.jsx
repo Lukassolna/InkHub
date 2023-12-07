@@ -51,7 +51,7 @@ function makeRouter(props){
   },
   
   { 
-    path: "/writers",
+    path: "/writer",
     component: <Writers/>,
   },
   { 

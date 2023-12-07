@@ -4,14 +4,13 @@ import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
 export default {
     allMovies: [], 
-    favouriteMoviesIDS:[],
+    favouriteMovies:[],
     searchResults: [],
-    faveMovies: [],
     currentMovie: null,
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    currentMoviePromiseState2:{},
+    currentMoviePromiseState:{},
     searchname: "",
     searchWriterResults: [],
     searchWriter: "",
@@ -31,9 +30,6 @@ getCurrentMovieData() {
     return resolvePromise( fetchMovieData(this.currentMovie), this.getMoviePromiseState) // returns a promise
 }
 ,
-getSpecificMovieData(id){
-    this.faveMovies = [...this.faveMovies,resolvePromise(fetchMovieData(id), this.currentMoviePromiseState2)]
-},
     searchMovie(){
         this.searchResults = []
         
@@ -54,28 +50,33 @@ getSpecificMovieData(id){
     },
     
     searchWriters() {
-        this.allWriters = []; 
-        this.searchedWriters = []; 
+        this.allWriters = [];
+        this.searchedWriters = [];
         this.searchWriterResults = [];
     
-        for (var movie in this.allMovies) {     // loop through all the movies
+        for (var movie in this.allMovies) {
             var writers = this.allMovies[movie].Writer.split(',');
     
-            for (var i = 0; i < writers.length; i++) { //loop through the writers inside every movie
-                var writer = writers[i].trim();
+            for (var i = 0; i < writers.length; i++) {
+                var writer = writers[i].trim(); 
     
-                if (!this.allWriters.includes(writer)) { // add it to allWriters (remove duplicates)
+                // To lowercase for comparison
+                var writerLower = writer.toLowerCase();
+    
+                if (!this.allWriters.includes(writer)) {
                     this.allWriters.push(writer);
                 }
     
-                if (writer.toLowerCase().includes(this.searchWriter.toLowerCase())) { 
-                    if(!this.searchedWriters.includes(writer.toLowerCase())){
-                    this.searchedWriters.push(writer)} 
-                   
+                if (writerLower.includes(this.searchWriter.toLowerCase())) {
+                    if (!this.searchedWriters.includes(writer)) {
+                        this.searchedWriters.push(writer);
+                    }
                 }
             }
         }
-    },
+    }
+    
+    ,
         searchMovieByWriter(inputWriter){
 
             this.searchWriterResults = []; 
@@ -107,7 +108,6 @@ getSpecificMovieData(id){
 
     
     addToFavourites(movie){
-        
         this.favouriteMovies= [...this.favouriteMovies, movie];
     },
 

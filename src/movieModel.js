@@ -6,6 +6,7 @@ export default {
     allMovies: [], 
     favouriteMovies:[],
     searchResults: [],
+    testArray: [],
     currentMovie: null,
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
@@ -65,6 +66,10 @@ getCurrentMovieData() {
 
     addToMovies(movie){
         this.allMovies= [...this.allMovies, movie];
+        
+    },
+    addToMovies(movie){
+        this.testArray= [...this.testArray, movie];
         
     },
 

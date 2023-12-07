@@ -95,7 +95,7 @@ getCurrentMovieData() {
     
         return randomWriter;
     },
-    genereteListOfWriters(){
+    generateListOfWriters(){
         var writersArray = [];
         writersArray.push(this.getRandomWriter())
         writersArray.push(this.getRandomWriter())

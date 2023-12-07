@@ -20,8 +20,7 @@ async function testing(){await moviesToModel()}
 testing()
 
 model.setCurrentMovie("tt1663202")
-model.addToFavourites("tt1192628")
-model.addToFavourites("tt1663202")
+
 console.log(model.currentMovie)
 resolvePromise(fetchMovieData(model.currentMovie),model.currentMoviePromiseState)
 

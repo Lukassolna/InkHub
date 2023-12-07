@@ -6,7 +6,7 @@ import SearchResultView from "../views/searchResultView";
 export default
 function HomePage(props){
     function chosenWriterACB(writer){ 
-        props.model.currentWriter = writer  
+        props.model.setCurrentWriter(writer)
         window.location.hash="#/writer"
         console.log(props.model.currentWriter)
     }

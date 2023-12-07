@@ -4,6 +4,8 @@ import "animate.css"
 
 export default
 function HomePageView(props){
+    function toUserACB(){window.location.hash="#/user"}
+    
 
     function randoWritersCB(writer){
 
@@ -62,6 +64,7 @@ function HomePageView(props){
             <tr>
             {/*<input value={props.text || ""} onChange={searchText} onKeyDown={handleKeyPress}></input>*/}
                 <td class="">InkHub</td>
+                <img src={"https://www.larpdistribution.com/wp-content/uploads/2020/05/HW-701572BS.png"} height={100} onClick={toUserACB}></img>
                 
             </tr>
             

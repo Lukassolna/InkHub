@@ -32,7 +32,7 @@ getCurrentMovieData() {
 }
 ,
 getSpecificMovieData(id){
-    this.faveMovies = [...this.faveMovies,resolvePromise(fetchMovieData(id), this.currentMoviePromiseState2)]
+    return resolvePromise(fetchMovieData(id), this.currentMoviePromiseState2)
 },
     searchMovie(){
         this.searchResults = []
@@ -108,7 +108,7 @@ getSpecificMovieData(id){
     
     addToFavourites(movie){
         
-        this.favouriteMovies= [...this.favouriteMovies, movie];
+        this.favouriteMoviesIDS= [...this.favouriteMoviesIDS, movie];
     },
 
     addToMovies(movie){

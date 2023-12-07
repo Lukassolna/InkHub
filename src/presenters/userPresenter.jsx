@@ -4,8 +4,22 @@ import { fetchMovieData } from "../movieSource";
 
 export default
 function User(props){
-    for (let i=0; i++; i<2){props.model.getSpecificMovieData("tt1853728")}
-    console.log("Heee"+props.model.favouriteMoviesIDS)
+   /*for (var id in props.model.favouriteMoviesIDS){props.model.getSpecificMovieData(props.model.favouriteMoviesIDS[id])
+        props.model.faveMovies = [...props.model.faveMovies, props.model.currentMoviePromiseState2]
+        props.model.currentMoviePromiseState2 = {}  }
+        */
+
+    
+   function mapCB(id){
+
+        props.model.getSpecificMovieData(id)
+        
+        props.model.faveMovies.push(props.model.currentMoviePromiseState2)
+        props.model.currentMoviePromiseState2 = {}
+        
+   }
+   
+    props.model.favouriteMoviesIDS.map(mapCB)
     
     
     

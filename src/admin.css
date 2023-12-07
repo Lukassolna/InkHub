@@ -88,6 +88,11 @@ height:100%;
     transition: background-color 0.3s ease-in-out; 
     margin-right: 10px;
     margin-left: 10px;
+    &:disabled {
+    border: 1px solid #ebebeb;
+    background-color: rgb(65, 100, 255);
+      }
+    
     }
 
 .fixedTable{

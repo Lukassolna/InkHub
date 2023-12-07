@@ -51,7 +51,8 @@ function HomePageView(props){
     }
     
 
-    function writersButton(){window.location.hash="#/writers"}
+    function writersButton(){props.writersSelect()}
+    function moviesButton(){props.moviesSelect()}
 
     
     return ( 
@@ -71,9 +72,10 @@ function HomePageView(props){
             </tr>
 
             <tr>Browse:
-                    <button  class="oval-button" onClick={writersButton}>Writers</button>
-                    <button  class="oval-button" onClick={props.onButtonClick}>Directors</button>
-                    <button  class="oval-button" onClick={props.onButtonClick}>Movies</button>
+                    <button  disabled= {props.currentOption === 1} class="oval-button" onClick={moviesButton}>Movies</button>
+                    <button  disabled= {props.currentOption === 2} class="oval-button" onClick={writersButton}>Writers</button>
+                    {/*<button  class="oval-button" onClick={props.onButtonClick}>Directors</button>*/}
+                    
             </tr>
             <tr>
                 <div class="writerrow">{randomWriters.map(randoWritersCB)}</div>

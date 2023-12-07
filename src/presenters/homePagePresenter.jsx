@@ -15,11 +15,24 @@ function HomePage(props){
     window.location.hash="#/results"
     }
 
+    function setMoviesOptionACB(){
+
+        props.model.searchOption = 1
+        console.log(props.model.searchOption)
+        
+    }
+
+    function setWritersOptionACB(){
+        props.model.searchOption = 2
+        console.log(props.model.searchOption)
+    }
+
     function searchResults(){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
     
-    return <div><HomePageView writerClick = {chosenWriterACB} currentText = {updateTextACB} searchFired={doSearchACB}/>
+    return <div><HomePageView writerClick = {chosenWriterACB} currentText = {updateTextACB} searchFired={doSearchACB} 
+    moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}/>
     
 
 

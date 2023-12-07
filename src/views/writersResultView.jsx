@@ -3,7 +3,11 @@ function WritersResultView(props){
 
     function writerDisplayCB(writer){
         return (
+            <div>
+            <tr >writers</tr>
+
             <tr >{writer}</tr>
+            </div>
         )
 
     }

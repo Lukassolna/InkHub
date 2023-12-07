@@ -1,6 +1,20 @@
 export default
 function WritersResultView(props){
-    return <div>writers results</div>
+
+    function writerDisplayCB(writer){
+        return (
+            <tr >{writer}</tr>
+        )
+
+    }
+
+    return (
+        <div>
+
+        <table>{props.writerNames.map(writerDisplayCB)}</table>
+
+        </div>
+        )
 
 
 }

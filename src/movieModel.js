@@ -65,7 +65,8 @@ getCurrentMovieData() {
                 }
     
                 if (writer.toLowerCase().includes(this.searchWriter.toLowerCase())) { 
-                    this.searchedWriters.push(writer); 
+                    if(!this.searchedWriters.includes(writer.toLowerCase())){
+                    this.searchedWriters.push(writer)} 
                    
                 }
             }

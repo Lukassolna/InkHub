@@ -4,20 +4,23 @@ import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
 export default {
     allMovies: [], 
-    favouriteMoviesIDS:[],
+    favouriteMovies:[],
     searchResults: [],
-    faveMovies: [],
     currentMovie: null,
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    currentMoviePromiseState2:{},
+    currentMoviePromiseState:{},
     searchname: "",
     searchWriterResults: [],
     searchWriter: "",
     searchOption: 1,
     allWriters: [],
+    currentWriter: null,
 
+    setCurrentWriter(writer){
+        this.currentWriter = writer
+    },
 
     getData() {
         return resolvePromise( fetchPopularMovies(), this.getResultsPromiseState) // returns a promise
@@ -54,28 +57,58 @@ getSpecificMovieData(id){
     },
     
     searchWriters() {
-        this.allWriters = []; 
-        this.searchedWriters = []; 
+        this.allWriters = [];
+        this.searchedWriters = [];
         this.searchWriterResults = [];
     
-        for (var movie in this.allMovies) {     // loop through all the movies
+        for (var movie in this.allMovies) {
             var writers = this.allMovies[movie].Writer.split(',');
     
-            for (var i = 0; i < writers.length; i++) { //loop through the writers inside every movie
-                var writer = writers[i].trim();
+            for (var i = 0; i < writers.length; i++) {
+                var writer = writers[i].trim(); 
     
-                if (!this.allWriters.includes(writer)) { // add it to allWriters (remove duplicates)
+                // To lowercase for comparison
+                var writerLower = writer.toLowerCase();
+    
+                if (!this.allWriters.includes(writer)) {
                     this.allWriters.push(writer);
                 }
     
-                if (writer.toLowerCase().includes(this.searchWriter.toLowerCase())) { 
-                    if(!this.searchedWriters.includes(writer.toLowerCase())){
-                    this.searchedWriters.push(writer)} 
-                   
+                if (writerLower.includes(this.searchWriter.toLowerCase())) {
+                    if (!this.searchedWriters.includes(writer)) {
+                        this.searchedWriters.push(writer);
+                    }
                 }
             }
         }
+    }
+,
+    getRandomWriter() {
+        var allWriters = []; // Array to store all writers
+        for (var movie in this.allMovies) {
+            var writers = this.allMovies[movie].Writer.split(',');
+            for (var i = 0; i < writers.length; i++) {
+                var writer = writers[i].trim();
+                allWriters.push(writer); 
+            }
+        }
+        // Generate a random writer
+        var randomNumber = Math.floor(Math.random() * allWriters.length);
+        var randomWriter = allWriters[randomNumber]; 
+    
+        return randomWriter;
     },
+    generateListOfWriters(){
+        var writersArray = [];
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        return writersArray;
+    }
+    
+    ,
         searchMovieByWriter(inputWriter){
 
             this.searchWriterResults = []; 
@@ -108,7 +141,7 @@ getSpecificMovieData(id){
     
     addToFavourites(movie){
         
-        this.favouriteMoviesIDS= [...this.favouriteMoviesIDS, movie];
+        this.favouriteMovies= [...this.favouriteMovies, movie];
     },
 
     addToMovies(movie){

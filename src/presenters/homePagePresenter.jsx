@@ -5,7 +5,12 @@ import SearchResultView from "../views/searchResultView";
 
 export default
 function HomePage(props){
-    function chosenWriterACB(writer){console.log(writer)
+
+
+    function chosenWriterACB(writer){ 
+        props.model.setCurrentWriter(writer)
+        window.location.hash="#/writer"
+        console.log(props.model.currentWriter)
     }
     function updateTextACB(query){
         props.model.setSearchQuery(query)
@@ -41,7 +46,7 @@ function HomePage(props){
     
     return <div><HomePageView writerClick = {chosenWriterACB} writeText = {updateTextACB} searchFired={doSearchACB} 
     moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}
-    currentText = {props.model.searchname}/>
+    currentText = {props.model.searchname} randomWriters = {props.model.generateListOfWriters}/>
     
 
 

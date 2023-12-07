@@ -10,7 +10,10 @@ function MovieView(props){
     return ( 
     <div>
         <img src={props.movieData.Poster}></img>
-        <tr> {props.movieData.Plot}</tr>
+        <tr>Plot: {props.movieData.Plot}</tr>
+        <tr>Writer: {props.movieData.Writer}</tr>
+        <tr>Director: {props.movieData.Director}</tr>
+        <tr>IMDB rating: {props.movieData.imdbRating}</tr>
         <button onClick={addToFaveButton}>Add to Favourites</button>
         <button onClick={backToSearch}>Back to search</button>
     </div>

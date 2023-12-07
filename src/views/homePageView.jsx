@@ -7,18 +7,19 @@ function HomePageView(props){
     function toUserACB(){window.location.hash="#/user"}
     
 
-    function randoWritersCB(writer){
+    function randomWritersCB(writer){
 
         function writerClickACB(evt){
-            props.writerClick(writer)}
+            props.writerClick(writer)
+        }
             
         return  <div >
                 <tr >
-                    <img class="writeritem" onClick={writerClickACB} src={"https://thispersondoesnotexist.com/"} alt="Random person" height="300"></img>
+                    <img class="writeritem" onClick={writerClickACB} src={"/images/profile_placeholder.jpeg"} alt="Random person" height="300"></img>
                 </tr>
 
                 <tr>
-                    <td class="center"> {writer}</td>
+                    <td class="center">{writer}</td>
                 </tr>
 
                 <tr>
@@ -82,7 +83,7 @@ function HomePageView(props){
                     
             </tr>
             <tr>
-                <div class="writerrow">{randomWriters.map(randoWritersCB)}</div>
+                <div class="writerrow">{randomWriters.map(randomWritersCB)}</div>
             </tr>
         </table>
         

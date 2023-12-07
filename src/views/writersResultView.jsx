@@ -5,7 +5,6 @@ function WritersResultView(props){
 
         function writerResultClickACB(evt){
             props.writerClick(writer)
-            window.location.hash="#/writer"
         }
 
 

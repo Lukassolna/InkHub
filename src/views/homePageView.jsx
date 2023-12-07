@@ -17,7 +17,7 @@ function HomePageView(props){
                 </tr>
 
                 <tr>
-                    <td class="center"> {writer}</td>
+                    <td class="center">{writer}</td>
                 </tr>
 
                 <tr>
@@ -80,7 +80,7 @@ function HomePageView(props){
                     
             </tr>
             <tr>
-                <div class="writerrow">{randomWriters.map(randoWritersCB)}</div>
+                <div class="writerrow">{props.randomWriters.map(randoWritersCB)}</div>
             </tr>
         </table>
         

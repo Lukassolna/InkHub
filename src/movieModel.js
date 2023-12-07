@@ -79,6 +79,31 @@ getCurrentMovieData() {
             }
         }
     }
+,
+    getRandomWriter() {
+        var allWriters = []; // Array to store all writers
+        for (var movie in this.allMovies) {
+            var writers = this.allMovies[movie].Writer.split(',');
+            for (var i = 0; i < writers.length; i++) {
+                var writer = writers[i].trim();
+                allWriters.push(writer); 
+            }
+        }
+        // Generate a random writer
+        var randomNumber = Math.floor(Math.random() * allWriters.length);
+        var randomWriter = allWriters[randomNumber]; 
+    
+        return randomWriter;
+    },
+    genereteListOfWriters(){
+        var writersArray = [];
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        writersArray.push(this.getRandomWriter())
+        return writersArray;
+    }
     
     ,
         searchMovieByWriter(inputWriter){

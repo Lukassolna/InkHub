@@ -14,6 +14,7 @@ export default {
     searchname: "",
     searchWriterResults: [],
     searchWriter: "",
+    searchOption: 1,
     allWriters: [],
 
 

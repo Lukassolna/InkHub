@@ -7,19 +7,40 @@ export default
 function HomePage(props){
     function chosenWriterACB(writer){console.log(writer)
     }
-    function updateTextACB(query){props.model.setSearchQuery(query)
-        //console.log(props.model.searchname)
-        /*props.text = props.model.setSearchQuery(query)*/
+    function updateTextACB(query){
+        props.model.setSearchQuery(query)
     }
-    function doSearchACB(){props.model.searchMovie(props.model.searchname) 
-    window.location.hash="#/results"
+    function doSearchACB(){
+    if (props.model.searchOption === 1){
+        props.model.searchMovie(props.model.searchname) 
+        window.location.hash="#/movieresults"}
+
+    if (props.model.searchOption === 2){
+        //props.model.searchMovie(props.model.searchname) 
+        window.location.hash="#/writersresults"
+    }
+
+    }
+
+    function setMoviesOptionACB(){
+
+        props.model.searchOption = 1
+        console.log(props.model.searchOption)
+        
+    }
+
+    function setWritersOptionACB(){
+        props.model.searchOption = 2
+        console.log(props.model.searchOption)
     }
 
     function searchResults(){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
     
-    return <div><HomePageView writerClick = {chosenWriterACB} currentText = {updateTextACB} searchFired={doSearchACB}/>
+    return <div><HomePageView writerClick = {chosenWriterACB} writeText = {updateTextACB} searchFired={doSearchACB} 
+    moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}
+    currentText = {props.model.searchname}/>
     
 
 

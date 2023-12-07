@@ -9,6 +9,7 @@ function HomePage(props){
     }
     function updateTextACB(query){
         props.model.setSearchQuery(query)
+        props.model.setSearchWriterQuery(query)
     }
     function doSearchACB(){
     if (props.model.searchOption === 1){
@@ -16,7 +17,7 @@ function HomePage(props){
         window.location.hash="#/movieresults"}
 
     if (props.model.searchOption === 2){
-        //props.model.searchMovie(props.model.searchname) 
+        props.model.searchWriters(props.model.searchWriter) 
         window.location.hash="#/writersresults"
     }
 

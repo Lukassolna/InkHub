@@ -16,8 +16,11 @@ import { readFromFirebase, moviesToModel } from "./firebaseModel.js";
 
 connectToFirebase(reactiveModel, watch)
 
+async function testing(){
+    await moviesToModel()
+}
+testing()
 
-await moviesToModel()
 model.setCurrentMovie("tt1663202")
 console.log(model.currentMovie)
 resolvePromise(fetchMovieData(model.currentMovie),model.currentMoviePromiseState)

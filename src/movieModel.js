@@ -15,6 +15,8 @@ export default {
     searchname: "",
     searchWriterResults: [],
     searchWriter: "",
+    searchOption: 1,
+    allWriters: [],
 
 
     getData() {
@@ -47,18 +49,58 @@ getCurrentMovieData() {
     setSearchWriterQuery(writerSearch){
         this.searchWriter = writerSearch;
     },
-
-    searchWriters(){
+    
+    searchWriters() {
+        this.allWriters = []; 
+        this.searchedWriters = []; 
         this.searchWriterResults = [];
-
-        for (var movie in this.allMovies){
-            
-            if (this.allMovies[movie].Writer.toLowerCase().includes(this.searchWriter.toLowerCase())){
-                this.searchWriterResults = [...this.searchWriterResults, this.allMovies[movie].Title];
+    
+        for (var movie in this.allMovies) {     // loop through all the movies
+            var writers = this.allMovies[movie].Writer.split(',');
+    
+            for (var i = 0; i < writers.length; i++) { //loop through the writers inside every movie
+                var writer = writers[i].trim();
+    
+                if (!this.allWriters.includes(writer)) { // add it to allWriters (remove duplicates)
+                    this.allWriters.push(writer);
+                }
+    
+                if (writer.toLowerCase().includes(this.searchWriter.toLowerCase())) { 
+                    this.searchedWriters.push(writer); 
+                   
+                }
             }
         }
-        console.log("SEARCHED WRITER: " + this.searchWriterResults); 
     },
+        searchMovieByWriter(inputWriter){
+
+            this.searchWriterResults = []; 
+
+            for (var movie in this.allMovies) {     // loop through all the movies
+                var writers = this.allMovies[movie].Writer.split(',');
+        
+                for (var i = 0; i < writers.length; i++) { //loop through the writers inside every movie
+                    var writer = writers[i].trim();
+        
+                    if (writer.toLowerCase().includes(inputWriter.toLowerCase())) {  // If the writer matches the inputWriter, push movies to result
+                     
+                        this.searchWriterResults.push(this.allMovies[movie]);
+                    }
+                }
+            }
+        
+    
+       
+        
+      
+    },
+    
+
+
+
+   
+
+
     
     addToFavourites(movie){
         this.favouriteMovies= [...this.favouriteMovies, movie];

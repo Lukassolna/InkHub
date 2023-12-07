@@ -4,7 +4,7 @@ function MovieView(props){
         return props.faveAdderFired()
     }
     function backToSearch(){
-        window.location.hash="#/results"
+        window.location.hash="#/movieresults"
     }
 
     return ( 

@@ -49,6 +49,10 @@ function makeRouter(props){
     component: <Writers/>,
   },
   { 
+    path: "/user",
+    component: <User model={props.model}/>,
+  },
+  { 
     path: "/movieresults",
     component: <SearchResult model={props.model}/>,
   },

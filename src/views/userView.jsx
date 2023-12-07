@@ -3,7 +3,7 @@ function UserView(props){
 
     return ( 
     <div>
-        <tr>this is the userpage</tr>
+        <tr>{props.hey.data}</tr>
     </div>
     )
 }

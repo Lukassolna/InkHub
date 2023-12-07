@@ -15,7 +15,7 @@ function inkRoot(props){
   return (  
     <div>
       <div class="authBar">
-        <Auth/>
+        <Auth model={props.model}/>
       </div>
       <div class="homepage">
 
@@ -44,6 +44,12 @@ function makeRouter(props){
     path: "/movie",
     component: <Movie model={props.model}/>,
   },
+
+  {
+    path: "/user",
+    component: <User model={props.model}/>
+  },
+  
   { 
     path: "/writers",
     component: <Writers/>,
@@ -66,7 +72,7 @@ function makeRouter(props){
   export {makeRouter}
 
 
-/*
+/* Se här för hur vi ska sätta upp ordningen i render
 const = VueRoot={'
   setup(){
     

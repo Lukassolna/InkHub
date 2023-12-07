@@ -3,6 +3,8 @@ import { fetchMovieData } from "../movieSource";
 
 export default
 function Movie(props){
+    function addToFavesACB(){props.model.addToFavourites(props.model.currentMovie);
+    console.log("Favourite Movies: "+props.model.favouriteMovies)}
 
     console.log("hola")
     if(!props.model.currentMoviePromiseState){return <td>no data</td>}
@@ -16,5 +18,5 @@ function Movie(props){
     }
 
     console.log(props.model.currentMoviePromiseState.data)
-    return <MovieView movieData={props.model.currentMoviePromiseState.data}/>
+    return <MovieView movieData={props.model.currentMoviePromiseState.data} faveAdderFired={addToFavesACB}/>
 }

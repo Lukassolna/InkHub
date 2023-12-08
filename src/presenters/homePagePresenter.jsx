@@ -9,6 +9,7 @@ function HomePage(props){
 
     function chosenWriterACB(writer){ 
         props.model.setCurrentWriter(writer)
+        props.model.searchMovieByWriter(writer)
         window.location.hash="#/writer"
         console.log(props.model.currentWriter)
     }
@@ -29,10 +30,8 @@ function HomePage(props){
     }
 
     function setMoviesOptionACB(){
-
         props.model.searchOption = 1
-        console.log(props.model.searchOption)
-        
+        console.log(props.model.searchOption)   
     }
 
     function setWritersOptionACB(){
@@ -46,7 +45,7 @@ function HomePage(props){
     
     return <div><HomePageView writerClick = {chosenWriterACB} writeText = {updateTextACB} searchFired={doSearchACB} 
     moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}
-    currentText = {props.model.searchname} randomWriters = {props.model.generateListOfWriters}/>
+    currentText = {props.model.searchname} randomWriters = {props.model.generateListOfWriters()}/>
     
 
 

@@ -2,7 +2,7 @@ import inkRoot from "./inkRoot";
 import resolvePromise from "./resolvePromise.js";
 import { fetchMovieData } from "./movieSource.js";
 
-
+import{makeRouter} from "./inkRoot.jsx";
 import { reactive , createApp} from "vue";
 //const reactiveModel= reactive(model);
 import model from "./movieModel.js";
@@ -17,25 +17,13 @@ import { readFromFirebase, moviesToModel } from "./firebaseModel.js";
 connectToFirebase(reactiveModel, watch)
 
 async function testing(){await moviesToModel()}
-testing()
 
-model.setCurrentMovie("tt1663202")
-
-console.log(model.currentMovie)
-resolvePromise(fetchMovieData(model.currentMovie),model.currentMoviePromiseState)
-
-
-//console.log(model.allMovies)
-//model.searchMovie()
-
-const app= createApp(<inkRoot model={reactiveModel} />);
-
-import{makeRouter} from "./inkRoot.jsx";
-app.use(makeRouter(reactiveModel));
-
-
-app.mount("#root");
-window.myModel= reactiveModel;   
-
-
-
+function startApp() {
+    const app = createApp(<inkRoot model={reactiveModel} />);
+    app.use(makeRouter(reactiveModel));
+    app.mount("#root");
+    window.myModel = reactiveModel;   
+  }
+  
+  testing().then(startApp);
+  

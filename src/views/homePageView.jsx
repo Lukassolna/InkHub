@@ -1,4 +1,4 @@
-const randomWriters = ["w1","w2","w3","w4","w5"]
+
 import "animate.css"
 
 
@@ -83,7 +83,7 @@ function HomePageView(props){
                     
             </tr>
             <tr>
-                <div class="writerrow">{randomWriters.map(randomWritersCB)}</div>
+                <div class="writerrow">{props.randomWriters.map(randomWritersCB)}</div>
             </tr>
         </table>
         

@@ -4,6 +4,8 @@ function SearchResultView(props){
     function backToHome(){
         window.location.hash="#/"
     }
+    function toUserACB(){
+        window.location.hash="#/user"}
 
     function searchText(evt){
         return props.currentText(evt.target.value)}
@@ -37,12 +39,18 @@ function SearchResultView(props){
     
 
     return ( 
-    <div>
+    <div >
+         
         <div class="header">
+        
             {console.log(props.oldSearch)}
+           
         <td><input value= {props.oldSearch} onChange= {searchText}></input></td>
         <td><button onClick= {searchButton}>Search!</button></td>
         <button onClick= {backToHome}>Back to Home</button>
+        <p class="alignnow"><img class="alignnow" src={"https://www.larpdistribution.com/wp-content/uploads/2020/05/HW-701572BS.png"} height={100} onClick={toUserACB}></img></p>
+        
+        
         </div>
 
         <div >

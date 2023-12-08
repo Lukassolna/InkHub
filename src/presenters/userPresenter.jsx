@@ -4,7 +4,10 @@ import { fetchMovieData } from "../movieSource";
 
 export default
 function User(props){
-    
+    function removeItNow(id){
+        console.log(id)
+        props.model.removeFromFaves(id)
+    }
     
     
    /*function mapCB(id){
@@ -18,13 +21,5 @@ function User(props){
    
     props.model.favouriteMoviesIDS.map(mapCB)*/
     
-    
-    
-
-
-
-    
-    
-    
    
-    return <UserView hey={props.model.faveMovies}/>;}
+    return <UserView hey={props.model.faveMovies} removeMovie={removeItNow}/>;}

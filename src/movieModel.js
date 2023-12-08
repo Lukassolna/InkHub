@@ -146,6 +146,7 @@ getSpecificMovieData(id){
         if (this.favouriteMoviesIDS.includes(movie)){return}
         this.favouriteMoviesIDS= [...this.favouriteMoviesIDS, movie];
         this.faveIDStoMovie()
+        
     },
     faveIDStoMovie(){
         this.faveMovies=[]
@@ -163,8 +164,13 @@ getSpecificMovieData(id){
     },
 
     removeFromFaves(movie){
-        function shouldWeKeepDishCB(movieSearched){return movieSearched.i !== movie.i}
-        this.favouriteMovies= this.favouriteMovies.filter(shouldWeKeepDishCB);
+        function shouldWeKeepMovieCB(movieSearched){
+            console.log(movieSearched)
+            console.log(movie)
+            return movieSearched !== movie}
+        
+        this.favouriteMoviesIDS = this.favouriteMoviesIDS.filter(shouldWeKeepMovieCB);
+        this.faveIDStoMovie()
     },
 
     setCurrentMovie(id){

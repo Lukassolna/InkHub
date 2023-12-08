@@ -13,7 +13,7 @@ export default
 function inkRoot(props){
 
   return (  
-    <div>
+    <div >
       <div class="authBar">
         <Auth model={props.model}/>
       </div>

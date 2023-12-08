@@ -16,6 +16,15 @@ import { readFromFirebase, moviesToModel } from "./firebaseModel.js";
 
 connectToFirebase(reactiveModel, watch)
 
+function representMovies(){
+    for (var id in model.favouriteMoviesIDS){model.getSpecificMovieData(model.favouriteMoviesIDS[id])
+
+         model.faveIDStoMovie()
+          }
+         
+    }
+representMovies()
+
 async function testing(){await moviesToModel()}
 
 function startApp() {

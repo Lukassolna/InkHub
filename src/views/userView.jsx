@@ -4,8 +4,8 @@ function UserView(props){
         window.location.hash="#/"
     }
     function mappinCB(movies){
-        if (movies.data !== null){
-        console.log(movies)
+        if (movies.data){
+        
         
         return (
         <table >

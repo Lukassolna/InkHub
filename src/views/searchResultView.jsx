@@ -1,6 +1,9 @@
 
 export default
 function SearchResultView(props){
+    function backToHome(){
+        window.location.hash="#/"
+    }
 
     function searchText(evt){
         return props.currentText(evt.target.value)}
@@ -39,6 +42,7 @@ function SearchResultView(props){
             {console.log(props.oldSearch)}
         <td><input value= {props.oldSearch} onChange= {searchText}></input></td>
         <td><button onClick= {searchButton}>Search!</button></td>
+        <button onClick= {backToHome}>Back to Home</button>
         </div>
 
         <div >

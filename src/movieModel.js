@@ -4,13 +4,14 @@ import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
 export default {
     allMovies: [], 
-    favouriteMovies:[],
+    favouriteMoviesIDS:["tt1663202"],
     searchResults: [],
+    faveMovies: [],
     currentMovie: null,
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    currentMoviePromiseState:{},
+    currentMoviePromiseState2:{},
     searchname: "",
     searchWriterResults: [],
     searchWriter: "",
@@ -141,8 +142,20 @@ getSpecificMovieData(id){
     
     addToFavourites(movie){
         
-        this.favouriteMovies= [...this.favouriteMovies, movie];
+        
+        if (this.favouriteMoviesIDS.includes(movie)){return}
+        this.favouriteMoviesIDS= [...this.favouriteMoviesIDS, movie];
+        this.faveIDStoMovie()
     },
+    faveIDStoMovie(){
+        this.faveMovies=[]
+        //if (this.faveMovies.includes(this.currentMoviePromiseState2)){return}
+        for (var id in this.favouriteMoviesIDS){this.getSpecificMovieData(this.favouriteMoviesIDS[id])
+        this.faveMovies.push(this.currentMoviePromiseState2)
+        this.currentMoviePromiseState2 = {}
+        console.log(this.faveMovies)
+        //this.currentMoviePromiseState2 = {}
+    }},
 
     addToMovies(movie){
         this.allMovies= [...this.allMovies, movie];

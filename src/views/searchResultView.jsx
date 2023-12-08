@@ -22,16 +22,15 @@ function SearchResultView(props){
         }
 
         return (
-        <table onClick={resultClickACB} class="resultitem">
+        <table onClick={resultClickACB} class="topalign">
             <td>
                 <img src={movies[1]} height={"100"} ></img></td>
-        
-            <tr >
-                {movies[0]}
-            </tr>
-            <tr>
-                {"Writers: " + movies[2]}
-            </tr>
+            <td>
+                <table >
+                    <tr class="titletext" >{movies[0]}</tr>
+                    <tr class="writertext">   {"Writers: " + movies[2]}</tr>
+                </table>
+            </td>
         </table>)
         }
 

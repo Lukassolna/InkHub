@@ -1,6 +1,9 @@
 export default
 function WritersResultView(props){
 
+    function back2home(){
+        return window.location.hash="#/"}
+
     function writerDisplayCB(writer){
 
         function writerResultClickACB(evt){
@@ -20,7 +23,7 @@ function WritersResultView(props){
 
     return (
         <div>
-
+        <button onClick={back2home}>Back to Home</button>
         <table>{props.writerNames.map(writerDisplayCB)}</table>
 
         </div>

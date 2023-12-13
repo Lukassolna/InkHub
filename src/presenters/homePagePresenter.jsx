@@ -44,7 +44,7 @@ function HomePage(props){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
 
-
+/*
     if(!props.model.appStartPromiseState){return <td>no data</td>}
     if(!props.model.appStartPromiseState.promise){return <td>no data</td>}
         
@@ -55,7 +55,7 @@ function HomePage(props){
     {
     return <td> {props.model.appStartPromiseState.error}</td>
     }
-
+*/
 
 
 

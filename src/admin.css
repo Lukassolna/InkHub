@@ -49,6 +49,17 @@ align-items: center;
 height:100%;
 
 }
+.centerflexsmall {
+    display: flex;
+    flex-direction:column;
+    justify-content: top;
+    align-self: center;
+    align-items: center;
+    height:80%;
+    
+    
+    }
+    
 
 .topalign{
     vertical-align: top;
@@ -171,3 +182,10 @@ align-items: right;}
     text-align: right ;
 align-content: right ;
 align-items: right ;}
+
+.search-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    flex-direction: column;  /* Stack elements vertically */
+}

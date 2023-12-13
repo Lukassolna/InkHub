@@ -1,50 +1,35 @@
 import { initializeApp } from "firebase/app";
 import config from "../firebaseConfig.js";
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import AuthView from "../views/authView";
+import {
+  getAuth,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
+  GoogleAuthProvider,
+} from "firebase/auth";
+import AuthView from "/src/views/authView.jsx"
 
-export default {
-  name: "Auth",
-  
+export default
+function Auth(props) {
+  const auth = getAuth(props.model.app);
 
-
-  data() {
-    return {
-      app: initializeApp(config),
-      auth: null,
-      currentUser: null
-    };
-  },
-  created() {
-    this.auth = getAuth(this.app);
-    onAuthStateChanged(this.auth, this.loginOrOutACB);
-  },
-  methods: {
-    loginOrOutACB(user) {
-      this.currentUser = user ? user.uid : user;
-      // Additional logic for model and firebase read/write can be added here
-    },
-    handleAuthButton() {
-      this.currentUser ? signOut(this.auth) : signInWithPopup(this.auth, new GoogleAuthProvider());
-    }
-  },
-  render() {
-    return (
-      <div>
-        <AuthView />
-        <div id="app">
-          {this.currentUser === undefined ? "Firebase not initialized" : 
-           this.currentUser === null ? "Login" : 
-           `User ID: ${this.currentUser}`}
-        </div>
-        <button id="authButton" onClick={this.handleAuthButton}>
-          {this.currentUser ? 'Sign Out' : 'Sign In'}
-        </button>
-        <div>persisted data
-          {this.currentUser} 
-
-        </div>
-      </div>
-    );
+  function loginOrOutACB(user) {
+    props.model.currentUser = user ? user.uid : user;
+    // Additional logic for model and firebase read/write can be added here
   }
-};
+
+  function handleAuthButton() {
+    props.model.currentUser
+      ? signOut(auth)
+      : signInWithPopup(auth, new GoogleAuthProvider());
+  }
+
+
+  // Set up the onAuthStateChanged listener
+  onAuthStateChanged(auth, loginOrOutACB);
+
+  // Expose the public interface
+  return (
+      <AuthView authButton={handleAuthButton} currentUser={props.model.currentUser}/>
+  );
+}

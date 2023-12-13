@@ -2,6 +2,15 @@ import {fetchMovieData} from "/src/movieSource.js"
 import {fetchPopularMovies} from "/src/IMDBsource.js"
 import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
+import { initializeApp } from "firebase/app";
+import config from "/src/firebaseConfig.js";
+import {
+  getAuth,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
+  GoogleAuthProvider,
+} from "firebase/auth";
 export default {
     allMovies: [], 
     favouriteMoviesIDS:["tt1663202"],
@@ -21,6 +30,7 @@ export default {
     resultsToggle: false,
     appStartPromiseState: {},
     currentUser: null,
+    app: initializeApp(config),
 
     
 
@@ -187,17 +197,14 @@ getSpecificMovieData(id){
     },
 
     setCurrentMovie(id){
-        if (id === this.currentMovie){return}
         if (!id){return}
-        this.currentMovie= id
-        if (fetchMovieData(id)){ //Get Movie Details är inte en riktig funktion än
-        resolvePromise(fetchMovieData(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
-        }
+        this.currentMovie = id
+
+        resolvePromise(fetchMovieData(id), this.currentMoviePromiseState)
     },
 
     setToggleTrue(){
        this.resultsToggle = true
-    //console.log(this.writersToggle)  
     },
 
     setToggleFalse(){

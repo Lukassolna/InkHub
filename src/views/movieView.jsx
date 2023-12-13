@@ -4,6 +4,7 @@ function MovieView(props){
         return props.faveAdderFired()
     }
     function backToSearch(){
+        console.log(props.toggleCheck)
         if (props.toggleCheck === true){
             window.location.hash="#/movieresults"}
         else {
@@ -18,7 +19,7 @@ function MovieView(props){
         <tr>Writer: {props.movieData.Writer}</tr>
         <tr>Director: {props.movieData.Director}</tr>
         <tr>IMDB rating: {props.movieData.imdbRating}</tr>
-        <button onClick={addToFaveButton}>Add to Favourites</button>
+        <button disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
         <button onClick={backToSearch}>Back</button>
     </div>
     )

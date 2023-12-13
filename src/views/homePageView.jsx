@@ -1,5 +1,7 @@
 
 import "animate.css"
+import { writerPictures } from "../writerpictures";
+
 
 
 export default
@@ -13,10 +15,13 @@ function HomePageView(props){
         function writerClickACB(evt){
             props.writerClick(writer)
         }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+          }
             
         return  <div >
                 <tr >
-                    <img class="writeritem" onClick={writerClickACB} src={"/images/profile_placeholder.jpeg"} alt="Random person" height="300"></img>
+                    <img class="writeritem" onClick={writerClickACB} src={writerPictures[getRandomInt(24)]} alt="Random person" height="300"></img>
                 </tr>
 
                 <tr>
@@ -68,18 +73,25 @@ function HomePageView(props){
         }}
 
     
-    return ( 
-    <div class="centerflex" >
+    return ( <span>
+        <div title="star" class="aligndownright"><img class="hide-bg alignnow" src={"https://live.staticflickr.com/65535/53395218564_714090c10a_b.jpg"} height={200} onClick={toUserACB}></img></div>
+            
+              
+        
+    <div class="centerflexsmall" >
         <td  ><img class="hide-bg mainlogo" src={"https://live.staticflickr.com/65535/53395405340_3ebebbe332_b.jpg"} height={200}></img></td>
         
         <table  >
-            <tr>
-              
+        
             
-                <td><input placeholder={"Search"} type="search" value={props.currentText|| ""} onChange= {searchText} onkeydown={keyDown} ></input></td>
-                <button onClick= {searchButton}  >Search!</button>
-                <td class="aligndownright"><img class="hide-bg alignnow" src={"https://live.staticflickr.com/65535/53395218564_714090c10a_b.jpg"} height={200} onClick={toUserACB}></img></td>
-            </tr>
+           
+    <div class="search-container">
+        <input placeholder={"Search"} type="search" value={props.currentText|| ""} onChange={searchText} onKeyDown={keyDown}></input>
+        <button onClick={searchButton}>Search!</button>
+    </div>
+
+                
+            
 
             <tr>Browse:
                     <button  disabled= {props.currentOption === 1} class="oval-button" onClick={moviesButton}>Movies</button>
@@ -94,6 +106,7 @@ function HomePageView(props){
         
         
     </div>
+    </span>
     )
 }
 

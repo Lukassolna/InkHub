@@ -14,7 +14,7 @@ function WritersView(props){
 
     function moviesCB(movie){
         function resultClickACB(item){
-            return props.movieClick(item)
+            return props.movieClick(movie.imdbID)
         }
        
 

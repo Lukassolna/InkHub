@@ -1,5 +1,4 @@
 function resolvePromise(promise, promiseState){
-    console.log("hej")
     promiseState.promise = promise;
     promiseState.data = null;
     promiseState.error = null;
@@ -10,6 +9,7 @@ function resolvePromise(promise, promiseState){
 
     function dataPromise(data){
         if(promiseState.promise === promise){
+
             return promiseState.data = data;
         }
     }

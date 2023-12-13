@@ -6,8 +6,7 @@ function SearchResult(props){
 
     function chooseMovieACB(movie){
         props.model.setCurrentMovie(movie)
-        console.log(props.model.currentMovie)
-        console.log(fetchMovieData(props.model.currentMovie))
+
     }
     function updateTextACB(query){props.model.setSearchQuery(query)
         //console.log(props.model.searchname)

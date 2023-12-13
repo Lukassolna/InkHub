@@ -5,12 +5,20 @@ import moviesToModel from "../firebaseModel.js"
 export default
 function Writers(props){
 
+    function chooseWriterMovieACB(movie){
+        console.log(movie)
+        props.model.setCurrentMovie(movie)
+        window.location.hash="#/movie"
+        
+
+    }
+
 
 
    
         
        
-    return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.writersToggle} />;
+    return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.writersToggle} movieClick={chooseWriterMovieACB} />;
 }
 
     

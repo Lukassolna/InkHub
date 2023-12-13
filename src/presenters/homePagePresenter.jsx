@@ -20,6 +20,7 @@ function HomePage(props){
     }
     function doSearchACB(){
     if (props.model.searchOption === 1){
+        props.model.setToggleTrue()
         props.model.searchMovie(props.model.searchname) 
         window.location.hash="#/movieresults"}
 
@@ -44,8 +45,20 @@ function HomePage(props){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
 
+  
+/*
+    if(!props.model.appStartPromiseState){ return console.log("1")}
+    if(!props.model.appStartPromiseState.promise){return console.log("2")}
+        
+    console.log(props.model.appStartPromiseState.promise)
+    if(!props.model.appStartPromiseState.data && !props.model.appStartPromiseState.error)
+    {return <img src = {"https://static.wikia.nocookie.net/dont-starve-game/images/8/84/Tumbleweed_move_down.gif"}></img>}
+    if(props.model.appStartPromiseState.error)
+    {
+    return <td> {props.model.appStartPromiseState.error}</td>
+    }
 
-
+*/
 
 
 

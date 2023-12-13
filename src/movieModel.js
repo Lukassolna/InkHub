@@ -18,12 +18,22 @@ export default {
     searchOption: 1,
     allWriters: [],
     currentWriter: null,
-    writersToggle: false,
+    resultsToggle: false,
     appStartPromiseState: {},
+    currentUser: null,
 
+    
+
+    getCurrentUser(){
+        return this.currentUser.uid
+    },
 
     setCurrentWriter(writer){
         this.currentWriter = writer
+    },
+
+    setCurrentUser(user){
+        this.currentUser = user
     },
 
     getData() {
@@ -140,7 +150,7 @@ getSpecificMovieData(id){
 
 
    
-
+    
 
     
     addToFavourites(movie){
@@ -186,12 +196,12 @@ getSpecificMovieData(id){
     },
 
     setToggleTrue(){
-       this.writersToggle = true
+       this.resultsToggle = true
     //console.log(this.writersToggle)  
     },
 
     setToggleFalse(){
-        this.writersToggle = false
+        this.resultsToggle = false
 
     }
 };

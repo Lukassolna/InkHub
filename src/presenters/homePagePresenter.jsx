@@ -20,6 +20,7 @@ function HomePage(props){
     }
     function doSearchACB(){
     if (props.model.searchOption === 1){
+        props.model.setToggleTrue()
         props.model.searchMovie(props.model.searchname) 
         window.location.hash="#/movieresults"}
 

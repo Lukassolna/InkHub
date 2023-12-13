@@ -43,10 +43,28 @@ function HomePage(props){
     function searchResults(){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
+
+
+    if(!props.model.appStartPromiseState){return <td>no data</td>}
+    if(!props.model.appStartPromiseState.promise){return <td>no data</td>}
+        
+    console.log(props.model.appStartPromiseState.data)
+    if(!props.model.appStartPromiseState.data && !props.model.appStartPromiseState.error)
+    {return <img src = {"https://static.wikia.nocookie.net/dont-starve-game/images/8/84/Tumbleweed_move_down.gif"}></img>}
+    if(props.model.appStartPromiseState.error)
+    {
+    return <td> {props.model.appStartPromiseState.error}</td>
+    }
+
+
+
+
+
     
     return <div><HomePageView writerClick = {chosenWriterACB} writeText = {updateTextACB} searchFired={doSearchACB} 
     moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}
-    currentText = {props.model.searchname} randomWriters = {props.model.generateListOfWriters()}/>
+    currentText = {props.model.searchname} randomWriters = {props.model.generateListOfWriters()}
+    homePageData={props.model.appStartPromiseState.data}/>
     
 
 

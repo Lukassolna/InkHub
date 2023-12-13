@@ -33,6 +33,7 @@ function startApp() {
     app.mount("#root");
     window.myModel = reactiveModel;   
   }
-  
-  testing().then(startApp);
+testing().then(startApp)
+  console.log(testing().then(startApp))
+  //resolvePromise(testing().then(startApp), model.appStartPromiseState)
   

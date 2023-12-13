@@ -19,6 +19,7 @@ export default {
     allWriters: [],
     currentWriter: null,
     writersToggle: false,
+    appStartPromiseState: {},
 
 
     setCurrentWriter(writer){

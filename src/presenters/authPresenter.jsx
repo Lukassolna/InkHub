@@ -6,9 +6,7 @@ import AuthView from "../views/authView";
 export default {
   name: "Auth",
   
-  props: {
-    model: Object,
-  },
+
 
   data() {
     return {
@@ -43,7 +41,7 @@ export default {
           {this.currentUser ? 'Sign Out' : 'Sign In'}
         </button>
         <div>persisted data
-          {this.model.favouriteMoviesIDS /*Det är såhär vi hämtar saker från model*/} 
+          {this.currentUser} 
 
         </div>
       </div>

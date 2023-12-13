@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import {getDatabase, ref, get, set} from "firebase/database";
 import { fetchMovieData } from "./movieSource";
 import movieModel from "./movieModel";
-
+import auth from "/src/presenters/authPresenter.jsx";
 
 
 
@@ -15,58 +15,53 @@ const db= getDatabase(app);
 //  PATH is the “root” Firebase path. NN is your TW2_TW3 group number
 const PATH="hool";
 const Path2="tester"
-
-let promiseState = {
-    promise: null,
-    data: null,
-    error: null
-};
+let modelPath="modelPath"
 
 
 
+function modelToPersistence(model){
+    const currentMovie = model.currentMovie;
+    return {
+        curMovie: currentMovie, 
+        
+    };
+}
 
-const model=  { 
-    somePromiseState:{}, 
-};
-
-function modelToPersistence(model1){
-    
-    
-    
-        return  model1
-                                     
-};
-
-
-function persistenceToModel(data,model){
+function persistenceToModel(data, model) {
+    // Check if no data exists and set default values
+    if (!data) {
+        data = {
+            curMovie: null,
+        };
+    }
+        model.setCurrentMovie( data.curMovie) 
+        return model; // Return the updated model
    
-    return "p2m"
-   
-
-       }
+}
 
 
-
-
-function saveToFirebase(model, path){ //Denna används bara för att spara ID från APi nu
+function saveIdsToFirebase(model, path){ //Denna används bara för att spara ID från APi nu
         return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));
     
 }
-function readFromFirebase(model, path){ //Denna måste vi ändra (används för modellen)
+function saveToFirebase(model) {
+    if (model.ready) {
+      console.log("I am trying save and model is ready")
+      set(ref(db, modelPath), modelToPersistence(model));
+    }
+  }
+
+
+  function readFromFirebase(model) {
     model.ready = false;
-    
-    get(ref(db, Path2+"/"+path)).then(function convertACB(snapshot){
-        
-        return persistenceToModel(snapshot.val(),model)
-    }).then(function setModelReady(){
-        
-        return model.ready = true
-       
-    })
-   
- 
-    // TODO
-}
+    get(ref(db, modelPath))
+      .then(function convertACB(snapshot) {
+        return persistenceToModel(snapshot.val(), model);
+      })
+      .then(function setModelReadyACB() {
+        model.ready = true;
+      });
+  }
 
 
 
@@ -108,15 +103,25 @@ async function readIdsFirebase(path) {
   }
 
 
+export {saveToFirebase, readFromFirebase,saveIdsToFirebase};
 
+  
+export default function connectToFirebase(model, watchFunction){
 
-
-
-export {saveToFirebase, readFromFirebase};
-export default function  connectToFirebase(model, watchFunction){
+    function watchModelProperties() {
+        return [model.currentMovie];
+      }
     
-
-
+      function saveModelChanges() {
+        saveToFirebase(model);
+      }
+    
+      readFromFirebase(model);
+      watchFunction(watchModelProperties, saveModelChanges);
+}
+/*
+export  function  connectToFirebaseOriginal(model, watchFunction){
+    
     readFromFirebase(model)
     watchFunction(arrayACB, onArrayACB)
 
@@ -130,15 +135,41 @@ export default function  connectToFirebase(model, watchFunction){
         saveToFirebase(model)
     }
 }
+*/
 ;
-export async function moviesToModel() {
+export async function initialMoviesToModel() {
     try {
       let promises = [];
   
-      for (let i = 0; i <= 999; i++) {
+      for (let i = 0; i <= 100; i++) {
         promises.push(readIdsFirebase(i));
       }
+      
+      // Wait for all promises to resolve
+      const allData = await Promise.all(promises);
   
+      // Map each data to a promise returned by fetchMovieData
+      const allMovieData = await Promise.all(allData.map(data => fetchMovieData(data)));
+  
+      // allMovieData is an array of results from fetchMovieData with all the movies
+      allMovieData.forEach(movieData => {
+        movieModel.addToMovies(movieData);
+      });
+  
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+    //console.log(movieModel.allMovies)
+  }
+
+  export async function finalMoviesToModel() {
+    try {
+      let promises = [];
+  
+      for (let i = 101; i <= 999; i++) {
+        promises.push(readIdsFirebase(i));
+      }
+      
       // Wait for all promises to resolve
       const allData = await Promise.all(promises);
   

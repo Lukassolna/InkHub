@@ -3,7 +3,14 @@ import "animate.css"
 export default
 function WritersView(props){
     function back2search(){
-        return window.location.hash="#/writersresults"}
+        console.log(props.toggleCheck)
+        if (props.toggleCheck === true){
+            window.location.hash="#/writersresults"}
+        else {
+            window.location.hash="#/"}}
+
+        
+        
 
     function moviesCB(movie){
         function resultClickACB(item){
@@ -28,7 +35,7 @@ function WritersView(props){
     return ( 
     <div>
         <tr class = "animate__animated animate__bounce" >this is the writerspage</tr>
-        <button onClick={back2search}>Back to search</button>
+        <button onClick={back2search}>Back</button>
         <tr>{props.writerMovies.map(moviesCB)}</tr>
        
         

@@ -17,6 +17,5 @@ function Movie(props){
     return <td> {props.model.currentMoviePromiseState.error}</td>
     }
 
-    console.log(props.model.currentMoviePromiseState.data)
     return <MovieView movieData={props.model.currentMoviePromiseState.data} faveAdderFired={addToFavesACB}/>
 }

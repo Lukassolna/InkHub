@@ -6,7 +6,8 @@ function WritersResult(props){
     console.log(props.model.searchedWriters)
 
     function chooseWriterACB(writer){
-        console.log(writer)
+
+        props.model.setToggleTrue()
         props.model.setCurrentWriter(writer)
         props.model.searchMovieByWriter(writer)
         window.location.hash="#/writer"

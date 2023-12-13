@@ -6,7 +6,6 @@ function Movie(props){
     function addToFavesACB(){props.model.addToFavourites(props.model.currentMovie);
     console.log("Favourite Movies: "+props.model.favouriteMoviesIDS)}
 
-    console.log("hola")
     if(!props.model.currentMoviePromiseState){return <td>no data</td>}
     if(!props.model.currentMoviePromiseState.promise){return <td>no data</td>}
         

@@ -2,8 +2,9 @@ import { initializeApp } from "firebase/app";
 import {getDatabase, ref, get, set} from "firebase/database";
 import { fetchMovieData } from "./movieSource";
 import movieModel from "./movieModel";
-import auth from "/src/presenters/authPresenter.jsx";
 
+import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, 
+    onAuthStateChanged, createUserWithEmailAndPassword, signOut} from "firebase/auth";
 
 
 // you will find 2 imports already there, add the configuration and instantiate the app and database:
@@ -11,13 +12,24 @@ import firebaseConfig from "/src/firebaseConfig.js";
 import resolvePromise from "./resolvePromise";
 const app= initializeApp(firebaseConfig);
 const db= getDatabase(app);
+const auth = getAuth(app);
 
+const PATH_BASE = "users";
+let currentUserUID = null;
+
+
+function getUserSpecificPath(path) {
+    if (currentUserUID) {
+      return PATH_BASE + '/' + currentUserUID + '/' + path;
+    } else {
+      return null;
+    }
+  }
+  
 //  PATH is the “root” Firebase path. NN is your TW2_TW3 group number
 const PATH="hool";
 const Path2="tester"
 let modelPath="modelPath"
-
-
 
 function modelToPersistence(model){
     const currentMovie = model.currentMovie;
@@ -35,26 +47,24 @@ function persistenceToModel(data, model) {
         };
     }
         model.setCurrentMovie( data.curMovie) 
+      
         return model; // Return the updated model
    
 }
-
-
 function saveIdsToFirebase(model, path){ //Denna används bara för att spara ID från APi nu
-        return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));
-    
+        return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));   
 }
 function saveToFirebase(model) {
-    if (model.ready) {
-      console.log("I am trying save and model is ready")
-      set(ref(db, modelPath), modelToPersistence(model));
+    if (model.ready && currentUserUID) {
+      const userSpecificPath = getUserSpecificPath("modelPath");
+      set(ref(db, userSpecificPath), modelToPersistence(model));
     }
-  }
+}
 
-
-  function readFromFirebase(model) {
+function readFromFirebase(model) {
     model.ready = false;
-    get(ref(db, modelPath))
+      const userSpecificPath = getUserSpecificPath("modelPath");
+      get(ref(db, userSpecificPath))
       .then(function convertACB(snapshot) {
         return persistenceToModel(snapshot.val(), model);
       })
@@ -63,6 +73,16 @@ function saveToFirebase(model) {
       });
   }
 
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        currentUserUID = user.uid;
+       
+        readFromFirebase(movieModel); //
+    } else {
+        currentUserUID = null;
+    }
+});
 
 
 /*

@@ -4,7 +4,7 @@ import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
 export default {
     allMovies: [], 
-    favouriteMoviesIDS:["tt1663202"],
+    favouriteMoviesIDS:[],
     searchResults: [],
     faveMovies: [],
     currentMovie: null,

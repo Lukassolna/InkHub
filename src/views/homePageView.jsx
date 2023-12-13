@@ -70,7 +70,7 @@ function HomePageView(props){
         }}
 
     
-    return ( <span class="centerflex">
+    return ( <span class="centerflex" >
         <div class="header-container">
     <div class="logo-container">
         <img class="hide-bg mainlogo" src={"https://live.staticflickr.com/65535/53395405340_3ebebbe332_b.jpg"} height={400} alt="Logo"></img>
@@ -84,7 +84,7 @@ function HomePageView(props){
     <div class="centerflexsmall" >
         
         
-        <table  >
+        <table onKeyDown={keyDown} >
         
             
            

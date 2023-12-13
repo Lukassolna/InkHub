@@ -184,6 +184,7 @@ height:100%;
     position:absolute;
     right: -200; /* Position the star to the right */
     top: 150;   /* Align the star to the top of the container */
+    cursor: pointer;
 }
 /* Base styles */
 body {

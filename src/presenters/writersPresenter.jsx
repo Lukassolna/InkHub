@@ -18,7 +18,7 @@ function Writers(props){
    
         
        
-    return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.writersToggle} movieClick={chooseWriterMovieACB} />;
+    return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.resultsToggle} movieClick={chooseWriterMovieACB} />;
 }
 
     

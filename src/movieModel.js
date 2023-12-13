@@ -187,6 +187,15 @@ getSpecificMovieData(id){
     },
 
     setCurrentMovie(id){
+        
+        if (!id){return}
+        this.currentMovie= id
+        
+        resolvePromise(fetchMovieData(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
+        
+    },
+/*
+    setCurrentMovie(id){
         if (id === this.currentMovie){return}
         if (!id){return}
         this.currentMovie= id
@@ -194,6 +203,7 @@ getSpecificMovieData(id){
         resolvePromise(fetchMovieData(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
         }
     },
+    */
 
     setToggleTrue(){
        this.resultsToggle = true

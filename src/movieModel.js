@@ -13,7 +13,7 @@ import {
 } from "firebase/auth";
 export default {
     allMovies: [], 
-    favouriteMoviesIDS:["tt1663202"],
+    favouriteMoviesIDS:[],
     searchResults: [],
     faveMovies: [],
     currentMovie: null,
@@ -151,7 +151,7 @@ getSpecificMovieData(id){
             }
         
     
-       
+   //HEY    
         
       
     },
@@ -197,10 +197,12 @@ getSpecificMovieData(id){
     },
 
     setCurrentMovie(id){
+        if (id === this.currentMovie){return}
         if (!id){return}
-        this.currentMovie = id
-
-        resolvePromise(fetchMovieData(id), this.currentMoviePromiseState)
+        this.currentMovie= id
+        if (fetchMovieData(id)){ //Get Movie Details är inte en riktig funktion än
+        resolvePromise(fetchMovieData(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
+        }
     },
 
     setToggleTrue(){
@@ -209,6 +211,5 @@ getSpecificMovieData(id){
 
     setToggleFalse(){
         this.resultsToggle = false
-
-    }
+    },
 };

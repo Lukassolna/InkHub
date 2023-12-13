@@ -6,6 +6,10 @@ function Movie(props){
     function addToFavesACB(){props.model.addToFavourites(props.model.currentMovie);
     console.log("Favourite Movies: "+props.model.favouriteMoviesIDS)}
 
+    function checkFavesACB(movie){  return (movie === props.model.currentMovie)
+     }
+
+    console.log("hola")
     if(!props.model.currentMoviePromiseState){return <td>no data</td>}
     if(!props.model.currentMoviePromiseState.promise){return <td>no data</td>}
         
@@ -16,5 +20,6 @@ function Movie(props){
     return <td> {props.model.currentMoviePromiseState.error}</td>
     }
 
-    return <MovieView movieData={props.model.currentMoviePromiseState.data} faveAdderFired={addToFavesACB}/>
+    return <MovieView movieData={props.model.currentMoviePromiseState.data} faveAdderFired={addToFavesACB}
+    isMovieInFaves = {props.model.favouriteMoviesIDS.find(checkFavesACB)} toggleCheck ={props.model.resultsToggle}/>
 }

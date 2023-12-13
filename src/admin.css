@@ -9,7 +9,7 @@
 
 .homepage{
 
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: burlywood;
     background-image: url("https://live.staticflickr.com/65535/53395199514_bc8e5e7bec_b.jpg");
     background-size:cover;
@@ -38,6 +38,7 @@
   }
 .mainlogo {
     text-align: center;
+    align-items: center;
 
 }
 .centerflex {
@@ -106,24 +107,7 @@ height:100%;
 
 }
 
-.oval-button {
-    display: inline-block;
-    padding: 10px;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 20px; 
-    background-color: #bbbbbb;
-    color: #ffffff;
-    transition: background-color 0.3s ease-in-out; 
-    margin-right: 10px;
-    margin-left: 10px;
-    &:disabled {
-    border: 1px solid #ebebeb;
-    background-color: rgb(65, 100, 255);
-      }
-    
-    }
+
 
 .fixedTable{
     table-layout: fixed;
@@ -173,15 +157,7 @@ height:100%;
 .resulttext {
     vertical-align: top;}
 
-    .alignnow {
-        text-align: right;
-    align-content: right;
-align-items: right;}
 
-.aligndownright {
-    text-align: right ;
-align-content: right ;
-align-items: right ;}
 
 .search-container {
     display: flex;
@@ -189,3 +165,76 @@ align-items: right ;}
     align-items: center;     /* Center vertically */
     flex-direction: column;  /* Stack elements vertically */
 }
+
+
+.header-container {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;     /* Center items vertically */
+    position: relative;      /* Needed for absolute positioning of the star */
+}
+
+.logo-container {
+    flex-grow: 1; /* Allows the logo container to take up available space */
+    display: flex;
+    justify-content: center; /* Center the logo inside the container */
+}
+
+.star-container {
+    position:absolute;
+    right: -200; /* Position the star to the right */
+    top: 150;   /* Align the star to the top of the container */
+    cursor: pointer;
+}
+/* Base styles */
+body {
+    font-family: 'Georgia', serif; /* Western style often uses serif fonts */
+    background-color: #f4f1e9; /* Light, rustic background color */
+}
+
+/* Search bar styles */
+.search-bar {
+    border: 2px solid #8b4513; /* Dark brown border */
+    background-color: #f8eedb; /* Light brown background */
+    font-family: 'Georgia', serif;
+    font-size: x-large;
+    padding: 8px 12px;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Search button styles */
+.search-button {
+    background-color: #a0522d; /* Saddle brown background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: x-large;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #8b4513; /* Darker brown on hover */
+}
+.oval-button {
+    background-color:burlywood; /* Saddle brown background */
+    color: #a0522d; /* White text */
+    border: 4px;
+    border-color: #a0522d;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s;
+    &:disabled {
+    
+    background-color: #a0522d;
+    color: burlywood;
+      }
+    
+    }

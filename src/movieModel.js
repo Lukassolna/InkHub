@@ -20,10 +20,20 @@ export default {
     currentWriter: null,
     writersToggle: false,
     appStartPromiseState: {},
+    currentUser: null,
 
+    
+
+    getCurrentUser(){
+        return this.currentUser.uid
+    },
 
     setCurrentWriter(writer){
         this.currentWriter = writer
+    },
+
+    setCurrentUser(user){
+        this.currentUser = user
     },
 
     getData() {
@@ -140,7 +150,7 @@ getSpecificMovieData(id){
 
 
    
-
+    
 
     
     addToFavourites(movie){

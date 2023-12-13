@@ -11,12 +11,15 @@
 
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: burlywood;
-    background-image: url("./images/cowboy background cropped.png");
-    background-size:contain;
+    background-image: url("https://live.staticflickr.com/65535/53395199514_bc8e5e7bec_b.jpg");
+    background-size:cover;
     background-blend-mode:screen;
 
 }
-
+.hide-bg{
+    mix-blend-mode: multiply;
+    filter: contrast(1);
+  }
 
 .debug {
     width: 100%;
@@ -33,7 +36,10 @@
     padding: 100px -50px;
     text-align: center;
   }
+.mainlogo {
+    text-align: center;
 
+}
 .centerflex {
 display: flex;
 flex-direction:column;
@@ -157,4 +163,11 @@ height:100%;
     vertical-align: top;}
 
     .alignnow {
-        text-align: right;}
+        text-align: right;
+    align-content: right;
+align-items: right;}
+
+.aligndownright {
+    text-align: right ;
+align-content: right ;
+align-items: right ;}

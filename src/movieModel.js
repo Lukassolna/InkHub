@@ -11,7 +11,7 @@ export default {
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
     getMoviePromiseState: {},
-    currentMoviePromiseState2:{},
+    favouriteMoviePromiseState:{},
     searchname: "",
     searchWriterResults: [],
     searchWriter: "",
@@ -36,7 +36,7 @@ getCurrentMovieData() {
 }
 ,
 getSpecificMovieData(id){
-    return resolvePromise(fetchMovieData(id), this.currentMoviePromiseState2)
+    return resolvePromise(fetchMovieData(id), this.favouriteMoviePromiseState)
 },
     searchMovie(){
         this.searchResults = []
@@ -152,8 +152,8 @@ getSpecificMovieData(id){
         this.faveMovies=[]
         //if (this.faveMovies.includes(this.currentMoviePromiseState2)){return}
         for (var id in this.favouriteMoviesIDS){this.getSpecificMovieData(this.favouriteMoviesIDS[id])
-        this.faveMovies.push(this.currentMoviePromiseState2)
-        this.currentMoviePromiseState2 = {}
+        this.faveMovies.push(this.favouriteMoviePromiseState)
+        this.favouriteMoviePromiseState = {}
         console.log(this.faveMovies)
         //this.currentMoviePromiseState2 = {}
     }},

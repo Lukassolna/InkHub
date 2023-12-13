@@ -70,19 +70,15 @@ function HomePageView(props){
     
     return ( 
     <div class="centerflex" >
+        <td  ><img class="hide-bg mainlogo" src={"https://live.staticflickr.com/65535/53395405340_3ebebbe332_b.jpg"} height={200}></img></td>
+        
         <table  >
             <tr>
-            {/*<input value={props.text || ""} onChange={searchText} onKeyDown={handleKeyPress}></input>*/}
-                <td class="">InkHub</td>
-                <img src={"https://www.larpdistribution.com/wp-content/uploads/2020/05/HW-701572BS.png"} height={100} onClick={toUserACB}></img>
-                
-            </tr>
+              
             
-            <tr>
-                
-            
-                <td><input type="search" value={props.currentText|| ""} onChange= {searchText} onkeydown={keyDown} ></input></td>
+                <td><input placeholder={"Search"} type="search" value={props.currentText|| ""} onChange= {searchText} onkeydown={keyDown} ></input></td>
                 <button onClick= {searchButton}  >Search!</button>
+                <td class="aligndownright"><img class="hide-bg alignnow" src={"https://live.staticflickr.com/65535/53395218564_714090c10a_b.jpg"} height={200} onClick={toUserACB}></img></td>
             </tr>
 
             <tr>Browse:

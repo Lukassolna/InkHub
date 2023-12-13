@@ -9,17 +9,5 @@ function User(props){
         props.model.removeFromFaves(id)
     }
     
-    
-   /*function mapCB(id){
-
-        props.model.getSpecificMovieData(id)
-        
-        props.model.faveMovies.push(props.model.currentMoviePromiseState2)
-        props.model.currentMoviePromiseState2 = {}
-        
-   }
-   
-    props.model.favouriteMoviesIDS.map(mapCB)*/
-    
    
     return <UserView hey={props.model.faveMovies} removeMovie={removeItNow}/>;}

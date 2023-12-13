@@ -58,11 +58,19 @@ function HomePageView(props){
 
     function writersButton(){props.writersSelect()}
     function moviesButton(){props.moviesSelect()}
+    function keyDown(e) {
+        if (e.keyCode === 13){
+            searchText(e)
+        
+            console.log("Enter Pressed"+e.keyCode)
+
+          searchButton()
+        }}
 
     
     return ( 
-    <div class="centerflex">
-        <table>
+    <div class="centerflex" >
+        <table  >
             <tr>
             {/*<input value={props.text || ""} onChange={searchText} onKeyDown={handleKeyPress}></input>*/}
                 <td class="">InkHub</td>
@@ -73,8 +81,8 @@ function HomePageView(props){
             <tr>
                 
             
-                <td><input value={props.currentText|| ""} onChange= {searchText}  ></input></td>
-                <button onClick= {searchButton}>Search!</button>
+                <td><input type="search" value={props.currentText|| ""} onChange= {searchText} onkeydown={keyDown} ></input></td>
+                <button onClick= {searchButton}  >Search!</button>
             </tr>
 
             <tr>Browse:

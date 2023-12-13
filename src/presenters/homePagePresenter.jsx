@@ -19,8 +19,10 @@ function HomePage(props){
         props.model.setSearchWriterQuery(query)
     }
     function doSearchACB(){
+    props.model.setToggleTrue()
     if (props.model.searchOption === 1){
-        props.model.setToggleTrue()
+        //props.model.setToggleTrue()
+
         props.model.searchMovie(props.model.searchname) 
         window.location.hash="#/movieresults"}
 

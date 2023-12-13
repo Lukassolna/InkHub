@@ -202,6 +202,5 @@ getSpecificMovieData(id){
 
     setToggleFalse(){
         this.resultsToggle = false
-
-    }
+    },
 };

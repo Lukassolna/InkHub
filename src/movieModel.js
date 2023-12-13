@@ -18,6 +18,8 @@ export default {
     searchOption: 1,
     allWriters: [],
     currentWriter: null,
+    writersToggle: false,
+
 
     setCurrentWriter(writer){
         this.currentWriter = writer
@@ -181,4 +183,14 @@ getSpecificMovieData(id){
         resolvePromise(fetchMovieData(id), this.currentMoviePromiseState) //detta är inte heller riktigt än
         }
     },
+
+    setToggleTrue(){
+       this.writersToggle = true
+    //console.log(this.writersToggle)  
+    },
+
+    setToggleFalse(){
+        this.writersToggle = false
+
+    }
 };

@@ -141,7 +141,7 @@ export async function initialMoviesToModel() {
     try {
       let promises = [];
   
-      for (let i = 0; i <= 100; i++) {
+      for (let i = 0; i <= 800; i++) {
         promises.push(readIdsFirebase(i));
       }
       
@@ -166,7 +166,7 @@ export async function initialMoviesToModel() {
     try {
       let promises = [];
   
-      for (let i = 101; i <= 999; i++) {
+      for (let i = 801; i <= 999; i++) {
         promises.push(readIdsFirebase(i));
       }
       

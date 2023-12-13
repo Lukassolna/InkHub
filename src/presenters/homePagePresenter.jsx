@@ -10,8 +10,9 @@ function HomePage(props){
     function chosenWriterACB(writer){ 
         props.model.setCurrentWriter(writer)
         props.model.searchMovieByWriter(writer)
+        props.model.setToggleFalse()
         window.location.hash="#/writer"
-        console.log(props.model.currentWriter)
+   
     }
     function updateTextACB(query){
         props.model.setSearchQuery(query)

@@ -14,6 +14,15 @@ function SearchResultView(props){
             return props.searchFired()
         }
 
+        function keyDown(e) {
+            if (e.keyCode === 13){
+                searchText(e)
+            
+                console.log("Enter Pressed"+e.keyCode)
+    
+              searchButton()
+            }}
+
     function resultsCB(movies){
 
         function resultClickACB(evt){
@@ -44,7 +53,7 @@ function SearchResultView(props){
         
             {console.log(props.oldSearch)}
            
-        <td><input value= {props.oldSearch} onChange= {searchText}></input></td>
+        <td><input value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input></td>
         <td><button onClick= {searchButton}>Search!</button></td>
         <button onClick= {backToHome}>Back to Home</button>
         <p class="alignnow"><img class="alignnow" src={"https://www.larpdistribution.com/wp-content/uploads/2020/05/HW-701572BS.png"} height={100} onClick={toUserACB}></img></p>

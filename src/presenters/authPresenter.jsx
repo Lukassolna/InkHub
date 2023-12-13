@@ -5,6 +5,9 @@ import AuthView from "../views/authView";
 
 export default {
   name: "Auth",
+  
+
+
   data() {
     return {
       app: initializeApp(config),
@@ -38,7 +41,7 @@ export default {
           {this.currentUser ? 'Sign Out' : 'Sign In'}
         </button>
         <div>persisted data
-          {this.currentUser}
+          {this.currentUser} 
 
         </div>
       </div>

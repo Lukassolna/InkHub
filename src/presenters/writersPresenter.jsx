@@ -10,7 +10,7 @@ function Writers(props){
    
         
        
-    return <WritersView writerMovies={props.model.searchWriterResults}/>;
+    return <WritersView writerMovies={props.model.searchWriterResults} />;
 }
 
     

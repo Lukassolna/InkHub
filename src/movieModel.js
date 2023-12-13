@@ -27,7 +27,8 @@ export default {
     searchOption: 1,
     allWriters: [],
     currentWriter: null,
-    resultsToggle: false,
+    writersToggle: false,
+    moviesToggle: false,
     appStartPromiseState: {},
     currentUser: null,
     app: initializeApp(config),
@@ -206,10 +207,10 @@ getSpecificMovieData(id){
     },
 
     setToggleTrue(){
-       this.resultsToggle = true
+       this.writersToggle = true
     },
 
     setToggleFalse(){
-        this.resultsToggle = false
+        this.writersToggle = false
     },
 };

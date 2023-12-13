@@ -47,19 +47,21 @@ function SearchResultView(props){
     
 
     return ( 
-    <div >
+    <div class="homepage">
          
         <div class="header">
         
             {console.log(props.oldSearch)}
            
-        <td><input value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input></td>
-        <td><button onClick= {searchButton}>Search!</button></td>
-        <button onClick= {backToHome}>Back to Home</button>
-        <p class="alignnow"><img class="alignnow" src={"https://www.larpdistribution.com/wp-content/uploads/2020/05/HW-701572BS.png"} height={100} onClick={toUserACB}></img></p>
+        <input placeholder="Search..."class="search-bar"value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input>
+        <button class="search-button" onClick= {searchButton}>Search!</button>
+        <button class="search-button"onClick= {backToHome}>Back to Home</button>
+        <img class="hide-bg alignstar" src={"https://live.staticflickr.com/65535/53395218564_714090c10a_b.jpg"} height={100} onClick={toUserACB}></img>
+        
         
         
         </div>
+       
 
         <div >
             {console.log(props.movieResults)}

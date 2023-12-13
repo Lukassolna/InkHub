@@ -1,5 +1,9 @@
+import { writerPictures } from "../writerpictures";
 export default
 function WritersResultView(props){
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
 
     function back2home(){
         return window.location.hash="#/"}
@@ -11,7 +15,7 @@ function WritersResultView(props){
         }
         return (
             <div onClick={writerResultClickACB}>
-            <img class="writeritem" src={"./images/profile_placeholder.jpeg"} alt="Poster 1"   ></img>
+            <img class="writeritem" src={writerPictures[getRandomInt(24)]} alt="Poster 1"   ></img>
             <tr >{writer}</tr>
             </div>
         )
@@ -34,9 +38,12 @@ function WritersResultView(props){
 
     return (
         <div>
-        <td><input value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input></td>
-        <td><button onClick= {searchButton}>Search!</button></td>
-        <button onClick={back2home}>Back to Home</button>
+             <div class="header">
+      <input class="search-bar"value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input>
+      <button class="search-button"onClick= {searchButton}>Search!</button>
+        <button class="search-button" onClick={back2home}>Back to Home</button>
+
+        </div>
         <table>{props.writerNames.map(writerDisplayCB)}</table>
 
         </div>

@@ -6,6 +6,7 @@ function WritersResultView(props){
       }
 
     function back2home(){
+        props.homeSaver()
         return window.location.hash="#/"}
 
     function writerDisplayCB(writer){

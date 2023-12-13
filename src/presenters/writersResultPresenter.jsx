@@ -22,11 +22,13 @@ function WritersResult(props){
         /*props.text = props.model.setSearchQuery(query)*/
     }
     function doSearchACB(){props.model.searchWriters(props.model.searchWriter) }
+    function homeTextACB(){props.model.searchname = props.model.searchWriter}
  
 
 
     return <WritersResultView writerNames = {props.model.searchedWriters} writerClick={chooseWriterACB}
-    oldSearch = {props.model.searchWriter}  currentText = {updateTextACB} searchFired={doSearchACB}/>
+    oldSearch = {props.model.searchWriter}  currentText = {updateTextACB} searchFired={doSearchACB}
+    homeSaver = {homeTextACB}/>
 
         
     }

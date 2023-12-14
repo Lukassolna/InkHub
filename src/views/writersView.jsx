@@ -33,12 +33,19 @@ function WritersView(props){
     }
 
     return ( 
-    <div>
-        <tr class = "animate__animated animate__bounce" >this is the writerspage</tr>
-        <button onClick={back2search}>Back</button>
+        <table>
+    <td>
+        <tr class = "animate__animated animate__bounce search-button" >{props.writerName}</tr>
+        <img class = "animate__animated animate__bounce poster-container" src={props.writerPic}></img>
+        <button class="search-button" onClick={back2search}>Back</button>
+    </td>
+    <td>
+
+        
         <tr>{props.writerMovies.map(moviesCB)}</tr>
        
-        
-    </div>
+        </td>
+        </table>
+    
     )
 }

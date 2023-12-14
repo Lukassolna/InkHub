@@ -48,17 +48,12 @@ function HomePage(props){
         return <SearchResultView movieClick={chooseMovieACB}/>
     }
 
-  
-
-
-
-
-
     
+
     return <div><HomePageView writerClick = {chosenWriterACB} writeText = {updateTextACB} searchFired={doSearchACB} 
     moviesSelect ={setMoviesOptionACB} writersSelect={setWritersOptionACB} currentOption ={props.model.searchOption}
     currentText = {props.model.searchname} randomWriters = {props.model.generateListOfWriters()}
-    homePageData={props.model.appStartPromiseState.data}/>
+    homePageData={props.model.appStartPromiseState.data} />
     
 
 

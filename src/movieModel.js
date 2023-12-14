@@ -4,6 +4,7 @@ import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
 import { initializeApp } from "firebase/app";
 import config from "/src/firebaseConfig.js";
+import { nameToNumber } from "./writerpictures";
 import {
   getAuth,
   signInWithPopup,
@@ -125,11 +126,18 @@ getSpecificMovieData(id){
     },
     generateListOfWriters(){
         var writersArray = [];
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
+        var writerNumber = []
+        for (let k=0;  k<5; k++){
+            let randomDude = this.getRandomWriter()
+            console.log(randomDude)
+            while (writerNumber.includes(nameToNumber(randomDude))){
+                randomDude = this.getRandomWriter()
+                console.log(randomDude)
+            }
+            writersArray.push(randomDude)
+            writerNumber.push(nameToNumber(randomDude))
+        }
+        
         return writersArray;
     }
     

@@ -33,7 +33,7 @@ async function initialLoad(){
     
 
 function startApp() {
-    const app = createApp(<inkRoot model={reactiveModel} />);
+    const app = createApp(<inkRoot model={reactiveModel}  />);
     app.use(makeRouter(reactiveModel));
     app.mount("#root");
     window.myModel = reactiveModel;  

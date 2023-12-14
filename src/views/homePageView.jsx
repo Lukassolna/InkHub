@@ -1,16 +1,15 @@
 
 import "animate.css"
-import { writerPictures } from "../writerpictures";
+import { writerPictures, nameToNumber } from "../writerpictures";
 
 
 
 export default
 function HomePageView(props){
+   
     
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-      }
-      let  x =[]
+      
+      
     
     function toUserACB(){
         window.location.hash="#/user"}
@@ -24,18 +23,10 @@ function HomePageView(props){
         
           
       
-        function fiveDiffNumb(num){
-            num = getRandomInt(24)
-            while (x.includes(num)){num= getRandomInt(24)
-            }
-            x = [...x, num]
-
-            return num
-        }
-            
+     
         return  <div >
                 <tr >
-                    <img class="writeritem" onClick={writerClickACB} src={writerPictures[fiveDiffNumb(x)]} alt="Random person" height="300"></img>
+                    <img class="writeritem" onClick={writerClickACB} src={writerPictures[nameToNumber(writer)]} alt="Random person" height="300"></img>
                 </tr>
 
                 <tr>
@@ -53,12 +44,15 @@ function HomePageView(props){
         return props.writeText(evt.target.value)}
 
     function searchButton(evt){ 
+        
+        
         return props.searchFired()
     }
+    
 
     
 
-    function writersButton(){props.writersSelect()}
+    function writersButton(){props.writersSelect()     }
     function moviesButton(){props.moviesSelect()}
     function keyDown(e) {
         if (e.keyCode === 13){
@@ -91,12 +85,15 @@ function HomePageView(props){
         <input onkeydown={keyDown} class="search-bar"placeholder={"Search"} type="search" value={props.currentText|| ""} onChange={searchText} ></input>
         <button class="search-button" onClick={searchButton}>Search!</button>
         </div>
+        
         <div>
-        <button  disabled= {props.currentOption === 1} class="oval-button" onClick={moviesButton}>Movies</button>
-                    <button  disabled= {props.currentOption === 2} class="oval-button" onClick={writersButton}>Writers</button>
-        </div>
-    </div>
-
+        <button  disabled= {props.currentOption === 1} class="oval-button" onClick={moviesButton}>Movies</button> 
+        <button  disabled= {props.currentOption === 2} class="oval-button" onClick={writersButton}>Writers</button>
+        
+   
+    
+</div>
+</div>
                 
             
 

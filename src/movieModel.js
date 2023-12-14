@@ -18,6 +18,7 @@ export default {
     searchResults: [],
     faveMovies: [],
     faveWriters:[],
+    generatedWriterList: [],
     currentMovie: null,
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
@@ -130,20 +131,26 @@ getSpecificMovieData(id){
         return randomWriter;
     },
     generateListOfWriters(){
+        if (this.generatedWriterList.length>=2)
+        {return this.generatedWriterList}
         var writersArray = [];
         var writerNumber = []
         for (let k=0;  k<5; k++){
             let randomDude = this.getRandomWriter()
-            console.log(randomDude)
+            
             while (writerNumber.includes(nameToNumber(randomDude))){
                 randomDude = this.getRandomWriter()
-                console.log(randomDude)
+                
             }
             writersArray.push(randomDude)
             writerNumber.push(nameToNumber(randomDude))
         }
         
-        return writersArray;
+        this.generatedWriterList = writersArray
+        
+        
+        
+        return this.generatedWriterList;
     }
     
     ,

@@ -5,6 +5,7 @@ import SearchResultView from "../views/searchResultView";
 
 export default
 function HomePage(props){
+    genWriter()
 
 
     function chosenWriterACB(writer){ 
@@ -20,6 +21,9 @@ function HomePage(props){
         props.model.setSearchWriterQuery(query)
     }
     function doSearchACB(){
+        props.model.generatedWriterList = []
+        
+        
    
     if (props.model.searchOption === 1){
         props.model.setMoviesToggleTrue()
@@ -46,6 +50,16 @@ function HomePage(props){
 
     function searchResults(){
         return <SearchResultView movieClick={chooseMovieACB}/>
+    }
+
+    function genWriter(){
+        if(!props.model.generatedWriterList){
+            props.model.generatedWriterList = props.model.generateListOfWriters() 
+        }
+        
+        
+        
+
     }
 
     

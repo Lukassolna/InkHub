@@ -6,6 +6,7 @@ import { writerPictures, nameToNumber } from "../writerpictures";
 
 export default
 function HomePageView(props){
+    
    
     
       

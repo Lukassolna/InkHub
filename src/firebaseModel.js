@@ -44,11 +44,15 @@ function modelToPersistence(model){
 
 function persistenceToModel(data, model) {
     // Check if no data exists and set default values
-    if (!data) {
-        data = {
-            curMovie: null,
-            favMovieIDS: [],
-        };
+    if (!data.curMovie) {
+      data = {
+          curMovie: null,
+      };
+    }
+    if (!data.favMovieIDS) {
+      data = {
+          favMovieIDS: [],
+      };
     }
         model.setCurrentMovie( data.curMovie) 
         model.favouriteMoviesIDS = data.favMovieIDS

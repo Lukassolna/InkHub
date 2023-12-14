@@ -19,7 +19,7 @@ function inkRoot(props){
   }    
 */
   return (  
-    <div >
+    <div class="homepage">
       <div class="authBar">
         <Auth model={props.model}/>
       </div>

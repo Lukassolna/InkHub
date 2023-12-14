@@ -206,11 +206,19 @@ getSpecificMovieData(id){
         }
     },
 
-    setToggleTrue(){
+    setWritersToggleTrue(){
        this.writersToggle = true
     },
 
-    setToggleFalse(){
+    setWritersToggleFalse(){
         this.writersToggle = false
     },
+
+    setMoviesToggleTrue(){
+        this.moviesToggle = true
+     },
+ 
+     setMoviesToggleFalse(){
+         this.moviesToggle = false
+     },
 };

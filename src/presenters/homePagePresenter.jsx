@@ -10,7 +10,8 @@ function HomePage(props){
     function chosenWriterACB(writer){ 
         props.model.setCurrentWriter(writer)
         props.model.searchMovieByWriter(writer)
-        props.model.setToggleFalse()
+        props.model.setWritersToggleFalse()
+        props.model.setMoviesToggleFalse()
         window.location.hash="#/writer"
    
     }
@@ -19,14 +20,14 @@ function HomePage(props){
         props.model.setSearchWriterQuery(query)
     }
     function doSearchACB(){
-    props.model.setToggleTrue()
+   
     if (props.model.searchOption === 1){
-        //props.model.setToggleTrue()
-
+        props.model.setMoviesToggleTrue()
         props.model.searchMovie(props.model.searchname) 
         window.location.hash="#/movieresults"}
 
     if (props.model.searchOption === 2){
+        props.model.setWritersToggleTrue()
         props.model.searchWriters(props.model.searchWriter) 
         window.location.hash="#/writersresults"
     }

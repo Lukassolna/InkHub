@@ -19,8 +19,8 @@ function MovieView(props){
         <tr>Writer: {props.movieData.Writer}</tr>
         <tr>Director: {props.movieData.Director}</tr>
         <tr>IMDB rating: {props.movieData.imdbRating}</tr>
-        <button class="search-button"disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
-        <button class="search-button"onClick={backToSearch}>Back</button>
+        <button class="search-button" disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
+        <button class="search-button" onClick={backToSearch}>Back</button>
     </div>
     )
 }

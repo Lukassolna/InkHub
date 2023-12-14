@@ -10,6 +10,7 @@ import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider,
 // you will find 2 imports already there, add the configuration and instantiate the app and database:
 import firebaseConfig from "/src/firebaseConfig.js";
 import resolvePromise from "./resolvePromise";
+
 const app= initializeApp(firebaseConfig);
 const db= getDatabase(app);
 const auth = getAuth(app);
@@ -33,8 +34,10 @@ let modelPath="modelPath"
 
 function modelToPersistence(model){
     const currentMovie = model.currentMovie;
+    const favouriteMoviesIDS = model.favouriteMoviesIDS
     return {
-        curMovie: currentMovie, 
+        curMovie: currentMovie,
+        favMovieIDS: favouriteMoviesIDS,
         
     };
 }
@@ -44,9 +47,12 @@ function persistenceToModel(data, model) {
     if (!data) {
         data = {
             curMovie: null,
+            favMovieIDS: [],
         };
     }
         model.setCurrentMovie( data.curMovie) 
+        model.favouriteMoviesIDS = data.favMovieIDS
+        model.faveIDStoMovie()
       
         return model; // Return the updated model
    
@@ -62,7 +68,7 @@ function saveToFirebase(model) {
 }
 
 function readFromFirebase(model) {
-    model.ready = false;
+      model.ready = false;
       const userSpecificPath = getUserSpecificPath("modelPath");
       get(ref(db, userSpecificPath))
       .then(function convertACB(snapshot) {
@@ -129,7 +135,7 @@ export {saveToFirebase, readFromFirebase,saveIdsToFirebase};
 export default function connectToFirebase(model, watchFunction){
 
     function watchModelProperties() {
-        return [model.currentMovie];
+        return [model.currentMovie, model.favouriteMoviesIDS];
       }
     
       function saveModelChanges() {

@@ -11,13 +11,13 @@ import WritersView from "./views/writersView";
 
 export default
 function inkRoot(props){
-
+/*
   if(!props.model.ready) {
     //connectToFirebase(props.model, watch)
 
     return <img src = {"https://static.wikia.nocookie.net/dont-starve-game/images/8/84/Tumbleweed_move_down.gif"}></img>
   }    
-
+*/
   return (  
     <div >
       <div class="authBar">

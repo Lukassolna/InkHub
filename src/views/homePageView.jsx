@@ -62,18 +62,16 @@ function HomePageView(props){
     function moviesButton(){props.moviesSelect()}
     function keyDown(e) {
         if (e.keyCode === 13){
-            searchText(e)
-        
-            console.log("Enter Pressed"+e.keyCode)
-
-          searchButton()
+        searchText(e)
+          searchButton(e)
         }}
 
     
     return ( <span class="centerflex" >
+        
         <div class="header-container">
     <div class="logo-container">
-        <img class="hide-bg mainlogo" src={"https://live.staticflickr.com/65535/53395405340_3ebebbe332_b.jpg"} height={400} alt="Logo"></img>
+        <img class="hide-bg mainlogo" src={"https://live.staticflickr.com/65535/53396490408_293f568e27_b.jpg"} height={400} alt="Logo"></img>
     </div>
     <div class="star-container">
         <img class="hide-bg aligndownright" src={"https://live.staticflickr.com/65535/53395218564_714090c10a_b.jpg"} height={200} onClick={toUserACB} alt="Star"></img>
@@ -84,13 +82,13 @@ function HomePageView(props){
     <div class="centerflexsmall" >
         
         
-        <table onKeyDown={keyDown} >
+        <table  >
         
             
            
-    <div class="search-container">
-        <div>
-        <input class="search-bar"placeholder={"Search"} type="search" value={props.currentText|| ""} onChange={searchText} onKeyDown={keyDown}></input>
+    <div class="search-container" >
+        <div >
+        <input onkeydown={keyDown} class="search-bar"placeholder={"Search"} type="search" value={props.currentText|| ""} onChange={searchText} ></input>
         <button class="search-button" onClick={searchButton}>Search!</button>
         </div>
         <div>

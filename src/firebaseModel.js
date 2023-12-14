@@ -10,6 +10,7 @@ import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider,
 // you will find 2 imports already there, add the configuration and instantiate the app and database:
 import firebaseConfig from "/src/firebaseConfig.js";
 import resolvePromise from "./resolvePromise";
+
 const app= initializeApp(firebaseConfig);
 const db= getDatabase(app);
 const auth = getAuth(app);
@@ -38,26 +39,33 @@ let modelPath="modelPath"
 
 function modelToPersistence(model) {
     const currentMovie = model.currentMovie;
-    const favouriteMoviesIDS = model.favouriteMoviesIDS; 
-
+    const favouriteMoviesIDS = model.favouriteMoviesIDS
+    const faveWriters = model.faveWriters
     return {
         curMovie: currentMovie,
-        favMovies: favouriteMoviesIDS, 
+        favMovieIDS: favouriteMoviesIDS,
+        favWriters: faveWriters,
+        
     };
 }
 function persistenceToModel(data, model) {
-    if (!data) {
-        data = {
-            curMovie: null,
-            favMovies: [], 
-        };
+    // Check if no data exists and set default values
+    if (!data.curMovie) {
+      data.curMovie = null
     }
-    
-    model.setCurrentMovie(data.curMovie);
-    model.favouriteMoviesIDS = data.favMovies || [];
-    model.faveIDStoMovie()
-
-    return model;
+    if (!data.favMovieIDS) {
+      data.favMovieIDS = []
+    }
+    if (!data.favWriters){
+      data.favWriters = []
+    }
+        model.setCurrentMovie( data.curMovie) 
+        model.setFavouriteMoviesIDs( data.favMovieIDS )
+        model.faveWriters = data.favWriters
+        model.faveIDStoMovie()
+      
+        return model; // Return the updated model
+   
 }
 function saveIdsToFirebase(model, path){ //Denna används bara för att spara ID från APi nu
         return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));   
@@ -70,7 +78,7 @@ function saveToFirebase(model) {
 }
 
 function readFromFirebase(model) {
-    model.ready = false;
+      model.ready = false;
       const userSpecificPath = getUserSpecificPath("modelPath");
       console.log(userSpecificPath)
       get(ref(db, userSpecificPath))
@@ -138,8 +146,9 @@ export {saveToFirebase, readFromFirebase,saveIdsToFirebase};
 export default function connectToFirebase(model, watchFunction){
 
     function watchModelProperties() {
-        return [model.currentMovie,model.favouriteMoviesIDS];
-    }
+        return [model.currentMovie, model.favouriteMoviesIDS, model.faveWriters];
+      }
+    
       function saveModelChanges() {
         saveToFirebase(model);
       }

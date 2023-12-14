@@ -4,6 +4,7 @@ import { fetchMovieData1 } from "./movieSource";
 import resolvePromise from "./resolvePromise";
 import { initializeApp } from "firebase/app";
 import config from "/src/firebaseConfig.js";
+import { nameToNumber } from "./writerpictures";
 import {
   getAuth,
   signInWithPopup,
@@ -16,6 +17,8 @@ export default {
     favouriteMoviesIDS:[],
     searchResults: [],
     faveMovies: [],
+    faveWriters:[],
+    generatedWriterList: [],
     currentMovie: null,
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
@@ -41,6 +44,10 @@ export default {
 
     setCurrentWriter(writer){
         this.currentWriter = writer
+    },
+
+    setFavouriteMoviesIDs(ids){
+        this.favouriteMoviesIDS = ids
     },
 
     setCurrentUser(user){
@@ -124,13 +131,26 @@ getSpecificMovieData(id){
         return randomWriter;
     },
     generateListOfWriters(){
+        if (this.generatedWriterList.length>=2)
+        {return this.generatedWriterList}
         var writersArray = [];
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
-        writersArray.push(this.getRandomWriter())
-        return writersArray;
+        var writerNumber = []
+        for (let k=0;  k<5; k++){
+            let randomDude = this.getRandomWriter()
+            
+            while (writerNumber.includes(nameToNumber(randomDude))){
+                randomDude = this.getRandomWriter()
+                
+            }
+            writersArray.push(randomDude)
+            writerNumber.push(nameToNumber(randomDude))
+        }
+        
+        this.generatedWriterList = writersArray
+        
+        
+        
+        return this.generatedWriterList;
     }
     
     ,
@@ -187,13 +207,27 @@ getSpecificMovieData(id){
 
     removeFromFaves(movie){
         function shouldWeKeepMovieCB(movieSearched){
-            console.log(movieSearched)
-            console.log(movie)
             return movieSearched !== movie}
         
         this.favouriteMoviesIDS = this.favouriteMoviesIDS.filter(shouldWeKeepMovieCB);
         this.faveIDStoMovie()
     },
+
+    addWriter2Fave(writer){
+
+        if (this.faveWriters.includes(writer)){return}
+        this.faveWriters= [...this.faveWriters, writer];
+
+    },
+
+    removeFromFaveWriters(writer){
+        function shouldWeKeepWriterCB(writerSearched){
+            return writerSearched !== writer}
+        
+        this.faveWriters = this.faveWriters.filter(shouldWeKeepWriterCB);
+
+    },
+
 
     setCurrentMovie(id){
        
@@ -204,11 +238,19 @@ getSpecificMovieData(id){
         }
     },
 
-    setToggleTrue(){
+    setWritersToggleTrue(){
        this.writersToggle = true
     },
 
-    setToggleFalse(){
+    setWritersToggleFalse(){
         this.writersToggle = false
     },
+
+    setMoviesToggleTrue(){
+        this.moviesToggle = true
+     },
+ 
+     setMoviesToggleFalse(){
+         this.moviesToggle = false
+     },
 };

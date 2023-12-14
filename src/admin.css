@@ -23,7 +23,7 @@
 
 
 .debug {
-    width: 100%;
+    width: 50%;
     height: 100%;
     border-style: solid;
     border-color: aqua;
@@ -224,6 +224,7 @@ body {
 
 .search-button:hover {
     background-color: #cb7e46; /* Darker brown on hover */
+    cursor:pointer;
 }
 .oval-button {
     background-color:burlywood; /* Saddle brown background */
@@ -232,14 +233,28 @@ body {
     border-color: #a0522d;
     padding: 10px 15px;
     border-radius: 3px;
-    cursor: pointer;
+    cursor:pointer;
     font-family: 'Georgia', serif;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     transition: background-color 0.3s;
     &:disabled {
+        
     
     background-color: #a0522d;
-    color: burlywood;
+    color:rgb(255, 255, 255);
       }
     
+    
     }
+
+    .oval-button:hover:enabled{
+        background-color:rgb(244, 188, 114); /* Saddle brown background */
+        color: #692d11; /* White text */
+        border: 4px;
+        border-color: #642609;
+
+
+    }
+
+
+

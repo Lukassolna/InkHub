@@ -25,3 +25,14 @@ export const writerPictures =
 "https://live.staticflickr.com/65535/53394129062_7a56bbd008_b.jpg",
 "https://live.staticflickr.com/65535/53395494845_0f10bca88d_b.jpg"
 ]
+
+export function nameToNumber(name) {
+    let sum = 0;
+    let temp = name
+    for (let i = 0; i < name.length; i++) {
+        sum += temp.charCodeAt(i); // Add ASCII value of each character
+    }
+    return sum % 25; // Use modulo 51 to keep it within 0-50
+}
+
+

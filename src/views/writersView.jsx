@@ -36,12 +36,13 @@ function WritersView(props){
 
     return ( 
     <div>
+        <img class = "animate__animated animate__bounce poster-container" src={props.writerPic}></img>
         <tr class = "animate__animated animate__bounce" >{props.writerName}</tr>
         <button class="search-button"disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
-        <button onClick={back2search}>Back</button>
+        <button class="search-button"onClick={back2search}>Back</button>
         <tr>{props.writerMovies.map(moviesCB)}</tr>
        
-        
-    </div>
+        </div>
+    
     )
 }

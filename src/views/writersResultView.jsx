@@ -1,4 +1,4 @@
-import { writerPictures } from "../writerpictures";
+import { writerPictures, nameToNumber} from "../writerpictures";
 export default
 function WritersResultView(props){
     function getRandomInt(max) {
@@ -16,7 +16,7 @@ function WritersResultView(props){
         }
         return (
             <div onClick={writerResultClickACB}>
-            <img class="writeritem" src={writerPictures[getRandomInt(24)]} alt="Poster 1"   ></img>
+            <img class="writeritem" src={writerPictures[nameToNumber(writer)]} alt="Poster 1"   ></img>
             <tr >{writer}</tr>
             </div>
         )

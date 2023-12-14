@@ -16,15 +16,15 @@ function inkRoot(props){
     //connectToFirebase(props.model, watch)
 
     return <img src = {"https://static.wikia.nocookie.net/dont-starve-game/images/8/84/Tumbleweed_move_down.gif"}></img>
-  }    */
-
-console.log(props.model.ready)
+  }    
+*/
+//console.log(props.model.ready)
   return (  
     <div class="homepage">
       <div class="authBar">
         <Auth model={props.model}/>
       </div>
-      <div class="homepage">
+      <div >
 
           <RouterView model={props.model}/>
           {/*<Movie/>

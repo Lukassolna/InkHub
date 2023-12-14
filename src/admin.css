@@ -238,14 +238,23 @@ body {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     transition: background-color 0.3s;
     &:disabled {
+        
     
     background-color: #a0522d;
-    color: burlywood;
+    color:rgb(255, 255, 255);
       }
+    
     
     }
 
+    .oval-button:hover:enabled{
+        background-color:rgb(244, 188, 114); /* Saddle brown background */
+        color: #692d11; /* White text */
+        border: 4px;
+        border-color: #642609;
 
+
+    }
 
 
 

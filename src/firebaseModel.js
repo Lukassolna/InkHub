@@ -35,9 +35,11 @@ let modelPath="modelPath"
 function modelToPersistence(model){
     const currentMovie = model.currentMovie;
     const favouriteMoviesIDS = model.favouriteMoviesIDS
+    const faveWriters = model.faveWriters
     return {
         curMovie: currentMovie,
         favMovieIDS: favouriteMoviesIDS,
+        favWriters: faveWriters,
         
     };
 }
@@ -45,17 +47,17 @@ function modelToPersistence(model){
 function persistenceToModel(data, model) {
     // Check if no data exists and set default values
     if (!data.curMovie) {
-      data = {
-          curMovie: null,
-      };
+      data.curMovie = null
     }
     if (!data.favMovieIDS) {
-      data = {
-          favMovieIDS: [],
-      };
+      data.favMovieIDS = []
+    }
+    if (!data.favWriters){
+      data.favWriters = []
     }
         model.setCurrentMovie( data.curMovie) 
-        model.favouriteMoviesIDS = data.favMovieIDS
+        model.setFavouriteMoviesIDs( data.favMovieIDS )
+        model.faveWriters = data.favWriters
         model.faveIDStoMovie()
       
         return model; // Return the updated model
@@ -139,7 +141,7 @@ export {saveToFirebase, readFromFirebase,saveIdsToFirebase};
 export default function connectToFirebase(model, watchFunction){
 
     function watchModelProperties() {
-        return [model.currentMovie, model.favouriteMoviesIDS];
+        return [model.currentMovie, model.favouriteMoviesIDS, model.faveWriters];
       }
     
       function saveModelChanges() {

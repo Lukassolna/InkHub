@@ -10,4 +10,4 @@ function User(props){
     }
     
    
-    return <UserView hey={props.model.faveMovies} removeMovie={removeItNow}/>;}
+    return <UserView faveMoviesObject={props.model.faveMovies} removeMovie={removeItNow}/>;}

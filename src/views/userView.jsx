@@ -33,9 +33,9 @@ function UserView(props){
   
     return ( 
     <div>
-        <button onClick= {backToHome}>Back to Home</button>
+        <button class="search-button"onClick= {backToHome}>Back to Home</button>
         <td>Favorite Movies:</td>
-        <tr>{props.hey.map(mappinCB)}</tr>
+        <tr>{props.faveMoviesObject.map(mappinCB)}</tr>
         
     </div>
     )

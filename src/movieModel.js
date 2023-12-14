@@ -43,6 +43,10 @@ export default {
         this.currentWriter = writer
     },
 
+    setFavouriteMoviesIDs(ids){
+        this.favouriteMoviesIDS = ids
+    },
+
     setCurrentUser(user){
         this.currentUser = user
     },

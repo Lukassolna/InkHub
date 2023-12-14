@@ -16,6 +16,7 @@ export default {
     favouriteMoviesIDS:[],
     searchResults: [],
     faveMovies: [],
+    faveWriters:[],
     currentMovie: null,
     currentMoviePromiseState: {},
     getResultsPromiseState: {},
@@ -189,13 +190,27 @@ getSpecificMovieData(id){
 
     removeFromFaves(movie){
         function shouldWeKeepMovieCB(movieSearched){
-            console.log(movieSearched)
-            console.log(movie)
             return movieSearched !== movie}
         
         this.favouriteMoviesIDS = this.favouriteMoviesIDS.filter(shouldWeKeepMovieCB);
         this.faveIDStoMovie()
     },
+
+    addWriter2Fave(writer){
+
+        if (this.faveWriters.includes(writer)){return}
+        this.faveWriters= [...this.faveWriters, writer];
+
+    },
+
+    removeFromFaveWriters(writer){
+        function shouldWeKeepWriterCB(writerSearched){
+            return writerSearched !== writer}
+        
+        this.faveWriters = this.faveWriters.filter(shouldWeKeepWriterCB);
+
+    },
+
 
     setCurrentMovie(id){
         if (id === this.currentMovie){return}

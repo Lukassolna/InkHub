@@ -9,7 +9,11 @@ function Writers(props){
         console.log(movie)
         props.model.setCurrentMovie(movie)
         window.location.hash="#/movie"
-        
+    
+    }
+    function add2FaveWriterACB(writer){
+        props.model.addWriter2Fave(writer)
+        console.log(props.model.faveWriters)
 
     }
 
@@ -18,7 +22,9 @@ function Writers(props){
    
         
        
-    return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.writersToggle} movieClick={chooseWriterMovieACB} />;
+    return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.writersToggle} 
+    movieClick={chooseWriterMovieACB} writerName = {props.model.currentWriter}
+    faveWriterAdder = {add2FaveWriterACB} />;
 }
 
     

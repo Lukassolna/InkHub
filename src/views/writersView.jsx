@@ -9,7 +9,9 @@ function WritersView(props){
         else {
             window.location.hash="#/"}}
 
-        
+    function addToFaveButton(evt){ 
+        return props.faveWriterAdder(props.writerName)
+    }
         
 
     function moviesCB(movie){
@@ -34,7 +36,8 @@ function WritersView(props){
 
     return ( 
     <div>
-        <tr class = "animate__animated animate__bounce" >this is the writerspage</tr>
+        <tr class = "animate__animated animate__bounce" >{props.writerName}</tr>
+        <button class="search-button"disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
         <button onClick={back2search}>Back</button>
         <tr>{props.writerMovies.map(moviesCB)}</tr>
        

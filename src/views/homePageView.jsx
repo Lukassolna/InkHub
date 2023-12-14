@@ -71,7 +71,7 @@ function HomePageView(props){
         
         <div class="header-container">
     <div class="logo-container">
-        <img class="hide-bg mainlogo" src={/*"https://live.staticflickr.com/65535/53396132366_b8b8048404_b.jpg"*/"https://live.staticflickr.com/65535/53395405340_3ebebbe332_b.jpg"} height={400} alt="Logo"></img>
+        <img class="hide-bg mainlogo" src={"https://live.staticflickr.com/65535/53396490408_293f568e27_b.jpg"} height={400} alt="Logo"></img>
     </div>
     <div class="star-container">
         <img class="hide-bg aligndownright" src={"https://live.staticflickr.com/65535/53395218564_714090c10a_b.jpg"} height={200} onClick={toUserACB} alt="Star"></img>

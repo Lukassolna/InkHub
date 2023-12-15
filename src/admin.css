@@ -215,6 +215,7 @@ body {
     border: none;
     padding: 10px 15px;
     border-radius: 3px;
+    margin: 5px;
     cursor: pointer;
     font-family: 'Georgia', serif;
     font-size: x-large;
@@ -252,9 +253,31 @@ body {
         color: #692d11; /* White text */
         border: 4px;
         border-color: #642609;
-
-
     }
 
+    .movie-container {
+        display: flex;
+        color: #692d11;
+        font-size: large;
+        margin-bottom: 20px;
+        
+       /* This will vertically center the items */
+    }
+    
+    .movieNameView {
+        color:#642609;
+        font-size:xx-large;
+        font-weight: bold;
+        /* Add styling for the poster if necessary, e.g., width, margin */
+    }
+    
+    .movie-details {
+        margin-left: 20px; /* Adjust spacing between the poster and the details */
+        /* Additional styling for the text details */
+    }
+    .movie-poster{
+        margin-top: 10;
+        margin-left: 10;
 
+    }
 

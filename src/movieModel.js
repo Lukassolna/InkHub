@@ -185,8 +185,6 @@ getSpecificMovieData(id){
 
     
     addToFavourites(movie){
-        
-        
         if (this.favouriteMoviesIDS.includes(movie)){return}
         this.favouriteMoviesIDS= [...this.favouriteMoviesIDS, movie];
         this.faveIDStoMovie()
@@ -232,7 +230,7 @@ getSpecificMovieData(id){
 
 
     setCurrentMovie(id){
-        if (id === this.currentMovie){return}
+       
         if (!id){return}
         this.currentMovie= id
         if (fetchMovieData(id)){ //Get Movie Details är inte en riktig funktion än

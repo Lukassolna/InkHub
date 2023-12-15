@@ -20,19 +20,24 @@ let currentUserUID = null;
 
 
 function getUserSpecificPath(path) {
+  
     if (currentUserUID) {
+        
       return PATH_BASE + '/' + currentUserUID + '/' + path;
     } else {
-      return null;
+        
+        return PATH_BASE + '/default/' + path;
     }
   }
+
+
   
 //  PATH is the “root” Firebase path. NN is your TW2_TW3 group number
 const PATH="hool";
 const Path2="tester"
 let modelPath="modelPath"
 
-function modelToPersistence(model){
+function modelToPersistence(model) {
     const currentMovie = model.currentMovie;
     const favouriteMoviesIDS = model.favouriteMoviesIDS
     const faveWriters = model.faveWriters
@@ -43,7 +48,6 @@ function modelToPersistence(model){
         
     };
 }
-
 function persistenceToModel(data, model) {
     // Check if no data exists and set default values
     if (!data.curMovie) {
@@ -67,7 +71,7 @@ function saveIdsToFirebase(model, path){ //Denna används bara för att spara ID
         return set(ref(db, Path2+"/"+ path),  modelToPersistence(model));   
 }
 function saveToFirebase(model) {
-    if (model.ready && currentUserUID) {
+    if (model.ready) {
       const userSpecificPath = getUserSpecificPath("modelPath");
       set(ref(db, userSpecificPath), modelToPersistence(model));
     }
@@ -76,6 +80,7 @@ function saveToFirebase(model) {
 function readFromFirebase(model) {
       model.ready = false;
       const userSpecificPath = getUserSpecificPath("modelPath");
+      console.log(userSpecificPath)
       get(ref(db, userSpecificPath))
       .then(function convertACB(snapshot) {
         return persistenceToModel(snapshot.val(), model);

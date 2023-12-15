@@ -25,13 +25,13 @@ function HomePageView(props){
           
       
      
-        return  <div >
+        return  <div class ="writer-container">
                 <tr >
                     <img class="writeritem" onClick={writerClickACB} src={writerPictures[nameToNumber(writer)]} alt="Random person" height="300"></img>
                 </tr>
 
                 <tr>
-                    <td class="center">{writer}</td>
+                    <td class="writername">{writer}</td>
                 </tr>
 
                 
@@ -90,9 +90,6 @@ function HomePageView(props){
         <div>
         <button  disabled= {props.currentOption === 1} class="oval-button" onClick={moviesButton}>Movies</button> 
         <button  disabled= {props.currentOption === 2} class="oval-button" onClick={writersButton}>Writers</button>
-        
-   
-    
 </div>
 </div>
                 

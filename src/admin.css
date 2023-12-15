@@ -83,7 +83,16 @@ height:100%;
 .writerrow {
     display: flex;
     flex-direction:row;
-    
+    margin-top: 20;
+    align-items: center;
+    justify-content: center;
+}
+
+.writer-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 350px;
 }
 
 .writeritem{
@@ -92,7 +101,19 @@ height:100%;
     border-radius: 50%;
     border-style:solid;
     cursor: pointer;
-    margin-right: 25px;
+    margin-right: 22px;
+    margin-left: 22px;
+    color: #692d11;
+}
+.writername {
+    font-size:large;
+    font-weight: 500;
+    color:#642609;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 110px; /* Adjust this width to match your image width */
+    margin: 10px auto; /* This adds space above and centers the element horizontally */
+    line-height: 1.2; /* Adjust line height for better readability if text wraps */
 
 }
 

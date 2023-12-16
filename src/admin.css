@@ -172,11 +172,7 @@ height:100%;
 
 .authBar{
     width: 100px;
-    background-color: rgba(159, 159, 159, 0.092);
-    box-sizing: border-box;
-    flex-wrap: nowrap;
-    border-style: solid;
-    border-width: 2px;
+    display: flex;
 }
 
 
@@ -307,3 +303,28 @@ body {
 
     }
 
+    .generalText {
+        font-size:large;
+        font-weight: 500;
+        color:#642609;
+        text-align: center;
+        word-wrap: break-word;
+        max-width: 110px; /* Adjust this width to match your image width */
+        margin: 10px auto; /* This adds space above and centers the element horizontally */
+        line-height: 1.2; /* Adjust line height for better readability if text wraps */
+    
+    }
+
+    .auth-button {
+        background-color: #a0522d; /* Saddle brown background */
+        color: white; /* White text */
+        border: none;
+        padding: 10px 15px;
+        border-radius: 3px;
+        margin: 5px;
+        cursor: pointer;
+        font-family: 'Georgia', serif;
+        font-size: 15px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        transition: background-color 0.3s;
+    }

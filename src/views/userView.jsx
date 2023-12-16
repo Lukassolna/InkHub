@@ -37,7 +37,7 @@ function UserView(props){
             props.removeWriter(writer)
         }
         return(
-        <tr>
+        <tr class="generalText">
             
             {writer}
             <img class="alignnow" src={"https://www.gmbinder.com/images/wNyM2LV.png"} height="30" onClick={reWriterACB}> </img>
@@ -50,11 +50,11 @@ function UserView(props){
   
     return ( 
     <div>
-        <button onClick= {backToHome}>Back to Home</button>
+        <button class="search-button" onClick= {backToHome}>Back to Home</button>
         <table >
             <tr >
-                <th class="debug">Favorite Movies:</th>
-                <th class="debug"> Favorite Writers:</th>
+                <th class="generalText">Favorite Movies:</th>
+                <th class="generalText"> Favorite Writers:</th>
             </tr>
             <tr>
                 <td >{props.hey.map(mappinCB)}</td>

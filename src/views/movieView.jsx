@@ -3,6 +3,14 @@ function MovieView(props){
     function addToFaveButton(evt){ 
         return props.faveAdderFired()
     }
+
+    function getButtonClass(isDisabled) {
+        if (isDisabled) {
+            return "search-button disabled";
+        } else {
+            return "search-button";
+        }
+    }
     function backToSearch(){
         console.log(props.toggleCheck)
         if (props.toggleCheck === true){
@@ -40,7 +48,7 @@ function MovieView(props){
                 <p>IMDB rating: {props.movieData.imdbRating}</p>
             </div> 
         </div>
-        <button class="search-button" disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
+        <button  class={getButtonClass(props.isMovieInFaves)} disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
         <button class="search-button" onClick={backToSearch}>Back</button>
     </td>
 </tr>

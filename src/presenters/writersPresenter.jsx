@@ -5,7 +5,10 @@ import { writerPictures, nameToNumber } from "../writerpictures.js";
 
 export default
 function Writers(props){
-
+    function checkFavesACB(writer) {
+        return props.model.faveWriters.includes(writer);
+    }
+    
     function chooseWriterMovieACB(movie){
         console.log(movie)
         props.model.setCurrentMovie(movie)
@@ -18,12 +21,13 @@ function Writers(props){
 
     }
     let num = nameToNumber(props.model.currentWriter)
-
+   
 
 
     return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.writersToggle} 
     
     movieClick={chooseWriterMovieACB} 
+    isWriterInFaves = {props.model.faveWriters.find(checkFavesACB)} 
     faveWriterAdder = {add2FaveWriterACB} writerName={props.model.currentWriter} writerPic={writerPictures[num]}/>;
 }
 

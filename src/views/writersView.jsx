@@ -12,7 +12,13 @@ function WritersView(props){
     function addToFaveButton(evt){ 
         return props.faveWriterAdder(props.writerName)
     }
-        
+        function getButtonClass(isDisabled) {
+    if (isDisabled) {
+        return "search-button disabled";
+    } else {
+        return "search-button";
+    }
+}
 
     function moviesCB(movie){
         function resultClickACB(item){
@@ -38,7 +44,12 @@ function WritersView(props){
     <div>
         <img class = "animate__animated animate__bounce poster-container" src={props.writerPic}></img>
         <tr class = "animate__animated animate__bounce" >{props.writerName}</tr>
-        <button class="search-button"disabled={props.isMovieInFaves} onClick={addToFaveButton}>Add to Favourites</button>
+        <button
+                className={getButtonClass(props.isWriterInFaves)}
+                disabled={props.isWriterInFaves}
+                onClick={addToFaveButton}
+            >  Add to Favourites
+            </button>
         <button class="search-button"onClick={back2search}>Back</button>
         <tr>{props.writerMovies.map(moviesCB)}</tr>
        

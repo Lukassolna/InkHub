@@ -21,13 +21,14 @@ function Writers(props){
 
     }
     let num = nameToNumber(props.model.currentWriter)
-   
+    
+
 
 
     return <WritersView writerMovies={props.model.searchWriterResults} toggleCheck ={props.model.writersToggle} 
     
     movieClick={chooseWriterMovieACB} 
-    isWriterInFaves = {props.model.faveWriters.find(checkFavesACB)} 
+    isWriterInFaves =  {props.model.faveWriters.includes(props.model.currentWriter)} 
     faveWriterAdder = {add2FaveWriterACB} writerName={props.model.currentWriter} writerPic={writerPictures[num]}/>;
 }
 

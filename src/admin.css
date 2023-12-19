@@ -11,8 +11,8 @@
 
     font-family:Georgia, 'Times New Roman', Times, serif;
    
-    background-color: burlywood;
-    background-image: url("https://live.staticflickr.com/65535/53395199514_bc8e5e7bec_b.jpg");
+   
+    background-image: url("https://live.staticflickr.com/65535/53407854978_122767a9d8_b.jpg");
     background-size:cover;
     background-blend-mode:screen;
     background-attachment: fixed;
@@ -21,7 +21,7 @@
 }
 .hide-bg {
     mix-blend-mode: multiply;
-    background-color: transparent; /* Ensures that the background is transparent */
+    background-color: transparent;
 }
 .hide-bg:hover{
     cursor: pointer;
@@ -79,8 +79,8 @@ height:100%;
     height:120;
     
         position: absolute;
-        right: 5; /* Aligns the image to the right */
-        top: 5; /* Adjust this value as needed */
+        right: 5;
+        top: 5; 
       
     
 }
@@ -108,8 +108,8 @@ height:100%;
 
 .writer-container {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column; 
+    align-items: center; 
     height: 180px;
     border-radius: 5%;
 }
@@ -146,9 +146,9 @@ height:100%;
     color:#642609;
     text-align: center;
     word-wrap: break-word;
-    max-width: 110px; /* Adjust this width to match your image width */
-    margin: 10px auto; /* This adds space above and centers the element horizontally */
-    line-height: 1.2; /* Adjust line height for better readability if text wraps */
+    max-width: 110px; 
+    margin: 10px auto; 
+    line-height: 1.2; 
 
 }
 
@@ -177,8 +177,8 @@ height:100%;
 
 .poster-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
-    width: 300px; /* Adjust the width of the container as needed */
+    grid-template-columns: repeat(2, 1fr); 
+    width: 300px; 
   }
 
 .poster {
@@ -189,8 +189,8 @@ height:100%;
 
 .movie-showcase {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-    width: 100px; /* Adjust the width of the container as needed */
+    grid-template-columns: repeat(3, 1fr); 
+    width: 100px; 
 }
 
 @media (min-width: 800px){
@@ -218,48 +218,48 @@ height:100%;
 
 .search-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
-    flex-direction: column;  /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;     
+    flex-direction: column; 
 }
 
 
 .header-container {
     display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center;     /* Center items vertically */
-    position: relative;      /* Needed for absolute positioning of the star */
+    justify-content: center;
+    align-items: center; 
+    position: relative;  
 }
 
 .logo-container {
-    flex-grow: 1; /* Allows the logo container to take up available space */
+    flex-grow: 1; 
     display: flex;
-    justify-content: center; /* Center the logo inside the container */
+    justify-content: center; 
 }
 
 
-/* Base styles */
+
 body {
-    font-family: 'Georgia', serif; /* Western style often uses serif fonts */
-    background-color: #f4f1e9; /* Light, rustic background color */
+    font-family: 'Georgia', serif; 
+    background-color: #f4f1e9; 
 }
 
-/* Search bar styles */
+
 .search-bar {
-    border: 2px solid #8b4513; /* Dark brown border */
-    background-color: #f8eedb; /* Light brown background */
+    border: 2px solid #8b4513; 
+    background-color: #f8eedb; 
     font-family: 'Georgia', serif;
     font-size: x-large;
     margin-left: 5;
     padding: 8px 12px;
     border-radius: 3px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-/* Search button styles */
+
 .search-button {
-    background-color: #a0522d; /* Saddle brown background */
-    color: white; /* White text */
+    background-color: #a0522d; 
+    color: white; 
     border: none;
     padding: 10px 15px;
     border-radius: 3px;
@@ -267,25 +267,25 @@ body {
     cursor: pointer;
     font-family: 'Georgia', serif;
     font-size: x-large;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
 }
 
 
 .search-button:hover {
-    background-color: #cb7e46; /* Darker brown on hover */
+    background-color: #cb7e46; 
     cursor:pointer;
 }
 .oval-button {
-    background-color:burlywood; /* Saddle brown background */
-    color: #a0522d; /* White text */
+    background-color:burlywood; 
+    color: #a0522d;
     border: 4px;
     border-color: #a0522d;
     padding: 10px 15px;
     border-radius: 3px;
     cursor:pointer;
     font-family: 'Georgia', serif;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
     transition: background-color 0.3s;
     &:disabled {
         
@@ -298,8 +298,8 @@ body {
     }
 
     .oval-button:hover:enabled{
-        background-color:rgb(244, 188, 114); /* Saddle brown background */
-        color: #692d11; /* White text */
+        background-color:rgb(244, 188, 114); 
+        color: #692d11; 
         border: 4px;
         border-color: #642609;
     }
@@ -317,7 +317,7 @@ body {
         color:#642609;
         font-size:xx-large;
         font-weight: bold;
-        /* Add styling for the poster if necessary, e.g., width, margin */
+       
     }
     
     .movie-details {

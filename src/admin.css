@@ -21,7 +21,9 @@
     mix-blend-mode: multiply;
     background-color: transparent; /* Ensures that the background is transparent */
 }
-
+.hide-bg:hover{
+    cursor: pointer;
+}
 
 .debug {
     width: 50%;
@@ -159,7 +161,7 @@ height:100%;
 
 .header{
     background-color: burlywood;
-    height:50px;
+    height:60px;
     font-size: 18px;
 
 }
@@ -246,6 +248,7 @@ body {
     background-color: #f8eedb; /* Light brown background */
     font-family: 'Georgia', serif;
     font-size: x-large;
+    margin-left: 5;
     padding: 8px 12px;
     border-radius: 3px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */

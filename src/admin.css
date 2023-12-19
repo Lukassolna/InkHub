@@ -217,12 +217,7 @@ height:100%;
     justify-content: center; /* Center the logo inside the container */
 }
 
-.star-container {
-    position:absolute;
-    right: -200; /* Position the star to the right */
-    top: 150;   /* Align the star to the top of the container */
-    cursor: pointer;
-}
+
 /* Base styles */
 body {
     font-family: 'Georgia', serif; /* Western style often uses serif fonts */

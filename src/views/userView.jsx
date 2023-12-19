@@ -10,7 +10,7 @@ function UserView(props){
             props.removeMovie(movies.data.imdbID)
         }
         function clickMovieACB(){
-            props.movieClicked(movies.imdbID)
+            props.movieClicked(movies.data.imdbID)
         }
 
         if (movies.data){

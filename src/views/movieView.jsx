@@ -12,7 +12,7 @@ function MovieView(props){
         }
     }
     function backToSearch(){
-        console.log(props.toggleCheck)
+      
         if (props.toggleCheck === true){
             window.location.hash="#/movieresults"}
         else if (props.backWriterToggleCheck ===true){

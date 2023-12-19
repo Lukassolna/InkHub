@@ -10,7 +10,7 @@ export function fetchMovieData1(id) {
             'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com',
         }
     };
-    console.log(url+"?i="+id)
+   
     return fetch(url+"?i="+id, options)
         (response => { 
             if (!response.ok) {
@@ -19,7 +19,7 @@ export function fetchMovieData1(id) {
             return response.json();
         })
         .then(result => {   
-            console.log(result);    //log the result in console
+           
             saveToFirebase(result); //save to firebase
             return result;
         })

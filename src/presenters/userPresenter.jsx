@@ -18,13 +18,13 @@ function User(props){
         props.model.removeFromFaves(id)
     }
     function removeWriterNow(writer){
-        console.log(writer)
+       
         props.model.removeFromFaveWriters(writer)
     }
     function chooseUserMovieACB(movie){
         props.model.setMoviesToggleFalse()
         props.model.setBackWriterToggleFalse()
-        console.log(movie)
+       
         props.model.setCurrentMovie(movie)
         window.location.hash="#/movie"
 

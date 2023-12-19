@@ -18,7 +18,7 @@ function SearchResultView(props){
             if (e.keyCode === 13){
                 searchText(e)
             
-                console.log("Enter Pressed"+e.keyCode)
+                
     
               searchButton()
             }}
@@ -51,7 +51,7 @@ function SearchResultView(props){
          
         <div class="header">
         
-            {console.log(props.oldSearch)}
+           
            
         <input placeholder="Search..."class="search-bar"value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input>
         <button class="search-button" onClick= {searchButton}>Search!</button>
@@ -64,7 +64,7 @@ function SearchResultView(props){
        
 
         <div >
-            {console.log(props.movieResults)}
+           
             {props.movieResults.map(resultsCB)}
         </div>
 

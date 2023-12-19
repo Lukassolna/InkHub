@@ -3,7 +3,7 @@ import WritersResultView from "../views/writersResultView"
 
 export default
 function WritersResult(props){
-    console.log(props.model.searchedWriters)
+   
 
     function chooseWriterACB(writer){
 
@@ -12,14 +12,9 @@ function WritersResult(props){
         window.location.hash="#/writer"
 
 
-        /*
-        props.model.setCurrentMovie(movie)
-        console.log(props.model.currentMovie)
-        console.log(fetchMovieData(props.model.currentMovie))*/
     }
     function updateTextACB(query){props.model.setSearchWriterQuery(query)
-        //console.log(props.model.searchname)
-        /*props.text = props.model.setSearchQuery(query)*/
+     
     }
     function doSearchACB(){props.model.searchWriters(props.model.searchWriter) }
     function homeTextACB(){props.model.searchname = props.model.searchWriter}

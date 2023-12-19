@@ -75,11 +75,11 @@ getSpecificMovieData(id){
         this.searchResults = []
         
         for (var movie in this.allMovies){
-            //console.log(this.allMovies[movie].Title)
+            
             
             if (this.allMovies[movie].Title.toLowerCase().includes(this.searchname.toLowerCase())){this.searchResults = [...this.searchResults, [this.allMovies[movie].Title, this.allMovies[movie].Poster, this.allMovies[movie].Writer,this.allMovies[movie].imdbID ]]}
         }  
-        console.log("SEARCHED: "+this.searchResults)}
+        }
     ,
 
     setSearchQuery(titleSearch){
@@ -198,7 +198,7 @@ getSpecificMovieData(id){
         for (var id in this.favouriteMoviesIDS){this.getSpecificMovieData(this.favouriteMoviesIDS[id])
         this.faveMovies.push(this.favouriteMoviePromiseState)
         this.favouriteMoviePromiseState = {}
-        console.log(this.faveMovies)
+       
         //this.currentMoviePromiseState2 = {}
     }},
 

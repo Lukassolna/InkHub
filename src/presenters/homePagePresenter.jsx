@@ -41,12 +41,12 @@ function HomePage(props){
 
     function setMoviesOptionACB(){
         props.model.searchOption = 1
-        console.log(props.model.searchOption)   
+       
     }
 
     function setWritersOptionACB(){
         props.model.searchOption = 2
-        console.log(props.model.searchOption)
+     
     }
 
     function searchResults(){

@@ -42,7 +42,7 @@ export function fetchPopularMovies() {
             return response.json();
         })
         .then(result => {
-            console.log(result); // Log the result 
+           
             for( let movie in result.data.list){
             saveIdsToFirebase(result.data.list[movie].title.id, movie); 
             }

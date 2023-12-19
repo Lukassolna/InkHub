@@ -3,7 +3,7 @@ import "animate.css"
 export default
 function WritersView(props){
     function back2search(){
-        console.log(props.toggleCheck)
+     
         if (props.toggleCheck === true){
             window.location.hash="#/writersresults"}
         else {

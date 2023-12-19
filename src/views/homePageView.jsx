@@ -41,7 +41,7 @@ function HomePageView(props){
             }
 
     function searchText(evt){
-        console.log("something changed")
+      
         return props.writeText(evt.target.value)}
 
     function searchButton(evt){ 

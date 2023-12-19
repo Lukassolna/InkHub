@@ -32,7 +32,7 @@ function WritersResultView(props){
         if (e.keyCode === 13){
             searchText(e)
         
-            console.log("Enter Pressed"+e.keyCode)
+            
 
             searchButton()
         }}

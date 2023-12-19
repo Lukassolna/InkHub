@@ -47,7 +47,7 @@ function SearchResultView(props){
     
 
     return ( 
-    <div class="homepage">
+    <div class="">
          
         <div class="header">
         
@@ -56,7 +56,7 @@ function SearchResultView(props){
         <input placeholder="Search..."class="search-bar"value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input>
         <button class="search-button" onClick= {searchButton}>Search!</button>
         <button class="search-button"onClick= {backToHome}>Back to Home</button>
-        <img class="hide-bg alignstar" src={"https://live.staticflickr.com/65535/53395218564_714090c10a_b.jpg"} height={100} onClick={toUserACB}></img>
+       
         
         
         

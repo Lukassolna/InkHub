@@ -20,7 +20,7 @@ function inkRoot(props){
 */
 //console.log(props.model.ready)
   return (  
-    <div >
+    <div class="homepage">
       <div class="authBar">
         <Auth model={props.model}/>
       </div>
@@ -46,7 +46,7 @@ function inkRoot(props){
 function makeRouter(props){
     const routes = [{
     path: "/",
-    component: <HomePage model={props.model} class="homepage" /> ,
+    component: <HomePage model={props.model}  /> ,
   },{ 
     path: "/movie",
     component: <Movie model={props.model}/>,

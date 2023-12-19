@@ -15,6 +15,7 @@
     background-image: url("https://live.staticflickr.com/65535/53395199514_bc8e5e7bec_b.jpg");
     background-size:cover;
     background-blend-mode:screen;
+    background-attachment: fixed;
 
 }
 .hide-bg {

@@ -45,6 +45,7 @@
 .mainlogo {
     text-align: center;
     align-items: center;
+    cursor:default !important;
 
 }
 .centerflex {
@@ -115,6 +116,7 @@ height:100%;
 }
 .writer-container:hover {
     background-color: rgba(225, 132, 66, 0.5);
+
 }
 
 .movieresult{
@@ -126,7 +128,7 @@ height:100%;
 .searchresultHOV:hover {
     background-color: rgba(225, 132, 66, 0.5);
     background: linear-gradient(90deg, rgba(225,132,66,1) 0%, rgba(0,212,255,0) 100%);
-
+    cursor:pointer;
 }
 
 .writeritem{

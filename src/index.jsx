@@ -39,6 +39,5 @@ function startApp() {
     window.myModel = reactiveModel;  
     connectToFirebase(reactiveModel, watch) 
   }
-  
   initialLoad().then(startApp).then(finalLoad);
   

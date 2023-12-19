@@ -49,6 +49,9 @@ function modelToPersistence(model) {
     };
 }
 function persistenceToModel(data, model) {
+  if (!data) { // For initial suspense
+    data = {}; 
+  }
     // Check if no data exists and set default values
     if (!data.curMovie) {
       data.curMovie = null
@@ -145,7 +148,7 @@ export async function initialMoviesToModel() {
     try {
       let promises = [];
   
-      for (let i = 0; i <= 100; i++) {
+      for (let i = 100; i <= 800; i++) {
         promises.push(readIdsFirebase(i));
       }
       

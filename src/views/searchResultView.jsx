@@ -24,6 +24,7 @@ function SearchResultView(props){
             }}
 
     function resultsCB(movies){
+        
 
         function resultClickACB(evt){
             props.movieClick(movies[3])
@@ -63,10 +64,14 @@ function SearchResultView(props){
         </div>
        
 
-        <div >
-           
-            {props.movieResults.map(resultsCB)}
-        </div>
+        <div class="writertext">
+    {props.movieResults.length > 0 ? (
+        props.movieResults.map(resultsCB)
+    ) : (
+        "No Results Found"
+    )}
+</div>
+
 
     </div>
     )

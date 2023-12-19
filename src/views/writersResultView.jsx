@@ -47,7 +47,15 @@ function WritersResultView(props){
        
 
         </div>
-        <table>{props.writerNames.map(writerDisplayCB)}</table>
+        <div>
+            <table>
+    {props.writerNames.length > 0 ? (
+        props.writerNames.map(writerDisplayCB)
+    ) : (
+        "No Results Found"
+    )}
+    </table>
+</div>
 
         </div>
         )

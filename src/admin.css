@@ -10,6 +10,7 @@
 .homepage{
 
     font-family:Georgia, 'Times New Roman', Times, serif;
+   
     background-color: burlywood;
     background-image: url("https://live.staticflickr.com/65535/53395199514_bc8e5e7bec_b.jpg");
     background-size:cover;
@@ -301,6 +302,15 @@ body {
     .movie-poster{
         margin-top: 10;
         margin-left: 10;
+
+    }
+
+    .writerInfos{
+        vertical-align: top;
+        
+        color:#642609;
+        font-size:xx-large;
+        font-weight: bold;
 
     }
 

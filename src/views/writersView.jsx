@@ -40,20 +40,36 @@ function WritersView(props){
 
     }
 
-    return ( 
-    <div>
-        <img class = "animate__animated animate__bounce poster-container" src={props.writerPic}></img>
-        <tr class = "animate__animated animate__bounce" >{props.writerName}</tr>
-        <button
-                className={getButtonClass(props.isWriterInFaves)}
-                disabled={props.isWriterInFaves}
-                onClick={addToFaveButton}
-            >  Add to Favourites
-            </button>
+    return (
+      
+        <div >
+
+            <table >
+            <tr >
+                <img class="movie-poster" src={props.writerPic} height={"200"}  ></img>
+                <th class="writerInfos">
+                    <td >{props.writerName} </td>
+                    <tr>{props.writerMovies.map(moviesCB)}</tr>
+                   
+                </th>
+                
+            </tr>
+            <tr>
+                <td ></td>
+                <td></td>
+            </tr>
+             </table>
+      
+        
+            
+            
+        <button className={getButtonClass(props.isWriterInFaves)}disabled={props.isWriterInFaves}onClick={addToFaveButton}>Add to Favourites</button>
         <button class="search-button"onClick={back2search}>Back</button>
-        <tr>{props.writerMovies.map(moviesCB)}</tr>
-       
         </div>
+       
+  
+       
+        
     
     )
 }

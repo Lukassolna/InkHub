@@ -1,8 +1,10 @@
+import { writerPictures, nameToNumber} from "../writerpictures";
 export default
 function UserView(props){
     function backToHome(){
         window.location.hash="#/"
     }
+  
 
 
     function mappinCB(movies){
@@ -36,11 +38,16 @@ function UserView(props){
         function reWriterACB(){
             props.removeWriter(writer)
         }
+        function writerClickACB(evt){
+            props.writerClick(writer)
+        }
         return(
-        <tr class="generalText">
+        <tr >
             
             {writer}
+            <img  onClick={writerClickACB} class="writeritem" src={writerPictures[nameToNumber(writer)]} alt="Poster 1"   ></img>
             <img class="alignnow" src={"https://www.gmbinder.com/images/wNyM2LV.png"} height="30" onClick={reWriterACB}> </img>
+            
 
         
         </tr>

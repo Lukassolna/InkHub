@@ -31,7 +31,7 @@ function SearchResultView(props){
         }
 
         return (
-        <table onClick={resultClickACB} class="topalign">
+        <table onClick={resultClickACB} class="movieresult searchresultHOV" >
             <td>
                 <img src={movies[1]} height={"100"} ></img></td>
             <td>

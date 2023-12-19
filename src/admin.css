@@ -68,7 +68,17 @@ height:100%;
 }
 .alignstar{
     float: right;
+    height:120;
     
+        position: absolute;
+        right: 5; /* Aligns the image to the right */
+        top: 5; /* Adjust this value as needed */
+      
+    
+}
+.alignstar:hover{
+    
+    cursor: pointer;
 }
 
 .titletext{

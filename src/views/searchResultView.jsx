@@ -47,7 +47,7 @@ function SearchResultView(props){
     
 
     return ( 
-    <div class="homepage">
+    <div class="">
          
         <div class="header">
         

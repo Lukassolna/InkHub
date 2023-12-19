@@ -81,7 +81,7 @@ function HomePageView(props){
            
     <div class="search-container" >
         <div >
-        <input onkeydown={keyDown} class="search-bar"placeholder={"Search"} type="search" value={props.currentText|| ""} onChange={searchText} ></input>
+        <input onkeydown={keyDown} class="search-bar"placeholder={"Search..."} type="search" value={props.currentText|| ""} onChange={searchText} ></input>
         <button class="search-button" onClick={searchButton}>Search!</button>
         </div>
         

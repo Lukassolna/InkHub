@@ -16,7 +16,8 @@
     background-size:cover;
     background-blend-mode:screen;
     background-attachment: fixed;
-
+    max-height: fit-content;
+    min-height: 850;
 }
 .hide-bg {
     mix-blend-mode: multiply;

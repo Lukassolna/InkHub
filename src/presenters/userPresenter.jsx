@@ -4,6 +4,15 @@ import { fetchMovieData } from "../movieSource";
 
 export default
 function User(props){
+    function chosenWriterACB(writer){ 
+        props.model.setCurrentWriter(writer)
+        props.model.searchMovieByWriter(writer)
+        props.model.setWritersToggleFalse()
+        props.model.setMoviesToggleFalse()
+        props.model.setBackWriterToggleFalse()
+        window.location.hash="#/writer"
+   
+    }
     function removeItNow(id){
         
         props.model.removeFromFaves(id)
@@ -22,6 +31,6 @@ function User(props){
     }
     
    
-    return <UserView hey={props.model.faveMovies} removeMovie={removeItNow}
+    return <UserView writerClick = {chosenWriterACB}  hey={props.model.faveMovies} removeMovie={removeItNow}
     favouriteWriters = {props.model.faveWriters} removeWriter= {removeWriterNow}
     movieClicked= {chooseUserMovieACB}/>;}

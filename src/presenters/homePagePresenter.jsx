@@ -13,6 +13,7 @@ function HomePage(props){
         props.model.searchMovieByWriter(writer)
         props.model.setWritersToggleFalse()
         props.model.setMoviesToggleFalse()
+        props.model.setBackWriterToggleTrue()
         window.location.hash="#/writer"
    
     }

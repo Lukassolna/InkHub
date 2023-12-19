@@ -21,5 +21,6 @@ function Movie(props){
     }
 
     return <MovieView movieData={props.model.currentMoviePromiseState.data} faveAdderFired={addToFavesACB}
-    isMovieInFaves = {props.model.favouriteMoviesIDS.find(checkFavesACB)} toggleCheck ={props.model.moviesToggle}/>
+    isMovieInFaves = {props.model.favouriteMoviesIDS.find(checkFavesACB)} toggleCheck ={props.model.moviesToggle}
+    backWriterToggleCheck={props.model.backWriterToggle}/>
 }

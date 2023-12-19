@@ -38,11 +38,13 @@ function WritersResultView(props){
         }}
 
     return (
-        <div>
+        <div >
              <div class="header">
       <input class="search-bar"value= {props.oldSearch} onChange= {searchText} onkeydown={keyDown}></input>
       <button class="search-button"onClick= {searchButton}>Search!</button>
         <button class="search-button" onClick={back2home}>Back to Home</button>
+        
+       
 
         </div>
         <table>{props.writerNames.map(writerDisplayCB)}</table>

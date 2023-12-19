@@ -15,8 +15,12 @@ function MovieView(props){
         console.log(props.toggleCheck)
         if (props.toggleCheck === true){
             window.location.hash="#/movieresults"}
+        else if (props.backWriterToggleCheck ===true){
+            window.location.hash="#/writer"
+        }
+       
         else {
-            window.location.hash="#/writer"}
+            window.location.hash="#/user"}
    
     }
 

@@ -32,6 +32,7 @@ export default {
     currentWriter: null,
     writersToggle: false,
     moviesToggle: false,
+    backWriterToggle: false,
     appStartPromiseState: {},
     currentUser: null,
     app: initializeApp(config),
@@ -44,6 +45,7 @@ export default {
 
     setCurrentWriter(writer){
         this.currentWriter = writer
+        
     },
 
     setFavouriteMoviesIDs(ids){
@@ -252,5 +254,12 @@ getSpecificMovieData(id){
  
      setMoviesToggleFalse(){
          this.moviesToggle = false
+     },
+     setBackWriterToggleTrue(){
+        this.backWriterToggle = true
+     },
+ 
+     setBackWriterToggleFalse(){
+         this.backWriterToggle = false
      },
 };

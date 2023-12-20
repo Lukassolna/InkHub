@@ -19,9 +19,10 @@ export default function UserView(props) {
             <td onClick={clickMovieACB} class="alignright" >
               <img src={movies.data.Poster} height="100"></img> 
               </td>
-              <td class="titletext">
+              <tr class="titletext" onClick={clickMovieACB}>
               {movies.data.Title}
-              </td>
+              </tr>
+              <tr class="writertext"> {"Writers: " + movies.data.Writer}</tr>
            
             <td class="alignright">
               <img
@@ -51,7 +52,7 @@ export default function UserView(props) {
         <td onClick={writerClickACB} class="alignright">
           <img class="writeritemFave"src={writerPictures[nameToNumber(writer)]}alt="Poster 1"></img>
         </td>
-          <td class="titletext">{writer}</td>
+          <td class="titletext" onClick={writerClickACB}>{writer}</td>
         
         <td class="alignright">
           <img

@@ -10,7 +10,7 @@
   background-blend-mode: screen;
   background-attachment: fixed;
   max-height: fit-content;
-  min-height: 850;
+  min-height: 100%;
 }
 .hide-bg {
   mix-blend-mode: multiply;

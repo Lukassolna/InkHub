@@ -1,75 +1,70 @@
-import "animate.css"
+import "animate.css";
 
-export default
-function WritersView(props){
-    function back2search(){
-     
-        if (props.toggleCheck === true){
-            window.location.hash="#/writersresults"}
-        else {
-            window.location.hash="#/"}}
-
-    function addToFaveButton(evt){ 
-        return props.faveWriterAdder(props.writerName)
-    }
-        function getButtonClass(isDisabled) {
-    if (isDisabled) {
-        return "search-button disabled";
+export default function WritersView(props) {
+  function back2search() {
+    if (props.toggleCheck === true) {
+      window.location.hash = "#/writersresults";
     } else {
-        return "search-button";
+      window.location.hash = "#/";
     }
-}
+  }
 
-    function moviesCB(movie){
-        function resultClickACB(item){
-            return props.movieClick(movie.imdbID)
-        }
-       
+  function addToFaveButton(evt) {
+    return props.faveWriterAdder(props.writerName);
+  }
+  function getButtonClass(isDisabled) {
+    if (isDisabled) {
+      return "search-button disabled";
+    } else {
+      return "search-button";
+    }
+  }
 
-        return (
-            <table onClick={resultClickACB} class="topalign searchresultHOV">
-                
-                <td>
-                    <img src={movie.Poster} height={"100"} width={"70"} ></img></td>
-                <td>
-                    <table >
-                        <tr class="titletext" >{movie.Title}</tr>
-                    </table>
-                </td>
-            </table>)
-
+  function moviesCB(movie) {
+    function resultClickACB(item) {
+      return props.movieClick(movie.imdbID);
     }
 
     return (
-      
-        <div >
+      <table onClick={resultClickACB} class="topalign searchresultHOV">
+        <td>
+          <img src={movie.Poster} height={"100"} width={"70"}></img>
+        </td>
+        <td>
+          <table>
+            <tr class="titletext">{movie.Title}</tr>
+          </table>
+        </td>
+      </table>
+    );
+  }
 
-            <table >
-            <tr >
-                <img class="movie-poster" src={props.writerPic} height={"200"}  ></img>
-                <th class="writerInfos">
-                    <td >{props.writerName} </td>
-                    <tr>{props.writerMovies.map(moviesCB)}</tr>
-                   
-                </th>
-                
-            </tr>
-            <tr>
-                <td ></td>
-                <td></td>
-            </tr>
-             </table>
-      
-        
-            
-            
-        <button className={getButtonClass(props.isWriterInFaves)}disabled={props.isWriterInFaves}onClick={addToFaveButton}>Add to Favourites</button>
-        <button class="search-button"onClick={back2search}>Back</button>
-        </div>
-       
-  
-       
-        
-    
-    )
+  return (
+    <div>
+      <table>
+        <tr>
+          <img class="movie-poster" src={props.writerPic} height={"200"}></img>
+          <th class="writerInfos">
+            <td>{props.writerName} </td>
+            <tr>{props.writerMovies.map(moviesCB)}</tr>
+          </th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+      <button
+        className={getButtonClass(props.isWriterInFaves)}
+        disabled={props.isWriterInFaves}
+        onClick={addToFaveButton}
+      >
+        Add to Favourites
+      </button>
+      <button class="search-button" onClick={back2search}>
+        Back
+      </button>
+    </div>
+  );
 }

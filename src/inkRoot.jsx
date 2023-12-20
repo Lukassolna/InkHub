@@ -9,79 +9,78 @@ import { RouterView, createRouter, createWebHashHistory } from "vue-router";
 import "/src/admin.css";
 import WritersView from "./views/writersView";
 
-export default
-function inkRoot(props){
-
-  if(!props.model.ready) {
+export default function inkRoot(props) {
+  if (!props.model.ready) {
     //connectToFirebase(props.model, watch)
 
-    return <img src = {"https://static.wikia.nocookie.net/dont-starve-game/images/8/84/Tumbleweed_move_down.gif"}></img>
-  }    
+    return (
+      <img
+        src={
+          "https://static.wikia.nocookie.net/dont-starve-game/images/8/84/Tumbleweed_move_down.gif"
+        }
+      ></img>
+    );
+  }
 
-
-  return (  
+  return (
     <div class="homepage">
       <div class="authBar">
-        <Auth model={props.model}/>
+        <Auth model={props.model} />
       </div>
-      <div >
-
-          <RouterView model={props.model}/>
-          {/*<Movie/>
+      <div>
+        <RouterView model={props.model} />
+        {/*<Movie/>
           <SearchResult/>
           <User/>
           <Writers/>
         
         */}
-    
-          
       </div>
     </div>
-    )
-
+  );
 }
 
+function makeRouter(props) {
+  const routes = [
+    {
+      path: "/",
+      component: <HomePage model={props.model} />,
+    },
+    {
+      path: "/movie",
+      component: <Movie model={props.model} />,
+    },
 
+    {
+      path: "/user",
+      component: <User model={props.model} />,
+    },
 
-function makeRouter(props){
-    const routes = [{
-    path: "/",
-    component: <HomePage model={props.model}  /> ,
-  },{ 
-    path: "/movie",
-    component: <Movie model={props.model}/>,
-  },
+    {
+      path: "/writer",
+      component: <Writers />,
+    },
+    {
+      path: "/user",
+      component: <User model={props.model} />,
+    },
+    {
+      path: "/movieresults",
+      component: <SearchResult model={props.model} />,
+    },
+    {
+      path: "/writersresults",
+      component: <WritersResult model={props.model} />,
+    },
+  ];
 
-  {
-    path: "/user",
-    component: <User model={props.model}/>
-  },
-  
-  { 
-    path: "/writer",
-    component: <Writers/>,
-  },
-  { 
-    path: "/user",
-    component: <User model={props.model}/>,
-  },
-  { 
-    path: "/movieresults",
-    component: <SearchResult model={props.model}/>,
-  },
-  { 
-    path: "/writersresults",
-    component: <WritersResult model={props.model}/>,
-  }]
-  
   return createRouter({
     history: createWebHashHistory(),
-    routes
-  })
-  }
+    routes,
+  });
+}
 
-  export {makeRouter}
-
+export { makeRouter };
 
 /* Se här för hur vi ska sätta upp ordningen i render
 const = VueRoot={'

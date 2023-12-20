@@ -2,9 +2,6 @@ export default function SearchResultView(props) {
   function backToHome() {
     window.location.hash = "#/";
   }
-  function toUserACB() {
-    window.location.hash = "#/user";
-  }
 
   function searchText(evt) {
     return props.currentText(evt.target.value);

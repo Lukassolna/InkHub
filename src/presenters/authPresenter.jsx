@@ -7,10 +7,9 @@ import {
   signOut,
   GoogleAuthProvider,
 } from "firebase/auth";
-import AuthView from "/src/views/authView.jsx"
+import AuthView from "/src/views/authView.jsx";
 
-export default
-function Auth(props) {
+export default function Auth(props) {
   const auth = getAuth(props.model.app);
 
   function loginOrOutACB(user) {
@@ -24,12 +23,14 @@ function Auth(props) {
       : signInWithPopup(auth, new GoogleAuthProvider());
   }
 
-
   // Set up the onAuthStateChanged listener
   onAuthStateChanged(auth, loginOrOutACB);
 
   // Expose the public interface
   return (
-      <AuthView authButton={handleAuthButton} currentUser={props.model.currentUser}/>
+    <AuthView
+      authButton={handleAuthButton}
+      currentUser={props.model.currentUser}
+    />
   );
 }

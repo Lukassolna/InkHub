@@ -14,16 +14,23 @@ export default function UserView(props) {
 
     if (movies.data) {
       return (
-        <div class=" searchresultHOV">
-          <tr>
-            <td onClick={clickMovieACB} class="alignright" >
+        <table class=" searchresultHOV">
+            <tr>
+            <td onClick={clickMovieACB}>
+          
+            <td >
               <img src={movies.data.Poster} height="100"></img> 
               </td>
+              <td class="topalign">
               <tr class="titletext" onClick={clickMovieACB}>
               {movies.data.Title}
               </tr>
-              <tr class="writertext"> {"Writers: " + movies.data.Writer}</tr>
-           
+              
+              <tr class="writertext" > {"Writers: " + movies.data.Writer}</tr>
+              
+              </td>
+              </td>
+
             <td class="alignright">
               <img
                 class="pointerhover"
@@ -35,7 +42,7 @@ export default function UserView(props) {
               ></img>
             </td>
           </tr>
-        </div>
+        </table>
       );
     }
   }

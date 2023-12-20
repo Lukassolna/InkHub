@@ -118,6 +118,7 @@ cursor: pointer;
 }
 .writer-container:hover {
     background-color: rgba(225, 132, 66, 0.5);
+    cursor:pointer;
 
 }
 
@@ -142,6 +143,15 @@ cursor: pointer;
     margin-top: 22px;
     margin-right: 22px;
     margin-left: 22px;
+    color: #692d11;
+}
+.writeritemFave{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-style:solid;
+    margin:5;
+    cursor: pointer;
     color: #692d11;
 }
 .writername {

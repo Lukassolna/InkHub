@@ -22,7 +22,7 @@ export default function UserView(props) {
               <img src={movies.data.Poster} height="100"></img> 
               </td>
               <td class="topalign">
-              <tr class="titletext" onClick={clickMovieACB}>
+              <tr class="titletext" >
               {movies.data.Title}
               </tr>
               

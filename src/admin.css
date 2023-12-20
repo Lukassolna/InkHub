@@ -343,6 +343,12 @@ body {
         width: 1%; 
         white-space: nowrap; 
     }
+
+    .alignleft {
+        text-align: left; 
+        width: 1%; 
+        white-space: nowrap; 
+    }
    
     
     .movie-poster{

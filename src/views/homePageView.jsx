@@ -12,9 +12,7 @@ function HomePageView(props){
       
       
     
-    function toUserACB(){
-        window.location.hash="#/user"}
-    
+  
 
     function randomWritersCB(writer){
 
@@ -25,9 +23,9 @@ function HomePageView(props){
           
       
      
-        return  <div class ="writer-container">
+        return  <div class ="writer-container" onClick={writerClickACB}>
                 <tr >
-                    <img class="writeritem" onClick={writerClickACB} src={writerPictures[nameToNumber(writer)]} alt="Random person" height="300"></img>
+                    <img class="writeritem"  src={writerPictures[nameToNumber(writer)]} alt="Random person" height="300"></img>
                 </tr>
 
                 <tr>

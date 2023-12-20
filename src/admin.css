@@ -73,7 +73,9 @@ height:100%;
     vertical-align: top;
 }
 
-
+.pointerhover:hover{
+cursor: pointer;
+}
 
 .alignstar{
     float: right;
@@ -116,6 +118,7 @@ height:100%;
 }
 .writer-container:hover {
     background-color: rgba(225, 132, 66, 0.5);
+    cursor:pointer;
 
 }
 
@@ -140,6 +143,15 @@ height:100%;
     margin-top: 22px;
     margin-right: 22px;
     margin-left: 22px;
+    color: #692d11;
+}
+.writeritemFave{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-style:solid;
+    margin:5;
+    cursor: pointer;
     color: #692d11;
 }
 .writername {
@@ -325,6 +337,14 @@ body {
     .movie-details {
         margin-left: 20px; 
     }
+    .alignright {
+        text-align: right; 
+        vertical-align: middle; 
+        width: 1%; 
+        white-space: nowrap; 
+    }
+   
+    
     .movie-poster{
         margin-top: 10;
         margin-left: 10;

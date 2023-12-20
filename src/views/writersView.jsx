@@ -27,7 +27,7 @@ function WritersView(props){
        
 
         return (
-            <table onClick={resultClickACB} class="topalign">
+            <table onClick={resultClickACB} class="topalign searchresultHOV">
                 
                 <td>
                     <img src={movie.Poster} height={"100"} width={"70"} ></img></td>

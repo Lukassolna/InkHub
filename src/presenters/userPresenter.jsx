@@ -31,6 +31,6 @@ function User(props){
     }
     
    
-    return <UserView writerClick = {chosenWriterACB}  hey={props.model.faveMovies} removeMovie={removeItNow}
+    return <UserView writerClick = {chosenWriterACB}  favouriteMovies={props.model.faveMovies} removeMovie={removeItNow}
     favouriteWriters = {props.model.faveWriters} removeWriter= {removeWriterNow}
     movieClicked= {chooseUserMovieACB}/>;}

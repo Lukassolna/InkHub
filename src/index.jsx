@@ -1,6 +1,6 @@
 import inkRoot from "./inkRoot";
-import resolvePromise from "./resolvePromise.js";
-import { fetchMovieData } from "./movieSource.js";
+
+
 
 import { makeRouter } from "./inkRoot.jsx";
 import { reactive, createApp } from "vue";
@@ -13,10 +13,10 @@ const reactiveModel = reactive(model);
 import connectToFirebase, {
   finalMoviesToModel,
   initialMoviesToModel,
-  saveToFirebase,
+  
 } from "./firebaseModel.js";
 import { watch } from "vue";
-import { readFromFirebase } from "./firebaseModel.js";
+
 
 function representMovies() {
   for (var id in model.favouriteMoviesIDS) {

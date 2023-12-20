@@ -26,9 +26,9 @@ export default function SearchResultView(props) {
     }
 
     return (
-      <table onClick={resultClickACB} class="movieresult searchresultHOV" >
+      <table onClick={resultClickACB} class="movieresult searchresultHOV">
         <td>
-          <img src={movies[1]} height={"200"}></img >
+          <img src={movies[1]} height={"200"}></img>
         </td>
         <td>
           <table>
@@ -58,7 +58,7 @@ export default function SearchResultView(props) {
         </button>
       </div>
 
-      <div class="writertext" >
+      <div class="writertext">
         {props.movieResults.length > 0
           ? props.movieResults.map(resultsCB)
           : "No Results Found"}

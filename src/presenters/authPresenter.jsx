@@ -14,7 +14,6 @@ export default function Auth(props) {
 
   function loginOrOutACB(user) {
     props.model.currentUser = user ? user.uid : user;
-    // Additional logic for model and firebase read/write can be added here
   }
 
   function handleAuthButton() {
@@ -23,10 +22,8 @@ export default function Auth(props) {
       : signInWithPopup(auth, new GoogleAuthProvider());
   }
 
-  // Set up the onAuthStateChanged listener
   onAuthStateChanged(auth, loginOrOutACB);
 
-  // Expose the public interface
   return (
     <AuthView
       authButton={handleAuthButton}

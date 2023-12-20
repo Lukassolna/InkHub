@@ -49,10 +49,6 @@ export default function WritersView(props) {
             <tr>{props.writerMovies.map(moviesCB)}</tr>
           </th>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
       </table>
 
       <button

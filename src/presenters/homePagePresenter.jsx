@@ -1,5 +1,4 @@
 import HomePageView from "../views/homePageView";
-import SearchResultView from "../views/searchResultView";
 
 export default function HomePage(props) {
   genWriter();
@@ -38,10 +37,6 @@ export default function HomePage(props) {
 
   function setWritersOptionACB() {
     props.model.searchOption = 2;
-  }
-
-  function searchResults() {
-    return <SearchResultView movieClick={chooseMovieACB} />;
   }
 
   function genWriter() {

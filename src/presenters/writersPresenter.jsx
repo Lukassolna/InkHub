@@ -3,10 +3,6 @@ import moviesToModel from "../firebaseModel.js";
 import { writerPictures, nameToNumber } from "../writerpictures.js";
 
 export default function Writers(props) {
-  function checkFavesACB(writer) {
-    return props.model.faveWriters.includes(writer);
-  }
-
   function chooseWriterMovieACB(movie) {
     props.model.setCurrentMovie(movie);
     window.location.hash = "#/movie";

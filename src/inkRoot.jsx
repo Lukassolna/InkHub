@@ -7,11 +7,11 @@ import Writers from "./presenters/writersPresenter";
 import WritersResult from "./presenters/writersResultPresenter";
 import { RouterView, createRouter, createWebHashHistory } from "vue-router";
 import "/src/admin.css";
-import WritersView from "./views/writersView";
+
 
 export default function inkRoot(props) {
   if (!props.model.ready) {
-    //connectToFirebase(props.model, watch)
+    
 
     return (
       <img
@@ -29,12 +29,7 @@ export default function inkRoot(props) {
       </div>
       <div>
         <RouterView model={props.model} />
-        {/*<Movie/>
-          <SearchResult/>
-          <User/>
-          <Writers/>
         
-        */}
       </div>
     </div>
   );
@@ -58,7 +53,7 @@ function makeRouter(props) {
 
     {
       path: "/writer",
-      component: <Writers />,
+      component: <Writers model={props.model}/>,
     },
     {
       path: "/user",
@@ -82,26 +77,3 @@ function makeRouter(props) {
 
 export { makeRouter };
 
-/* Se här för hur vi ska sätta upp ordningen i render
-const = VueRoot={'
-  setup(){
-    
-    return function renderACB(){
-      if(myModel.user === undefiend)
-        return <img src="https://brfenergi.se/iprog/loading.gif"></img>
-      
-      if(myModel.user === null)
-        return <Auth auth={auth}/>;
-
-      return (
-        "!"myModel.ready && <img src="https://brfenergi.se/iprog/loading.gif"></img>
-        <div class="homepage" >
-          <HomePage>
-        </div>
-
-      )
-    }
-  }
-
-}
-  */

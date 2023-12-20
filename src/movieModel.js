@@ -5,13 +5,8 @@ import resolvePromise from "./resolvePromise";
 import { initializeApp } from "firebase/app";
 import config from "/src/firebaseConfig.js";
 import { nameToNumber } from "./writerpictures";
-import {
-  getAuth,
-  signInWithPopup,
-  onAuthStateChanged,
-  signOut,
-  GoogleAuthProvider,
-} from "firebase/auth";
+
+
 export default {
   currentUser: null,
   currentMovie: null,
@@ -190,13 +185,13 @@ export default {
   },
   faveIDStoMovie() {
     this.faveMovies = [];
-    //if (this.faveMovies.includes(this.currentMoviePromiseState2)){return}
+    
     for (var id in this.favouriteMoviesIDS) {
       this.getSpecificMovieData(this.favouriteMoviesIDS[id]);
       this.faveMovies.push(this.favouriteMoviePromiseState);
       this.favouriteMoviePromiseState = {};
 
-      //this.currentMoviePromiseState2 = {}
+      
     }
   },
 
@@ -235,8 +230,8 @@ export default {
     }
     this.currentMovie = id;
     if (fetchMovieData(id)) {
-      //Get Movie Details är inte en riktig funktion än
-      resolvePromise(fetchMovieData(id), this.currentMoviePromiseState); //detta är inte heller riktigt än
+      
+      resolvePromise(fetchMovieData(id), this.currentMoviePromiseState); 
     }
   },
 

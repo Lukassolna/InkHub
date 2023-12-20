@@ -41,20 +41,24 @@ function modelToPersistence(model) {
   const currentMovie = model.currentMovie;
   const favouriteMoviesIDS = model.favouriteMoviesIDS;
   const faveWriters = model.faveWriters;
+  const currentWriter = model.currentWriter;
   return {
     curMovie: currentMovie,
     favMovieIDS: favouriteMoviesIDS,
     favWriters: faveWriters,
+    curWriter: currentWriter,
   };
 }
 function persistenceToModel(data, model) {
   if (!data) {
-    // For initial suspense
     data = {};
   }
   // Check if no data exists and set default values
   if (!data.curMovie) {
     data.curMovie = null;
+  }
+  if (!data.curWriter) {
+    data.curWriter = null;
   }
   if (!data.favMovieIDS) {
     data.favMovieIDS = [];
@@ -66,6 +70,8 @@ function persistenceToModel(data, model) {
   model.setFavouriteMoviesIDs(data.favMovieIDS);
   model.faveWriters = data.favWriters;
   model.faveIDStoMovie();
+  model.setCurrentWriter(data.curWriter)
+  model.searchMovieByWriter(model.currentWriter)
 
   return model; // Return the updated model
 }
@@ -97,7 +103,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUserUID = user.uid;
 
-    readFromFirebase(movieModel); //
+    readFromFirebase(movieModel);
   } else {
     currentUserUID = null;
   }
@@ -121,11 +127,11 @@ async function readIdsFirebase(path) {
   }
 }
 
-export { saveToFirebase, readFromFirebase, saveIdsToFirebase };
+
 
 export default function connectToFirebase(model, watchFunction) {
   function watchModelProperties() {
-    return [model.currentMovie, model.favouriteMoviesIDS, model.faveWriters];
+    return [model.currentMovie, model.favouriteMoviesIDS, model.faveWriters, model.currentWriter];
   }
 
   function saveModelChanges() {
@@ -159,7 +165,6 @@ export async function initialMoviesToModel() {
   } catch (error) {
     console.error("Error fetching data:", error);
   }
-  //console.log(movieModel.allMovies)
 }
 
 export async function finalMoviesToModel() {
@@ -186,3 +191,4 @@ export async function finalMoviesToModel() {
     console.error("Error fetching data:", error);
   }
 }
+export { saveToFirebase, readFromFirebase, saveIdsToFirebase };

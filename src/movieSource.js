@@ -48,8 +48,7 @@ export async function fetchMovieData(id) {
     }
 
     const result = await response.json();
-    //console.log(result); // log the result in the console
-    //saveToFirebase(result); // save to firebase
+    
 
     return result;
   } catch (error) {

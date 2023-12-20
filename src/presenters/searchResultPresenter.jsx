@@ -1,5 +1,4 @@
 import SearchResultView from "../views/searchResultView";
-import { fetchMovieData } from "../movieSource";
 
 export default function SearchResult(props) {
   function chooseMovieACB(movie) {

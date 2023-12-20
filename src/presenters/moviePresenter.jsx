@@ -1,5 +1,4 @@
 import MovieView from "../views/movieView";
-import { fetchMovieData } from "../movieSource";
 
 export default function Movie(props) {
   function addToFavesACB() {

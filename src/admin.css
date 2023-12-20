@@ -285,33 +285,44 @@ body {
   border-color: #642609;
 }
 
-.movie-container {
-  display: flex;
-  color: #692d11;
-  font-size: large;
-  margin-bottom: 20px;
-}
+    .movie-container {
+        display: flex;
+        color: #692d11;
+        font-size: large;
+        margin-bottom: 20px;
+        
+       
+    }
+    
+    .movieNameView {
+        color:#642609;
+        font-size:xx-large;
+        font-weight: bold;
+       
+    }
+    
+    .movie-details {
+        margin-left: 20px; 
+    }
+    .alignright {
+        text-align: right; 
+        vertical-align: middle; 
+        width: 1%; 
+        white-space: nowrap; 
+    }
 
-.movieNameView {
-  color: #642609;
-  font-size: xx-large;
-  font-weight: bold;
-}
+    .alignleft {
+        text-align: left; 
+        width: 1%; 
+        white-space: nowrap; 
+    }
+   
+    
+    .movie-poster{
+        margin-top: 10;
+        margin-left: 10;
 
-.movie-details {
-  margin-left: 20px;
-}
-.alignright {
-  text-align: right;
-  vertical-align: middle;
-  width: 1%;
-  white-space: nowrap;
-}
-
-.movie-poster {
-  margin-top: 10;
-  margin-left: 10;
-}
+    }
 
 .writerInfos {
   vertical-align: top;

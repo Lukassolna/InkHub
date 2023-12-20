@@ -14,7 +14,7 @@ export default function WritersResultView(props) {
       props.writerClick(writer);
     }
     return (
-      <div onClick={writerResultClickACB} class="searchresultHOV">
+      <div onClick={writerResultClickACB}  class="searchresultHOV">
         <img
           class="writeritem"
           src={writerPictures[nameToNumber(writer)]}

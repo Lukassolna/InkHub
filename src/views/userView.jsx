@@ -14,12 +14,15 @@ export default function UserView(props) {
 
     if (movies.data) {
       return (
-        <table>
+        <div class=" searchresultHOV">
           <tr>
-            <td onClick={clickMovieACB} class="searchresultHOV">
-              <img src={movies.data.Poster} height="100"></img>
+            <td onClick={clickMovieACB} class="alignright" >
+              <img src={movies.data.Poster} height="100"></img> 
+              </td>
+              <td class="titletext">
               {movies.data.Title}
-            </td>
+              </td>
+           
             <td class="alignright">
               <img
                 class="pointerhover"
@@ -31,7 +34,7 @@ export default function UserView(props) {
               ></img>
             </td>
           </tr>
-        </table>
+        </div>
       );
     }
   }
@@ -44,15 +47,12 @@ export default function UserView(props) {
       props.writerClick(writer);
     }
     return (
-      <tr>
-        <td onClick={writerClickACB} class="searchresultHOV">
-          <img
-            class="writeritemFave"
-            src={writerPictures[nameToNumber(writer)]}
-            alt="Poster 1"
-          ></img>
-          {writer}
+      <div class="searchresultHOV">
+        <td onClick={writerClickACB} class="alignright">
+          <img class="writeritemFave"src={writerPictures[nameToNumber(writer)]}alt="Poster 1"></img>
         </td>
+          <td class="titletext">{writer}</td>
+        
         <td class="alignright">
           <img
             class="pointerhover"
@@ -63,25 +63,25 @@ export default function UserView(props) {
             onClick={reWriterACB}
           ></img>
         </td>
-      </tr>
+      </div>
     );
   }
 
   return (
     <div>
-      <button class="search-button" onClick={backToHome}>
-        Back to Home
-      </button>
-      <table>
+      <table >
         <tr>
-          <th class="generalText">Favorite Movies:</th>
-          <th class="generalText"> Favorite Writers:</th>
+          <th class="writerInfos">Favorite Movies:</th>
+          <th class="writerInfos"> Favorite Writers:</th>
         </tr>
         <tr class="topalign">
           <td width={"500"}>{props.favouriteMovies.map(mapMoviesCB)}</td>
           <td width={"500"}>{props.favouriteWriters.map(mapWritersCB)}</td>
         </tr>
       </table>
+      <button class="search-button" onClick={backToHome}>
+        Back to Home
+      </button>
     </div>
   );
 }

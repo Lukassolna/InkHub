@@ -27,10 +27,16 @@ export const writerPictures = [
 ];
 
 export function nameToNumber(name) {
+    if(!name){
+        return null;
+    }
+    else {
   let sum = 0;
   let temp = name;
   for (let i = 0; i < name.length; i++) {
     sum += temp.charCodeAt(i); // Add ASCII value of each character
   }
   return sum % 25; // Use modulo 51 to keep it within 0-50
+}
+
 }

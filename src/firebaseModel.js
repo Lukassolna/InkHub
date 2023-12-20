@@ -148,7 +148,7 @@ export async function initialMoviesToModel() {
     try {
       let promises = [];
   
-      for (let i = 100; i <= 800; i++) {
+      for (let i = 0; i <= 100; i++) {
         promises.push(readIdsFirebase(i));
       }
       

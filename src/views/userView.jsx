@@ -29,7 +29,7 @@ function UserView(props){
                 
                 
             
-             <img class="alignnow" src={"https://www.gmbinder.com/images/wNyM2LV.png"} height="30" onClick={reMovieACB}> </img>
+             <img class="alignnow" src={"https://upload.wikimedia.org/wikipedia/commons/c/cc/Cross_red_circle.svg"} height="30" onClick={reMovieACB}> </img>
             </td>
         </table>)
     }}
@@ -46,7 +46,7 @@ function UserView(props){
             
             {writer}
             <img  onClick={writerClickACB} class="writeritem" src={writerPictures[nameToNumber(writer)]} alt="Poster 1"   ></img>
-            <img class="alignnow" src={"https://www.gmbinder.com/images/wNyM2LV.png"} height="30" onClick={reWriterACB}> </img>
+            <img class="alignnow" src={"https://upload.wikimedia.org/wikipedia/commons/c/cc/Cross_red_circle.svg"} height="30" onClick={reWriterACB}> </img>
             
 
         

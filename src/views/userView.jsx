@@ -7,7 +7,7 @@ function UserView(props){
   
 
 
-    function mappinCB(movies){
+    function mapMoviesCB(movies){
         function reMovieACB(){
             props.removeMovie(movies.data.imdbID)
         }
@@ -18,20 +18,18 @@ function UserView(props){
         if (movies.data){
     
         
-        return (
-    
-        <table  >
-
-            <td >
-            
-            <img onClick={clickMovieACB} src={movies.data.Poster} height={100}></img>
+        return (<table>
+        <tr>
+            <td class="searchresultHOV">
+                <img onClick={clickMovieACB} src={movies.data.Poster} height="100"></img>
                 {movies.data.Title}
-                
-                
-            
-             <img class="alignnow" src={"https://upload.wikimedia.org/wikipedia/commons/c/cc/Cross_red_circle.svg"} height="30" onClick={reMovieACB}> </img>
             </td>
-        </table>)
+            <td class="alignright">
+                <img class="pointerhover" src={"https://upload.wikimedia.org/wikipedia/commons/c/cc/Cross_red_circle.svg"} height="30" onClick={reMovieACB}></img>
+            </td>
+        </tr>
+    </table>
+        )
     }}
 
     function mapWritersCB(writer){
@@ -42,15 +40,21 @@ function UserView(props){
             props.writerClick(writer)
         }
         return(
-        <tr >
+        
             
-            {writer}
-            <img  onClick={writerClickACB} class="writeritem" src={writerPictures[nameToNumber(writer)]} alt="Poster 1"   ></img>
-            <img class="alignnow" src={"https://upload.wikimedia.org/wikipedia/commons/c/cc/Cross_red_circle.svg"} height="30" onClick={reWriterACB}> </img>
             
+            <tr >
+    <td class="searchresultHOV">
+        <img onClick={writerClickACB} class="writeritem" src={writerPictures[nameToNumber(writer)]} alt="Poster 1"></img>
+        {writer}
+    </td>
+    <td class="alignright">
+        <img class="pointerhover" src={"https://upload.wikimedia.org/wikipedia/commons/c/cc/Cross_red_circle.svg"} height="30" onClick={reWriterACB}></img>
+    </td>
+</tr>
 
         
-        </tr>
+        
     )}
        
 
@@ -64,7 +68,7 @@ function UserView(props){
                 <th class="generalText"> Favorite Writers:</th>
             </tr>
             <tr>
-                <td >{props.hey.map(mappinCB)}</td>
+                <td >{props.favouriteMovies.map(mapMoviesCB)}</td>
                 <td>{props.favouriteWriters.map(mapWritersCB)}</td>
             </tr>
         </table>

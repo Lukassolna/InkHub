@@ -73,7 +73,9 @@ height:100%;
     vertical-align: top;
 }
 
-
+.pointerhover:hover{
+cursor: pointer;
+}
 
 .alignstar{
     float: right;
@@ -325,6 +327,14 @@ body {
     .movie-details {
         margin-left: 20px; 
     }
+    .alignright {
+        text-align: right; 
+        vertical-align: middle; 
+        width: 1%; 
+        white-space: nowrap; 
+    }
+   
+    
     .movie-poster{
         margin-top: 10;
         margin-left: 10;
